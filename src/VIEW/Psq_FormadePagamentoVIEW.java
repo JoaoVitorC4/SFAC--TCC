@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.bind.ParseConversionEvent;
 
 /**
  *
@@ -223,17 +224,19 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
             objformadepagamento.opcao = "Alterar";
             
-            Object objtxfpagamento = new String();
+            float objtxfpagamento = 0;
             
             int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
+            //objformadepagamento.txtnome_formadepagamento.equals((Float)tblFormadePagamento.getValueAt(linha, 2));
             
-            objtxfpagamento.equals(tblFormadePagamento.getValueAt(linha, 2));
+            objtxfpagamento = (Float)(tblFormadePagamento.getValueAt(linha, 2));
+            //define o valor em outra variavel do tipo float
             
-            objformadepagamento.txtTaxa_formadepagamento.setText((String)objtxfpagamento);
-            
+            objformadepagamento.txtTaxa_formadepagamento.setText((String)Float.toString(objtxfpagamento));
+            //passa o valor da variavel em float para o campo da tela view
             
             
             objformadepagamento.setVisible(true);
