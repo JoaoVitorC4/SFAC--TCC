@@ -21,13 +21,13 @@ import java.util.logging.Logger;
 public class GrupoCTR {
   
         public void insereGRUPOCTR( String nome_grupo){
-    GrupoMODEL objgrupo = new GrupoMODEL();
+            GrupoMODEL objgrupo = new GrupoMODEL();
          
-     objgrupo.setNome_grupo(nome_grupo);
+            objgrupo.setNome_grupo(nome_grupo);
 
-        GrupoDAO objdao = new GrupoDAO();
+            GrupoDAO objdao = new GrupoDAO();
       
-        objdao.insereGrupo(objgrupo);
+            objdao.insereGrupo(objgrupo);
     }
     
         public void AlteraGrupoCTR(String nome_grupo, int cod_grupo)

@@ -13,7 +13,7 @@ import CTR.GrupoCTR;
  */
 public class GrupoVIEW extends javax.swing.JFrame {
     
-    public String opcao;
+    public String opcao ="Inserir";
     
     public static int cod_grupo;
     Psq_GrupoVIEW objgrupotbl;
@@ -114,21 +114,20 @@ public class GrupoVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-         if(opcao.equals("Inserir"))
+
+        if(opcao.equals("Inserir"))
         {
            inseregrupo(); 
+           limparCampos();
+           this.dispose();
         }
         else if(opcao.equals("Alterar"))
         {
             alteragrupo();
+            limparCampos();
+            this.dispose();
         }
-                
-        inseregrupo();
-        limparCampos();
-        
-        GrupoVIEW objtelagrupo = new GrupoVIEW();
-        
-        objtelagrupo.dispose();
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -180,8 +179,10 @@ public class GrupoVIEW extends javax.swing.JFrame {
     }
         
     public void inseregrupo(){
-        GrupoCTR objctr = new GrupoCTR();
-    objctr.insereGRUPOCTR(txtNome_grupo.getText());
+        
+       GrupoCTR objctr = new GrupoCTR();
+       
+       objctr.insereGRUPOCTR(txtNome_grupo.getText());
 }
     public void alteragrupo()
     {

@@ -222,12 +222,17 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
             objformadepagamento.opcao = "Alterar";
-        
+            
+            Object objtxfpagamento = new String();
+            
             int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
-            objformadepagamento.txtTaxa_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 2));
+            
+            objtxfpagamento.equals(tblFormadePagamento.getValueAt(linha, 2));
+            
+            objformadepagamento.txtTaxa_formadepagamento.setText((String)objtxfpagamento);
             
             
             

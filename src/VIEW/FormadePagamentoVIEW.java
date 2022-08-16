@@ -13,7 +13,7 @@ import CTR.FormadePagamentoCTR;
  */
 public class FormadePagamentoVIEW extends javax.swing.JFrame {
 
-    public String opcao;
+    public String opcao = "Inserir";
     
     public static int cod_formadepagamento;
     Psq_FormadePagamentoVIEW objformadepagamentotbl;
@@ -151,18 +151,16 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         if(opcao.equals("Inserir"))
         {
            insereformadepagamento(); 
+           limparCampos();
+           this.dispose();
         }
         else if(opcao.equals("Alterar"))
         {
             alteraformadepagamento();
+            limparCampos();
+            this.dispose();
+        
         }
-        
-        insereformadepagamento();
-        limparCampos();
-        
-        FormadePagamentoVIEW objtelaformadepagamento = new FormadePagamentoVIEW();
-        
-        objtelaformadepagamento.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -225,13 +223,14 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         
     public void insereformadepagamento(){
         FormadePagamentoCTR objctr = new FormadePagamentoCTR();
-    objctr.insereFORMADEPAGAMENTOCTR(txtnome_formadepagamento.getText(),Float.parseFloat(txtTaxa_formadepagamento.getText()));
+        
+            objctr.insereFORMADEPAGAMENTOCTR(txtnome_formadepagamento.getText(),Float.parseFloat(txtTaxa_formadepagamento.getText()));
 }
      public void alteraformadepagamento()
     {
         FormadePagamentoCTR objfpagamento = new FormadePagamentoCTR();
         
-        objfpagamento.AlteraFormadePagamentoCTR(txtnome_formadepagamento.getText(), 
+            objfpagamento.AlteraFormadePagamentoCTR(txtnome_formadepagamento.getText(), 
                 Float.parseFloat(txtTaxa_formadepagamento.getText()), cod_formadepagamento);
     }
     
