@@ -42,7 +42,7 @@ public void insereFormadePagamento(FormadePagamentoMODEL gs){
  
         
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "FormadePagamento Cadastrado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Forma de Pagamento Cadastrado com Sucesso");
         
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,7 +67,7 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
             pgsql.setInt(3, gs.getCod_formadepagamento());
             
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Forma de Pagamento Alterado com Sucesso");
             
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,7 +79,7 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
          con = cb.conectaPostgre();
          
          
-         String sql = "select * from formadepagamento where upper(nome_fpagamento) like upper(?)";
+         String sql = "select * from formadepagamento where upper(nome_fpagamento) like upper(?) order by cod_fpagamento";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1,"%" + nome + "%");

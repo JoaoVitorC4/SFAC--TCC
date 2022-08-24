@@ -29,7 +29,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
     public Psq_FormadePagamentoVIEW() {
         initComponents();
-        
+        ativabotoes();
     }
 
     /**
@@ -195,6 +195,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objformadepagamento.setVisible(true);
+                this.dispose();
         }
         
         
@@ -211,19 +212,24 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objformadepagamento.setVisible(true);
+                this.dispose();
     }//GEN-LAST:event_tblFormadePagamentoKeyPressed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         objformadepagamento.opcao = "Inserir";
+        desativabotoes();
         
         FormadePagamentoVIEW objtelaformadepagamento = new FormadePagamentoVIEW();
-       
-       objtelaformadepagamento.setVisible(true);
+            objtelaformadepagamento.txtTaxa_formadepagamento.setText("0"); //define o valor do campo na nova tela que vai ser aberta
+            
+            
+            objtelaformadepagamento.setVisible(true);     
+                this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
             objformadepagamento.opcao = "Alterar";
-            
+            desativabotoes();
             float objtxfpagamento = 0;
             
             int linha = tblFormadePagamento.getSelectedRow();
@@ -240,6 +246,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objformadepagamento.setVisible(true);
+                this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
@@ -382,10 +389,23 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     }
     
     
+    public void desativabotoes(){
+        btnDeletar.setEnabled(false);
+        btnEditar.setEnabled(false);
+        btnNovo.setEnabled(false);
+    }
+    
+    
+        public void ativabotoes(){
+        btnDeletar.setEnabled(true);
+        btnEditar.setEnabled(true);
+        btnNovo.setEnabled(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDeletar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnNovo;
+    public javax.swing.JButton btnDeletar;
+    public javax.swing.JButton btnEditar;
+    public javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

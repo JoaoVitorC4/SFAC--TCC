@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import MODEL.GrupoMODEL;
+import MODEL.PlanoMODEL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author C4
  */
-public class GrupoDAO {
+public class PlanoDAO {
     
     Connection con;
     PreparedStatement pgsql;   
@@ -28,55 +28,62 @@ public class GrupoDAO {
     
     
     
-public void insereGrupo(GrupoMODEL gs){
+public void inserePlano(PlanoMODEL gs){
     
            ConexaoDAO cb = new ConexaoDAO();
            con = cb.conectaPostgre();
            
-           String sql = "insert into grupo(nome_grupo) values (?)";
+           String sql = "insert into plano(nome_plano,valor_plano,qtd_dependente,qtd_convidado) values (?,?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_grupo());
+            pgsql.setString(1, gs.getNome_plano());
+            pgsql.setFloat(2, gs.getValor_plano());
+            pgsql.setInt(3, gs.getQtd_dependente());
+            pgsql.setInt(4, gs.getQtd_convidado());
 
  
         
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Grupo Cadastrado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Plano Cadastrado com Sucesso");
         
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
            
     }
 
-public void AlteraGrupo(GrupoMODEL gs)
+public void AlteraPlano(PlanoMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
-        String sql = "update grupo set "
-                + "nome_grupo = ?"
-                + "where cod_grupo = ?";
+        String sql = "update plano set "
+                + "nome_plano = ?, valor_plano = ?, qtd_dependente = ?, qtd_convidado = ?"
+                + "where cod_plano = ?";
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_grupo());
-            pgsql.setInt(2, gs.getCod_grupo());
+            pgsql.setString(1, gs.getNome_plano());
+            pgsql.setFloat(2, gs.getValor_plano());
+            pgsql.setInt(3, gs.getQtd_dependente());
+            pgsql.setInt(4, gs.getQtd_convidado());
+            
+            pgsql.setInt(5, gs.getCod_plano());
             
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Grupo Alterado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Plano Alterado com Sucesso");
             
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-     public ResultSet PesquisarGrupo (String nome){
+     public ResultSet PesquisarPlano (String nome){
          ConexaoDAO cb = new ConexaoDAO();
          con = cb.conectaPostgre();
          
          
-         String sql = "select * from grupo where upper(nome_grupo) like upper(?) order by cod_grupo";
+         String sql = "select * from plano where upper(nome_plano) like upper(?) order by cod_plano";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1,"%" + nome + "%");
@@ -89,20 +96,20 @@ public void AlteraGrupo(GrupoMODEL gs)
         
         
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
          
          return rs;
      }
      
      
-     public ResultSet listaGrupo()
+     public ResultSet listaPlano()
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from grupo";
+        String sql = "select * from plano";
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,ResultSet.TYPE_SCROLL_INSENSITIVE);
@@ -110,20 +117,20 @@ public void AlteraGrupo(GrupoMODEL gs)
             rs = st.executeQuery(sql);
             
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
         }
          return rs;
     }
     
-        public ResultSet pegarIDGrupo(int cod_grupo)
+        public ResultSet pegarIDPlano(int cod_plano)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from grupo inner join contato on cod_grupo = fk_cod_grupo where cod_grupo =" +cod_grupo;
+        String sql = "select * from plano inner join contato on cod_plano = fk_cod_plano where cod_plano =" +cod_plano;
        
         
         try {
@@ -132,59 +139,59 @@ public void AlteraGrupo(GrupoMODEL gs)
             rs = st.executeQuery(sql);
             
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
         }
          return rs;
     }
      /*/
-         public void DesativarGrupo(GrupoMODEL gs)
+         public void DesativarPlano(PlanoMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
-        String sql = "update grupo set"
-                + " status_grupo = ? "
-                + "where id_grupo = ?";
+        String sql = "update plano set"
+                + " status_plano = ? "
+                + "where id_plano = ?";
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setBoolean(1, gs.getstatus_grupo());
-            pgsql.setInt(2, gs.getId_grupo());
+            pgsql.setBoolean(1, gs.getstatus_plano());
+            pgsql.setInt(2, gs.getId_plano());
             
             pgsql.executeUpdate();
             
-            if(gs.getStatus_grupo() == true)
+            if(gs.getStatus_plano() == true)
             {
-               JOptionPane.showMessageDialog(null, "Grupo Ativado"); 
+               JOptionPane.showMessageDialog(null, "Plano Ativado"); 
             }
             else            
-            JOptionPane.showMessageDialog(null, "Grupo Desativado");
+            JOptionPane.showMessageDialog(null, "Plano Desativado");
             
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /*/
     
-    public void ExcluirGrupo(GrupoMODEL gs)
+    public void ExcluirPlano(PlanoMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
-        String sql = "delete from grupo where"
-                + " cod_grupo = ?";
+        String sql = "delete from plano where"
+                + " cod_plano = ?";
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setInt(1, gs.getCod_grupo());
+            pgsql.setInt(1, gs.getCod_plano());
             
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Grupo Excluído com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Plano Excluído com Sucesso!");
             
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
      

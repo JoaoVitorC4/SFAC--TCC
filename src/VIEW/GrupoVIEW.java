@@ -117,14 +117,20 @@ public class GrupoVIEW extends javax.swing.JFrame {
 
         if(opcao.equals("Inserir"))
         {
+           Psq_GrupoVIEW objgrupo = new Psq_GrupoVIEW();
+            
            inseregrupo(); 
            limparCampos();
+           objgrupo.setVisible(true);
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
         {
+            Psq_GrupoVIEW objgrupo = new Psq_GrupoVIEW();
+            
             alteragrupo();
             limparCampos();
+            objgrupo.setVisible(true);
             this.dispose();
         }
 

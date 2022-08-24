@@ -12,11 +12,12 @@ import CTR.FormadePagamentoCTR;
  * @author LOUISE
  */
 public class FormadePagamentoVIEW extends javax.swing.JFrame {
-
+    
     public String opcao = "Inserir";
     
     public static int cod_formadepagamento;
-    Psq_FormadePagamentoVIEW objformadepagamentotbl;
+   // Psq_FormadePagamentoVIEW objformadepagamentotbl;
+    
     /**
      * 
      * Creates new form FormadePagamentoVIEW
@@ -25,6 +26,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         initComponents();
         desativacampo();
         limparCampos();
+        //Psq_FormadePagamentoVIEW objformadepagamentotbl;
     }
 
     /**
@@ -99,7 +101,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
                             .addComponent(txtCod_formadepagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(292, 292, 292)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(txtTaxa_formadepagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -148,24 +150,46 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        
+        
         if(opcao.equals("Inserir"))
-        {
+        {               
+            Psq_FormadePagamentoVIEW objformadepagamentotbl = new Psq_FormadePagamentoVIEW();
+           String nova_taxa = txtTaxa_formadepagamento.getText();
+           
+           nova_taxa = nova_taxa.replace(",", ".");
+           
+           txtTaxa_formadepagamento.setText(nova_taxa);
+           
            insereformadepagamento(); 
-           limparCampos();
-           this.dispose();
+                limparCampos();
+                    objformadepagamentotbl.setVisible(true);
+                        this.dispose();
+                        
         }
         else if(opcao.equals("Alterar"))
         {
+            Psq_FormadePagamentoVIEW objformadepagamentotbl = new Psq_FormadePagamentoVIEW();
+            
+           String nova_taxa = txtTaxa_formadepagamento.getText();
+           
+           nova_taxa = nova_taxa.replace(",", ".");
+           
+           txtTaxa_formadepagamento.setText(nova_taxa);
+           
+            
             alteraformadepagamento();
-            limparCampos();
-            this.dispose();
-        
+                limparCampos();
+                    objformadepagamentotbl.setVisible(true);
+                        this.dispose();
+                        
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
-        this.dispose();
+        Psq_FormadePagamentoVIEW objformadepagamentotbl = new Psq_FormadePagamentoVIEW();
+        objformadepagamentotbl.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtNome_grupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome_grupoActionPerformed
@@ -220,10 +244,11 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
     public void desativacampo(){
         txtCod_formadepagamento.setEditable(false);
     }
+    
         
     public void insereformadepagamento(){
         FormadePagamentoCTR objctr = new FormadePagamentoCTR();
-        
+
             objctr.insereFORMADEPAGAMENTOCTR(txtnome_formadepagamento.getText(),Float.parseFloat(txtTaxa_formadepagamento.getText()));
 }
      public void alteraformadepagamento()

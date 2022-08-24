@@ -46,8 +46,9 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
         jToolBar1.add(btnGrupo);
 
         btnFormadePagamento.setText("Forma de Pagamento");
-        btnFormadePagamento.setMaximumSize(new java.awt.Dimension(120, 150));
-        btnFormadePagamento.setMinimumSize(new java.awt.Dimension(120, 150));
+        btnFormadePagamento.setMaximumSize(new java.awt.Dimension(170, 250));
+        btnFormadePagamento.setMinimumSize(new java.awt.Dimension(170, 120));
+        btnFormadePagamento.setPreferredSize(new java.awt.Dimension(170, 21));
         btnFormadePagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFormadePagamentoActionPerformed(evt);
@@ -59,10 +60,7 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
