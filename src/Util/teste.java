@@ -10,5 +10,5 @@ package Util;
  * @author LOUISE
  */
 public class teste {
-    
+    int idteste;
 }
