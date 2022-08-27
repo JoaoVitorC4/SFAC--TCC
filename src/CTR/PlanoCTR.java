@@ -24,6 +24,9 @@ public class PlanoCTR {
             PlanoMODEL objplano = new PlanoMODEL();
          
             objplano.setNome_plano(nome_plano);
+            objplano.setValor_plano(valor_plano);
+            objplano.setQtd_dependente(qtd_dependente);
+            objplano.setQtd_dependente(qtd_convidado);
 
             PlanoDAO objdao = new PlanoDAO();
       

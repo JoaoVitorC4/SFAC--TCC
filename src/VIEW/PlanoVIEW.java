@@ -233,13 +233,15 @@ public class PlanoVIEW extends javax.swing.JFrame {
         
        PlanoCTR objctr = new PlanoCTR();
        
-       objctr.inserePLANOCTR(txtNome_plano.getText());
+       objctr.inserePLANOCTR(txtNome_plano.getText(),Float.parseFloat(txtValor_plano.getText()),
+               Integer.parseInt(txtQtd_dependente_plano.getText()),Integer.parseInt(txtQtd_convidado_plano.getText()));
 }
     public void alteraplano()
     {
         PlanoCTR objplano = new PlanoCTR();
         
-        objplano.AlteraPlanoCTR(txtNome_plano.getText(), cod_plano);
+        objplano.AlteraPlanoCTR(txtNome_plano.getText(),Float.parseFloat(txtValor_plano.getText()),
+               Integer.parseInt(txtQtd_dependente_plano.getText()),Integer.parseInt(txtQtd_convidado_plano.getText()),cod_plano);
     }
     
     public void pesquisaplano(){
