@@ -26,7 +26,7 @@ public class PlanoCTR {
             objplano.setNome_plano(nome_plano);
             objplano.setValor_plano(valor_plano);
             objplano.setQtd_dependente(qtd_dependente);
-            objplano.setQtd_dependente(qtd_convidado);
+            objplano.setQtd_convidado(qtd_convidado);
 
             PlanoDAO objdao = new PlanoDAO();
       
@@ -39,6 +39,10 @@ public class PlanoCTR {
         PlanoMODEL objplano = new PlanoMODEL();
         //Envia por meio de SET o valor de nome
         objplano.setNome_plano(nome_plano);
+        objplano.setValor_plano(valor_plano);
+        objplano.setQtd_dependente(qtd_dependente);
+        objplano.setQtd_convidado(qtd_convidado);
+        
         objplano.setCod_plano(cod_plano);
         
         //Declara objeto da DAO

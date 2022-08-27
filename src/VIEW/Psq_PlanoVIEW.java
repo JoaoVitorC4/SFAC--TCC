@@ -327,7 +327,7 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
     
     public void preenche_conplano(){
         
-        String [] colunas = {"Código" ,"Nome",};
+        String [] colunas = {"Código" ,"Nome","Valor do Plano","Quantidade de Dependentes", "Quantidade de Convidados"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -347,6 +347,9 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
                
                regVetor.add(rsplano.getInt("cod_plano"));
                 regVetor.add(rsplano.getString("nome_plano"));             
+                regVetor.add(rsplano.getString("valor_plano"));             
+                regVetor.add(rsplano.getString("qtd_dependente"));             
+                regVetor.add(rsplano.getString("qtd_convidado"));             
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);

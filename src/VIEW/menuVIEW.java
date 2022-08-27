@@ -126,7 +126,8 @@ public class menuVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanosActionPerformed
-        // TODO add your handling code here:
+        Psq_PlanoVIEW objtelaplano = new Psq_PlanoVIEW();
+            objtelaplano.setVisible(true);
     }//GEN-LAST:event_btnPlanosActionPerformed
 
     private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
