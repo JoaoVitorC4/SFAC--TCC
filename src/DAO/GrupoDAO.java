@@ -67,7 +67,7 @@ public void AlteraGrupo(GrupoMODEL gs)
             JOptionPane.showMessageDialog(null, "Grupo Alterado com Sucesso");
             
         } catch (SQLException ex) {
-            Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

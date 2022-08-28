@@ -187,27 +187,62 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
     private void tblPlanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPlanoMouseClicked
         if(evt.getClickCount() == 2)
         {
-            int linha = tblPlano.getSelectedRow();
+objplano.opcao = "Alterar";
+        int linha = tblPlano.getSelectedRow();
+        float objtxtvalor_plano = 0;
+        int objtxtqtddependente = 0;
+        int objtxtqtdconvidado = 0;
+        
+        
             
-            objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
-            objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
+        objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
+        
+        objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
             
+            objtxtvalor_plano = (Float)(tblPlano.getValueAt(linha, 2));
+            //define o valor em outra variavel do tipo float
+                objplano.txtValor_plano.setText((String)Float.toString(objtxtvalor_plano));
+                //passa o valor da variavel em float para o campo da tela view
             
+            objtxtqtddependente = (int)(tblPlano.getValueAt(linha, 3));
+                objplano.txtQtd_dependente_plano.setText((String)Integer.toString(objtxtqtddependente));
+        
+            objtxtqtdconvidado = (int)(tblPlano.getValueAt(linha, 4));
+                objplano.txtQtd_convidado_plano.setText((String)Integer.toString(objtxtqtdconvidado));
             
-            objplano.setVisible(true);
-                this.dispose();
+        
+        objplano.setVisible(true);
+            this.dispose();
         }
         
         
     }//GEN-LAST:event_tblPlanoMouseClicked
 
     private void tblPlanoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPlanoKeyPressed
-        
+objplano.opcao = "Alterar";
         int linha = tblPlano.getSelectedRow();
+        float objtxtvalor_plano = 0;
+        int objtxtqtddependente = 0;
+        int objtxtqtdconvidado = 0;
+        
+        
             
         objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
+        
         objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
-                  
+            
+            objtxtvalor_plano = (Float)(tblPlano.getValueAt(linha, 2));
+            //define o valor em outra variavel do tipo float
+                objplano.txtValor_plano.setText((String)Float.toString(objtxtvalor_plano));
+                //passa o valor da variavel em float para o campo da tela view
+            
+            objtxtqtddependente = (int)(tblPlano.getValueAt(linha, 3));
+                objplano.txtQtd_dependente_plano.setText((String)Integer.toString(objtxtqtddependente));
+        
+            objtxtqtdconvidado = (int)(tblPlano.getValueAt(linha, 4));
+                objplano.txtQtd_convidado_plano.setText((String)Integer.toString(objtxtqtdconvidado));
+            
+        
         objplano.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_tblPlanoKeyPressed
@@ -223,12 +258,28 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         objplano.opcao = "Alterar";
         int linha = tblPlano.getSelectedRow();
+        float objtxtvalor_plano = 0;
+        int objtxtqtddependente = 0;
+        int objtxtqtdconvidado = 0;
+        
+        
             
         objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
+        
         objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
             
+            objtxtvalor_plano = (Float)(tblPlano.getValueAt(linha, 2));
+            //define o valor em outra variavel do tipo float
+                objplano.txtValor_plano.setText((String)Float.toString(objtxtvalor_plano));
+                //passa o valor da variavel em float para o campo da tela view
             
+            objtxtqtddependente = (int)(tblPlano.getValueAt(linha, 3));
+                objplano.txtQtd_dependente_plano.setText((String)Integer.toString(objtxtqtddependente));
+        
+            objtxtqtdconvidado = (int)(tblPlano.getValueAt(linha, 4));
+                objplano.txtQtd_convidado_plano.setText((String)Integer.toString(objtxtqtdconvidado));
             
+        
         objplano.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -347,9 +398,9 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
                
                regVetor.add(rsplano.getInt("cod_plano"));
                 regVetor.add(rsplano.getString("nome_plano"));             
-                regVetor.add(rsplano.getString("valor_plano"));             
-                regVetor.add(rsplano.getString("qtd_dependente"));             
-                regVetor.add(rsplano.getString("qtd_convidado"));             
+                regVetor.add(rsplano.getFloat("valor_plano"));             
+                regVetor.add(rsplano.getInt("qtd_dependente"));             
+                regVetor.add(rsplano.getInt("qtd_convidado"));             
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);

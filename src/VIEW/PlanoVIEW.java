@@ -177,7 +177,8 @@ public class PlanoVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
+        Psq_PlanoVIEW psqtela = new Psq_PlanoVIEW();
+            psqtela.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

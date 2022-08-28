@@ -6,7 +6,11 @@
 package VIEW;
 
 
+import CTR.CidadeCTR;
+import CTR.EstadoCTR;
 import CTR.PessoaCTR;
+import MODEL.CidadeMODEL;
+import MODEL.EstadoMODEL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,8 +28,10 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
 
     ResultSet rscont;
     PessoaVIEW objpessoa;
-    PessoaCTR objtel = new PessoaCTR();
-    List<TelefoneMODEL> listTelefone;
+    EstadoCTR objestado = new EstadoCTR();
+    CidadeCTR objcidade = new CidadeCTR();
+    List<EstadoMODEL> listEstado;
+    List<CidadeMODEL> listCidade;
 
     public Psq_PessoasVIEW() {
         initComponents();
@@ -44,7 +50,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblContato = new javax.swing.JTable();
+        tblPessoa = new javax.swing.JTable();
         btnPesquisar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
@@ -60,7 +66,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             }
         });
 
-        tblContato.setModel(new javax.swing.table.DefaultTableModel(
+        tblPessoa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -68,17 +74,17 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
 
             }
         ));
-        tblContato.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblPessoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblContatoMouseClicked(evt);
+                tblPessoaMouseClicked(evt);
             }
         });
-        tblContato.addKeyListener(new java.awt.event.KeyAdapter() {
+        tblPessoa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tblContatoKeyPressed(evt);
+                tblPessoaKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tblContato);
+        jScrollPane1.setViewportView(tblPessoa);
 
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa.png"))); // NOI18N
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,15 +146,15 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
                         .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(19, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(65, 65, 65)
@@ -164,39 +170,51 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-       pesquisarContato();
+       pesquisarPessoa();
        
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void tblContatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblContatoMouseClicked
+    private void tblPessoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPessoaMouseClicked
         if(evt.getClickCount() == 2)
         {
-            int linha = tblContato.getSelectedRow();
+            int linha = tblPessoa.getSelectedRow();
             
-            objcont.id_contato = (int) tblContato.getValueAt(linha, 0);
-            objcont.txtNome.setText((String) tblContato.getValueAt(linha, 1));
-            listTelefone = objtel.PegarTelefoneBD((int) tblContato.getValueAt(linha, 2));
-            objcont.cmbTelefone.setSelectedItem(listTelefone.get(0).getNumero_telefone());
+            objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
+            objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
+            objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
+            objpessoa.txtNumeroPessoa.setText((String) tblPessoa.getValueAt(linha, 4));
+            listEstado = objestado.pegarEstadoBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+            
+            objpessoa.cmbEstado.setSelectedItem
+            (listEstado.get(0).getNome_estado());
+            
+            listCidade = objcidade.pegarCidadeBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+            
+            objpessoa.cmbCidade.setSelectedItem
+            (listCidade.get(0).getNome_cidade());
            
             this.dispose();
         }
         
         
-    }//GEN-LAST:event_tblContatoMouseClicked
+    }//GEN-LAST:event_tblPessoaMouseClicked
 
-    private void tblContatoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblContatoKeyPressed
+    private void tblPessoaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPessoaKeyPressed
         
-            int linha = tblContato.getSelectedRow();
+            int linha = tblPessoa.getSelectedRow();
             
-            objcont.id_contato = (int) tblContato.getValueAt(linha, 0);
-            objcont.txtNome.setText((String) tblContato.getValueAt(linha, 1));
+            objcont.id_contato = (int) tblPessoa.getValueAt(linha, 0);
+            objcont.txtNome.setText((String) tblPessoa.getValueAt(linha, 1));
             
             
-            listTelefone = objtel.PegarTelefoneBD((int) tblContato.getValueAt(linha, 2));
+            listTelefone = objtel.PegarTelefoneBD((int) tblPessoa.getValueAt(linha, 2));
             objcont.cmbTelefone.setSelectedItem(listTelefone.get(0).getNumero_telefone());
            
             this.dispose();
-    }//GEN-LAST:event_tblContatoKeyPressed
+    }//GEN-LAST:event_tblPessoaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -241,20 +259,20 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     }
        
    
-        public void pesquisarContato(){
+        public void pesquisarPessoa(){
         
-            ContatoCTR objcont = new ContatoCTR();
+            PessoaCTR objcont = new PessoaCTR();
             
-            rscont = objcont.PesquisarCONTATOCTR(txtPesquisar.getText());
+            rscont = objcont.PesquisarPESSOACTR(txtPesquisar.getText());
         
-            preenche_concontato();
+            preenche_pessoa();
         
         }
     
     
-    public void preenche_concontato(){
+    public void preenche_pessoa(){
         
-        String [] colunas = {"ID" ,"NOME", "Cod.Telefone"};
+        String [] colunas = {"Cod" ,"Nome", "Endereço","Bairro","N°","Cidade","Estado","CEP","Telefone","CPF","Grupo","Usuario"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -272,14 +290,15 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             {
                Vector regVetor = new Vector();
                
-               regVetor.add(rscont.getInt("id_contato"));
-                regVetor.add(rscont.getString("nome_contato"));
-                 regVetor.add(rscont.getInt("fk_id_telefone"));              
+               regVetor.add(rscont.getInt("cod_pessoa"));
+                regVetor.add(rscont.getString("nome_pessoa"));
+                 regVetor.add(rscont.getString("endereco_pessoa"));              
+                 regVetor.add(rscont.getString("telefone_pessoa"));              
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);
             }  
-            tblContato.setModel(tablemodel);
+            tblPessoa.setModel(tablemodel);
             
         } catch (SQLException ex) {
             Logger.getLogger(Psq_PessoasVIEW.class.getName()).log(Level.SEVERE, null, ex);
@@ -295,7 +314,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblContato;
+    public javax.swing.JTable tblPessoa;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 

@@ -15,6 +15,8 @@ public class PessoaMODEL {
     private String endereco_pessoa;
     private String bairro_pessoa;
     private String numero_pessoa;
+    private int cidade_pessoa;
+    private int estado_pessoa;
     private String cep_pessoa;
     private String telefone_pessoa;
     private String cpf_pessoa;
@@ -174,6 +176,34 @@ public class PessoaMODEL {
      */
     public void setUsuario_pessoa(int usuario_pessoa) {
         this.usuario_pessoa = usuario_pessoa;
+    }
+
+    /**
+     * @return the cidade_pessoa
+     */
+    public int getCidade_pessoa() {
+        return cidade_pessoa;
+    }
+
+    /**
+     * @param cidade_pessoa the cidade_pessoa to set
+     */
+    public void setCidade_pessoa(int cidade_pessoa) {
+        this.cidade_pessoa = cidade_pessoa;
+    }
+
+    /**
+     * @return the estado_pessoa
+     */
+    public int getEstado_pessoa() {
+        return estado_pessoa;
+    }
+
+    /**
+     * @param estado_pessoa the estado_pessoa to set
+     */
+    public void setEstado_pessoa(int estado_pessoa) {
+        this.estado_pessoa = estado_pessoa;
     }
     
 }

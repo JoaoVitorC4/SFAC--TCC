@@ -229,7 +229,6 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
             objformadepagamento.opcao = "Alterar";
-            desativabotoes();
             float objtxfpagamento = 0;
             
             int linha = tblFormadePagamento.getSelectedRow();
