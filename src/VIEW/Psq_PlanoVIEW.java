@@ -250,7 +250,11 @@ objplano.opcao = "Alterar";
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         objplano.opcao = "Inserir";
         PlanoVIEW objtelaplano = new PlanoVIEW();
-       
+        
+            objtelaplano.txtValor_plano.setText("0");
+            objtelaplano.txtQtd_convidado_plano.setText("0");
+            objtelaplano.txtQtd_dependente_plano.setText("0");
+            
         objtelaplano.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed

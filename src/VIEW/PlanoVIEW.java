@@ -158,7 +158,15 @@ public class PlanoVIEW extends javax.swing.JFrame {
         if(opcao.equals("Inserir"))
         {
            Psq_PlanoVIEW objplano = new Psq_PlanoVIEW();
-            
+           
+           String novo_valor = txtValor_plano.getText();
+           
+           novo_valor = novo_valor.replace(",", ".");//Troca valor de , por . que é compativel com o banco de dados
+           
+           txtValor_plano.setText(novo_valor); 
+           
+           
+           
            insereplano(); 
            limparCampos();
            objplano.setVisible(true);
@@ -167,6 +175,12 @@ public class PlanoVIEW extends javax.swing.JFrame {
         else if(opcao.equals("Alterar"))
         {
             Psq_PlanoVIEW objplano = new Psq_PlanoVIEW();
+           
+           String novo_valor = txtValor_plano.getText();
+           
+           novo_valor = novo_valor.replace(",", "."); //Troca valor de , por . que é compativel com o banco de dados 
+           
+           txtValor_plano.setText(novo_valor);
             
             alteraplano();
             limparCampos();
