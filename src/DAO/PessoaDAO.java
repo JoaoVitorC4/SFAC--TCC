@@ -33,8 +33,8 @@ public void inserePessoa(PessoaMODEL gs){
            con = cb.conectaPostgre();
            
            String sql = "insert into pessoa(nome_pessoa,endereco_pessoa,bairro_pessoa,"
-                   + "numero_pessoa,cidade_pessoa,estado_pessoa,cep_pessoa,telefone_pessoa,cpf_pessoa,grupo_pessoa,"
-                   + "usuario_pessoa) values (?,?,?,?,?,?,?,?,?,?,?)";
+                   + "numero_pessoa,cidade_pessoa,cep_pessoa,telefone_pessoa,cpf_pessoa,grupo_pessoa,"
+                   + "usuario_pessoa) values (?,?,?,?,?,?,?,?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1, gs.getNome_pessoa());
@@ -42,13 +42,12 @@ public void inserePessoa(PessoaMODEL gs){
             pgsql.setString(3, gs.getBairro_pessoa());
             pgsql.setString(4, gs.getNumero_pessoa());
             pgsql.setInt(5, gs.getCidade_pessoa());
-            pgsql.setInt(6, gs.getEstado_pessoa());
-            pgsql.setString(7, gs.getCep_pessoa());
-            pgsql.setString(8, gs.getTelefone_pessoa());
-            pgsql.setString(9, gs.getCpf_pessoa());
-            pgsql.setInt(10, gs.getGrupo_pessoa());
-            //pgsql.setByte(11, gs.getBiometria_pessoa());
-            pgsql.setInt(11, gs.getUsuario_pessoa());
+            pgsql.setString(6, gs.getCep_pessoa());
+            pgsql.setString(7, gs.getTelefone_pessoa());
+            pgsql.setString(8, gs.getCpf_pessoa());
+            pgsql.setInt(9, gs.getGrupo_pessoa());
+            //pgsql.setByte(10, gs.getBiometria_pessoa());
+            pgsql.setInt(10, gs.getUsuario_pessoa());
             
  
         
@@ -70,7 +69,7 @@ public void AlteraPessoa(PessoaMODEL gs){
            con = cb.conectaPostgre();
            
            String sql = "update pessoa set nome_pessoa = ?,endereco_pessoa = ?,bairro_pessoa = ?,"
-                   + "numero_pessoa = ?,cidade_pessoa = ?,estado_pessoa = ?,cep_pessoa = ?,telefone_pessoa = ?,"
+                   + "numero_pessoa = ?,cidade_pessoa = ?,cep_pessoa = ?,telefone_pessoa = ?,"
                    + "cpf_pessoa = ?,grupo_pessoa = ?,usuario_pessoa = ? where cod_pessoa = ?";
         try {
             pgsql = con.prepareStatement(sql);
@@ -79,16 +78,15 @@ public void AlteraPessoa(PessoaMODEL gs){
             pgsql.setString(3, gs.getBairro_pessoa());
             pgsql.setString(4, gs.getNumero_pessoa());
             pgsql.setInt(5, gs.getCidade_pessoa());
-            pgsql.setInt(6, gs.getEstado_pessoa());
-            pgsql.setString(7, gs.getCep_pessoa());
-            pgsql.setString(8, gs.getTelefone_pessoa());
-            pgsql.setString(9, gs.getCpf_pessoa());
-            pgsql.setInt(10, gs.getGrupo_pessoa());
-            //pgsql.setByte(11, gs.getBiometria_pessoa());
-            pgsql.setInt(11, gs.getUsuario_pessoa());
+            pgsql.setString(6, gs.getCep_pessoa());
+            pgsql.setString(7, gs.getTelefone_pessoa());
+            pgsql.setString(8, gs.getCpf_pessoa());
+            pgsql.setInt(9, gs.getGrupo_pessoa());
+            //pgsql.setByte(10, gs.getBiometria_pessoa());
+            pgsql.setInt(10, gs.getUsuario_pessoa());
             
             
-            pgsql.setInt(12, gs.getCod_pessoa());
+            pgsql.setInt(11, gs.getCod_pessoa());
             
  
         

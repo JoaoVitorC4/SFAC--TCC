@@ -30,6 +30,7 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         btnGrupo = new javax.swing.JButton();
         btnFormadePagamento = new javax.swing.JButton();
+        btnUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,6 +56,19 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btnFormadePagamento);
+
+        btnUsuario.setText("Usuário");
+        btnUsuario.setFocusable(false);
+        btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUsuario.setMaximumSize(new java.awt.Dimension(120, 150));
+        btnUsuario.setMinimumSize(new java.awt.Dimension(120, 150));
+        btnUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnUsuario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,6 +98,10 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
     
     objtelagrupo.setVisible(true);
     }//GEN-LAST:event_btnGrupoActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +141,7 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFormadePagamento;
     private javax.swing.JButton btnGrupo;
+    private javax.swing.JButton btnUsuario;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
