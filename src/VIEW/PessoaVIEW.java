@@ -28,17 +28,17 @@ public class PessoaVIEW extends javax.swing.JFrame {
     List<CidadeMODEL> listCidade = null;
     List<GrupoMODEL> listGrupo = null;
     //List<UsuarioMODEL> listUsuario = null;
-    public static boolean button;
+    String opcao = "Inserir";
     /**
      * Creates new form NewJFrame
      */
-    public PessoaVIEW() {
+    public PessoaVIEW() {  
         initComponents();
         
-        desativarBotoes();
-        limparCampos();
-        carregaestadocmb();
-        carregacidadecmb();
+        //desativarBotoes();
+        //limparCampos();
+        //carregaestadocmb();
+        //carregacidadecmb();
 
     }
 

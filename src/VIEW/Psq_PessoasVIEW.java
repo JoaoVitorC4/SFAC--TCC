@@ -25,13 +25,15 @@ import javax.swing.table.DefaultTableModel;
  * @author aquin
  */
 public class Psq_PessoasVIEW extends javax.swing.JFrame {
-
-    ResultSet rscont;
-    PessoaVIEW objpessoa;
+    
+    ResultSet rspessoa;
+    PessoaVIEW objpessoa = new PessoaVIEW();
     EstadoCTR objestado = new EstadoCTR();
     CidadeCTR objcidade = new CidadeCTR();
     List<EstadoMODEL> listEstado;
     List<CidadeMODEL> listCidade;
+    
+    //
 
     public Psq_PessoasVIEW() {
         initComponents();
@@ -100,10 +102,20 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar.png"))); // NOI18N
         btnNovo.setText("Novo");
         btnNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,16 +217,63 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     private void tblPessoaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPessoaKeyPressed
         
             int linha = tblPessoa.getSelectedRow();
+           
+            objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
+            objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
+            objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
+            objpessoa.txtNumeroPessoa.setText((String) tblPessoa.getValueAt(linha, 4));
+            listEstado = objestado.pegarEstadoBD
+            ((int) tblPessoa.getValueAt(linha, 5));
             
-            objcont.id_contato = (int) tblPessoa.getValueAt(linha, 0);
-            objcont.txtNome.setText((String) tblPessoa.getValueAt(linha, 1));
+            objpessoa.cmbEstado.setSelectedItem
+            (listEstado.get(0).getNome_estado());
             
+            listCidade = objcidade.pegarCidadeBD
+            ((int) tblPessoa.getValueAt(linha, 5));
             
-            listTelefone = objtel.PegarTelefoneBD((int) tblPessoa.getValueAt(linha, 2));
-            objcont.cmbTelefone.setSelectedItem(listTelefone.get(0).getNumero_telefone());
+            objpessoa.cmbCidade.setSelectedItem
+            (listCidade.get(0).getNome_cidade());
            
             this.dispose();
     }//GEN-LAST:event_tblPessoaKeyPressed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+            
+            int linha = tblPessoa.getSelectedRow();
+            
+            objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
+            objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
+            objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
+            objpessoa.txtNumeroPessoa.setText((String) tblPessoa.getValueAt(linha, 4));
+            
+            listEstado = objestado.pegarEstadoBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+            
+            objpessoa.cmbEstado.setSelectedItem
+            (listEstado.get(0).getNome_estado());
+            
+            listCidade = objcidade.pegarCidadeBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+            
+            objpessoa.cmbCidade.setSelectedItem
+            (listCidade.get(0).getNome_cidade());
+           
+            
+            
+            
+            
+            this.dispose();
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        objpessoa.opcao = "Inserir";
+            PessoaVIEW objtelapessoa = new PessoaVIEW();
+       
+        objtelapessoa.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,9 +320,9 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
    
         public void pesquisarPessoa(){
         
-            PessoaCTR objcont = new PessoaCTR();
+            PessoaCTR objctr = new PessoaCTR();
             
-            rscont = objcont.PesquisarPESSOACTR(txtPesquisar.getText());
+            rspessoa = objctr.PesquisarPESSOACTR(txtPesquisar.getText());
         
             preenche_pessoa();
         
@@ -286,14 +345,22 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             Vector < Vector> dados = new Vector();
     
         try {
-            while (rscont.next())
+            while (rspessoa.next())
             {
                Vector regVetor = new Vector();
                
-               regVetor.add(rscont.getInt("cod_pessoa"));
-                regVetor.add(rscont.getString("nome_pessoa"));
-                 regVetor.add(rscont.getString("endereco_pessoa"));              
-                 regVetor.add(rscont.getString("telefone_pessoa"));              
+               regVetor.add(rspessoa.getInt("cod_pessoa"));
+                regVetor.add(rspessoa.getString("nome_pessoa"));
+                 regVetor.add(rspessoa.getString("endereco_pessoa"));              
+                 regVetor.add(rspessoa.getString("bairro_pessoa"));              
+                 regVetor.add(rspessoa.getString("numero_pessoa"));              
+                 regVetor.add(rspessoa.getString("cidade_pessoa"));              
+                 regVetor.add(rspessoa.getString("cep_pessoa"));              
+                 regVetor.add(rspessoa.getString("numero_pessoa"));              
+                 regVetor.add(rspessoa.getString("telefone_pessoa"));              
+                 regVetor.add(rspessoa.getString("cpf_pessoa"));              
+                 regVetor.add(rspessoa.getString("grupo_pessoa"));              
+                 regVetor.add(rspessoa.getString("usuario_pessoa"));                  
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);
