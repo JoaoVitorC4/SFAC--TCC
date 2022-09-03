@@ -28,7 +28,7 @@ public class EstadoDAO {
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from estado order by cod_uf";
+        String sql = "select * from uf order by cod_uf";
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,

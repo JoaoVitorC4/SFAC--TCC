@@ -22,10 +22,10 @@ import java.util.logging.Logger;
  */
 public class CidadeCTR {
     
-    public List<CidadeMODEL> ListaCidadeBD(int fk_estado) {
+    public List<CidadeMODEL> ListaCidadeBD(int cidade_uf) {
         List<CidadeMODEL> acidade = new ArrayList<>();
         CidadeDAO objdao = new CidadeDAO();
-        ResultSet rscidade = objdao.listaCidade(fk_estado);
+        ResultSet rscidade = objdao.listaCidade(cidade_uf);
 
         try {
             while (rscidade.next()) {
@@ -44,10 +44,10 @@ public class CidadeCTR {
         }
     }
     
-    public List<CidadeMODEL> pegarCidadeBD(int id_cidade) {
+    public List<CidadeMODEL> pegarCidadeBD(int cod_cidade) {
         List<CidadeMODEL> acidade = new ArrayList<>();
         CidadeDAO objdao = new CidadeDAO();
-        ResultSet rscidade = objdao.pegarIDCidade(id_cidade);
+        ResultSet rscidade = objdao.pegarIDCidade(cod_cidade);
 
         try {
             while (rscidade.next()) {
