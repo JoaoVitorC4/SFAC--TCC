@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class Psq_UsuarioVIEW extends javax.swing.JFrame {
 
     ResultSet rsusuario;
-    UsuarioVIEW objusuario = new UsuarioVIEW();
+    UsuarioVIEW objusuario;
 
 
     public Psq_UsuarioVIEW() {

@@ -46,6 +46,8 @@ public void insereFormadePagamento(FormadePagamentoMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConexaoDAO.closeConection(con, pgsql);
         }
            
    
@@ -71,6 +73,8 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConexaoDAO.closeConection(con, pgsql);
         }
     }
 
@@ -188,6 +192,8 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConexaoDAO.closeConection(con, pgsql);
         }
     }
      
