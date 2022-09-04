@@ -5,8 +5,10 @@
  */
 package VIEW;
 
+import CTR.GrupoCTR;
 import CTR.PerfilCTR;
 import CTR.UsuarioCTR;
+import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
 import MODEL.UsuarioMODEL;
 import java.util.List;
@@ -20,17 +22,21 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     public String opcao ="Inserir";
     
     public static int cod_usuario;
+    
     Psq_UsuarioVIEW objusuariotbl;
     List<PerfilMODEL> listPerfil;
+
     /**
      * 
      * Creates new form UsuarioVIEW
      */
     public UsuarioVIEW() {
         initComponents();
-        desativacampo();
-        limparCampos();
+        
+        //desativacampo();
+        //limparCampos();
         carregaperfilcmb();
+
     }
 
     /**
@@ -180,14 +186,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void cmbUsuario_perfilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilItemStateChanged
-        if(listPerfil == null)
-        {
 
-        }
-        else
-        {
-        carregaperfilcmb();
-        }
     }//GEN-LAST:event_cmbUsuario_perfilItemStateChanged
 
     /**
@@ -247,7 +246,8 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil(), cod_usuario);
     }
     
-       public void carregaperfilcmb()
+
+    public void carregaperfilcmb()
     {
         PerfilCTR objperfil = new PerfilCTR();
         listPerfil = objperfil.ListaPerfilBD();

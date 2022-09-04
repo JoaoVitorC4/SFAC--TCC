@@ -125,7 +125,7 @@ public void AlteraGrupo(GrupoMODEL gs)
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from grupo inner join contato on cod_grupo = fk_cod_grupo where cod_grupo =" +cod_grupo;
+        String sql = "select * from grupo where cod_grupo =" +cod_grupo;
        
         
         try {

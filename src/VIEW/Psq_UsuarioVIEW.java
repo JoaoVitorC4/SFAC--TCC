@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class Psq_UsuarioVIEW extends javax.swing.JFrame {
 
     ResultSet rsusuario;
-    UsuarioVIEW objusuario;
+    UsuarioVIEW objusuario = new UsuarioVIEW();
 
 
     public Psq_UsuarioVIEW() {
@@ -213,9 +213,11 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tblUsuarioKeyPressed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        objusuario.opcao = "Inserir";
+        
         UsuarioVIEW objtelausuario = new UsuarioVIEW();
-       
+        
+        objtelausuario.opcao = "Inserir";
+        
         objtelausuario.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -226,7 +228,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
-            
+        
             
             
         objusuario.setVisible(true);

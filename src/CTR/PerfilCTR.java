@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class PerfilCTR {
 
-    public List<PerfilMODEL> ListaPerfilBD() {
+        public List<PerfilMODEL> ListaPerfilBD() {
         List<PerfilMODEL> aperfil = new ArrayList<>();
         PerfilDAO objdao = new PerfilDAO();
         ResultSet rsperfil = objdao.listaPerfil();
@@ -37,7 +37,7 @@ public class PerfilCTR {
             return aperfil;
 
         } catch (SQLException ex) {
-            Logger.getLogger(PerfilCTR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EstadoCTR.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -57,7 +57,7 @@ public class PerfilCTR {
             return aperfil;
 
         } catch (SQLException ex) {
-            Logger.getLogger(PerfilCTR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EstadoCTR.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

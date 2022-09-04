@@ -38,9 +38,7 @@ public class PerfilDAO {
                    
         } catch (SQLException ex) {
           
-            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally{
-            ConexaoDAO.closeConection(con, pgsql);
+            Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
                 
@@ -52,8 +50,8 @@ public class PerfilDAO {
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from perfil e "
-                + "inner join cidade c on e.cod_perfil = c.fk_perfil where c.cod_perfil = " + cod_perfil;
+        String sql = "select * from perfil"
+                + "where cod_perfil = " + cod_perfil;
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,
@@ -64,8 +62,6 @@ public class PerfilDAO {
         } catch (SQLException ex) {
           
             Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally{
-            ConexaoDAO.closeConection(con, pgsql);
         }
        
         return rs;
