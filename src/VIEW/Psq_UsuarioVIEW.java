@@ -187,28 +187,27 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
     private void tblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuarioMouseClicked
         if(evt.getClickCount() == 2)
         {
-objusuario.opcao = "Alterar";
-        int linha = tblUsuario.getSelectedRow();
-
-        objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
-        
-        objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
+            int linha = tblUsuario.getSelectedRow();
             
-        objusuario.setVisible(true);
-            this.dispose();
+            objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
+            objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
+            
+            
+            
+            objusuario.setVisible(true);
+                this.dispose();
         }
         
         
     }//GEN-LAST:event_tblUsuarioMouseClicked
 
     private void tblUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblUsuarioKeyPressed
-objusuario.opcao = "Alterar";
-        int linha = tblUsuario.getSelectedRow();     
-                 
-        objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         
+        int linha = tblUsuario.getSelectedRow();
+            
+        objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
-       
+                  
         objusuario.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_tblUsuarioKeyPressed
@@ -216,18 +215,19 @@ objusuario.opcao = "Alterar";
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         objusuario.opcao = "Inserir";
         UsuarioVIEW objtelausuario = new UsuarioVIEW();
-            
+       
         objtelausuario.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         objusuario.opcao = "Alterar";
-        int linha = tblUsuario.getSelectedRow();       
-                    
+        int linha = tblUsuario.getSelectedRow();
+            
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
-        
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
+            
+            
             
         objusuario.setVisible(true);
             this.dispose();
@@ -304,38 +304,6 @@ objusuario.opcao = "Alterar";
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -352,14 +320,14 @@ objusuario.opcao = "Alterar";
             
             rsusuario = objusuario.PesquisarUSUARIOCTR(txtPesquisar.getText());
         
-            preenche_usuario();
+            preenche_conusuario();
         
         }
     
     
-    public void preenche_usuario(){
+    public void preenche_conusuario(){
         
-        String [] colunas = {"Código" ,"Nome","Perfil"};
+        String [] colunas = {"Código" ,"Nome",};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -378,8 +346,7 @@ objusuario.opcao = "Alterar";
                Vector regVetor = new Vector();
                
                regVetor.add(rsusuario.getInt("cod_usuario"));
-                regVetor.add(rsusuario.getString("nome_usuario"));    
-                regVetor.add(rsusuario.getInt("usuario_perfil"));    
+                regVetor.add(rsusuario.getString("nome_usuario"));             
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);
