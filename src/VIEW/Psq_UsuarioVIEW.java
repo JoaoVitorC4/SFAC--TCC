@@ -365,7 +365,7 @@ objusuario.opcao = "Alterar";
         
             UsuarioCTR objusuario = new UsuarioCTR();
             
-            rsusuario = objusuario.PesquisarPLANOCTR(txtPesquisar.getText());
+            rsusuario = objusuario.PesquisarUSUARIOCTR(txtPesquisar.getText());
         
             preenche_conusuario();
         
@@ -374,7 +374,7 @@ objusuario.opcao = "Alterar";
     
     public void preenche_conusuario(){
         
-        String [] colunas = {"Código" ,"Nome","Valor do Usuario","Quantidade de Dependentes", "Quantidade de Convidados"};
+        String [] colunas = {"Código" ,"Nome","Perfil"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -393,10 +393,8 @@ objusuario.opcao = "Alterar";
                Vector regVetor = new Vector();
                
                regVetor.add(rsusuario.getInt("cod_usuario"));
-                regVetor.add(rsusuario.getString("nome_usuario"));             
-                regVetor.add(rsusuario.getFloat("valor_usuario"));             
-                regVetor.add(rsusuario.getInt("qtd_dependente"));             
-                regVetor.add(rsusuario.getInt("qtd_convidado"));             
+                regVetor.add(rsusuario.getString("nome_usuario"));    
+                regVetor.add(rsusuario.getInt("usuario_perfil"));    
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);

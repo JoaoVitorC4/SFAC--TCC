@@ -100,7 +100,9 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGrupoActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        // TODO add your handling code here:
+        Psq_UsuarioVIEW objtelausuario = new Psq_UsuarioVIEW();
+        
+        objtelausuario.setVisible(true);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**

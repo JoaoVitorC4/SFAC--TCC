@@ -6,6 +6,8 @@
 package VIEW;
 
 import CTR.UsuarioCTR;
+import MODEL.UsuarioMODEL;
+import java.util.List;
 
 /**
  *
@@ -17,6 +19,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     
     public static int cod_usuario;
     Psq_UsuarioVIEW objusuariotbl;
+    List<UsuarioMODEL> listUsuario;
     /**
      * 
      * Creates new form UsuarioVIEW
@@ -216,13 +219,13 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         
        UsuarioCTR objctr = new UsuarioCTR();
        
-       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txt);
+       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listUsuario.get(cmbUsuario_perfil.getSelectedIndex()).getCod_usuario());
 }
     public void alterausuario()
     {
         UsuarioCTR objusuario = new UsuarioCTR();
         
-        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(), cod_usuario);
+        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listUsuario.get(cmbUsuario_perfil.getSelectedIndex()).getCod_usuario(), cod_usuario);
     }
     
     public void pesquisausuario(){
@@ -240,7 +243,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cmbUsuario_perfil;
+    public static javax.swing.JComboBox<String> cmbUsuario_perfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

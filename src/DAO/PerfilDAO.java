@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import MODEL.GrupoMODEL;
+import MODEL.PerfilMODEL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,20 +28,20 @@ public class PerfilDAO {
     
     
     
-public void insereGrupo(GrupoMODEL gs){
+public void inserePerfil(PerfilMODEL gs){
     
            ConexaoDAO cb = new ConexaoDAO();
            con = cb.conectaPostgre();
            
-           String sql = "insert into grupo(nome_grupo) values (?)";
+           String sql = "insert into perfil(nome_perfil) values (?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_grupo());
+            pgsql.setString(1, gs.getNome_perfil());
 
  
         
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Grupo Cadastrado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Perfil Cadastrado com Sucesso");
         
         } catch (SQLException ex) {
             Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,34 +49,34 @@ public void insereGrupo(GrupoMODEL gs){
            
     }
 
-public void AlteraGrupo(GrupoMODEL gs)
+public void AlteraPerfil(PerfilMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
-        String sql = "update grupo set "
-                + "nome_grupo = ?"
-                + "where cod_grupo = ?";
+        String sql = "update perfil set "
+                + "nome_perfil = ?"
+                + "where cod_perfil = ?";
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_grupo());
-            pgsql.setInt(2, gs.getCod_grupo());
+            pgsql.setString(1, gs.getNome_perfil());
+            pgsql.setInt(2, gs.getCod_perfil());
             
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Grupo Alterado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Perfil Alterado com Sucesso");
             
         } catch (SQLException ex) {
             Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-     public ResultSet PesquisarGrupo (String nome){
+     public ResultSet PesquisarPerfil (String nome){
          ConexaoDAO cb = new ConexaoDAO();
          con = cb.conectaPostgre();
          
          
-         String sql = "select * from grupo where upper(nome_grupo) like upper(?) order by cod_grupo";
+         String sql = "select * from perfil where upper(nome_perfil) like upper(?) order by cod_perfil";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1,"%" + nome + "%");
@@ -96,13 +96,13 @@ public void AlteraGrupo(GrupoMODEL gs)
      }
      
      
-     public ResultSet listaGrupo()
+     public ResultSet listaPerfil()
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from grupo";
+        String sql = "select * from perfil";
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,ResultSet.TYPE_SCROLL_INSENSITIVE);
@@ -117,13 +117,13 @@ public void AlteraGrupo(GrupoMODEL gs)
          return rs;
     }
     
-        public ResultSet pegarIDGrupo(int cod_grupo)
+        public ResultSet pegarIDPerfil(int cod_perfil)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from grupo inner join contato on cod_grupo = fk_cod_grupo where cod_grupo =" +cod_grupo;
+        String sql = "select * from perfil inner join contato on cod_perfil = fk_cod_perfil where cod_perfil =" +cod_perfil;
        
         
         try {
@@ -139,49 +139,49 @@ public void AlteraGrupo(GrupoMODEL gs)
          return rs;
     }
      /*/
-         public void DesativarGrupo(GrupoMODEL gs)
+         public void DesativarPerfil(PerfilMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
-        String sql = "update grupo set"
-                + " status_grupo = ? "
-                + "where id_grupo = ?";
+        String sql = "update perfil set"
+                + " status_perfil = ? "
+                + "where id_perfil = ?";
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setBoolean(1, gs.getstatus_grupo());
-            pgsql.setInt(2, gs.getId_grupo());
+            pgsql.setBoolean(1, gs.getstatus_perfil());
+            pgsql.setInt(2, gs.getId_perfil());
             
             pgsql.executeUpdate();
             
-            if(gs.getStatus_grupo() == true)
+            if(gs.getStatus_perfil() == true)
             {
-               JOptionPane.showMessageDialog(null, "Grupo Ativado"); 
+               JOptionPane.showMessageDialog(null, "Perfil Ativado"); 
             }
             else            
-            JOptionPane.showMessageDialog(null, "Grupo Desativado");
+            JOptionPane.showMessageDialog(null, "Perfil Desativado");
             
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /*/
     
-    public void ExcluirGrupo(GrupoMODEL gs)
+    public void ExcluirPerfil(PerfilMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();
         con = cb.conectaPostgre();
         
-        String sql = "delete from grupo where"
-                + " cod_grupo = ?";
+        String sql = "delete from perfil where"
+                + " cod_perfil = ?";
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setInt(1, gs.getCod_grupo());
+            pgsql.setInt(1, gs.getCod_perfil());
             
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Grupo Excluído com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Perfil Excluído com Sucesso!");
             
         } catch (SQLException ex) {
             Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
