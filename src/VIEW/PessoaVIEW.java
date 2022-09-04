@@ -306,7 +306,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void cmbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstadoItemStateChanged
-                if(listCidade == null)
+        if(listCidade == null)
         {
 
         }

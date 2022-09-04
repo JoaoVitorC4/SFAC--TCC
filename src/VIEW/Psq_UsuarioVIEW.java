@@ -189,12 +189,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         {
 objusuario.opcao = "Alterar";
         int linha = tblUsuario.getSelectedRow();
-        float objtxtvalor_usuario = 0;
-        int objtxtqtddependente = 0;
-        int objtxtqtdconvidado = 0;
-        
-        
-            
+
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
@@ -208,13 +203,8 @@ objusuario.opcao = "Alterar";
 
     private void tblUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblUsuarioKeyPressed
 objusuario.opcao = "Alterar";
-        int linha = tblUsuario.getSelectedRow();
-        float objtxtvalor_usuario = 0;
-        int objtxtqtddependente = 0;
-        int objtxtqtdconvidado = 0;
-        
-        
-            
+        int linha = tblUsuario.getSelectedRow();     
+                 
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
@@ -233,13 +223,8 @@ objusuario.opcao = "Alterar";
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         objusuario.opcao = "Alterar";
-        int linha = tblUsuario.getSelectedRow();
-        float objtxtvalor_usuario = 0;
-        int objtxtqtddependente = 0;
-        int objtxtqtdconvidado = 0;
-        
-        
-            
+        int linha = tblUsuario.getSelectedRow();       
+                    
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
@@ -367,12 +352,12 @@ objusuario.opcao = "Alterar";
             
             rsusuario = objusuario.PesquisarUSUARIOCTR(txtPesquisar.getText());
         
-            preenche_conusuario();
+            preenche_usuario();
         
         }
     
     
-    public void preenche_conusuario(){
+    public void preenche_usuario(){
         
         String [] colunas = {"Código" ,"Nome","Perfil"};
         String [][] linhas = {};

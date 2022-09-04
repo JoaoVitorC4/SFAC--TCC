@@ -86,14 +86,16 @@ public void AlteraGrupo(GrupoMODEL gs)
             
              rs = st.executeQuery(pgsql.toString());
             
-        
+             
         
         } catch (SQLException ex) {
-            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-         return rs;
+            Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);        
+        }         
+            return rs;
      }
+         
+
+     
      
      
      public ResultSet listaGrupo()

@@ -7,6 +7,8 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,6 +41,37 @@ public class ConexaoDAO {
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return con;
+    }
+    
+    public static void closeConection(Connection con){  
+        if(con != null){
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.err.println("Erro" +ex);
+            }
+        }
+    }
+    
+    public static void closeConection(Connection con, PreparedStatement pgsql){  
+        if(pgsql != null){
+            try {
+                pgsql.close();
+            } catch (SQLException ex) {
+                System.err.println("Erro" +ex);
+            }
+        }
+        closeConection(con);
+    }
+    public static void closeConection(Connection con, PreparedStatement pgsql, ResultSet rs){  
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                System.err.println("Erro" +ex);
+            }
+        }
+        closeConection(con,pgsql);
     }
 
 }

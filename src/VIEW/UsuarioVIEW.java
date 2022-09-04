@@ -5,7 +5,9 @@
  */
 package VIEW;
 
+import CTR.PerfilCTR;
 import CTR.UsuarioCTR;
+import MODEL.PerfilMODEL;
 import MODEL.UsuarioMODEL;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     
     public static int cod_usuario;
     Psq_UsuarioVIEW objusuariotbl;
-    List<UsuarioMODEL> listUsuario;
+    List<PerfilMODEL> listPerfil;
     /**
      * 
      * Creates new form UsuarioVIEW
@@ -28,6 +30,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         initComponents();
         desativacampo();
         limparCampos();
+        carregaperfilcmb();
     }
 
     /**
@@ -78,6 +81,11 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         jLabel4.setText("Senha do Usuário:");
 
         cmbUsuario_perfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbUsuario_perfil.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbUsuario_perfilItemStateChanged(evt);
+            }
+        });
 
         jLabel5.setText("Perfil Usuário:");
 
@@ -171,6 +179,17 @@ public class UsuarioVIEW extends javax.swing.JFrame {
                 this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void cmbUsuario_perfilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilItemStateChanged
+        if(listPerfil == null)
+        {
+
+        }
+        else
+        {
+        carregaperfilcmb();
+        }
+    }//GEN-LAST:event_cmbUsuario_perfilItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -219,14 +238,30 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         
        UsuarioCTR objctr = new UsuarioCTR();
        
-       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listUsuario.get(cmbUsuario_perfil.getSelectedIndex()).getCod_usuario());
+       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil());
 }
     public void alterausuario()
     {
         UsuarioCTR objusuario = new UsuarioCTR();
         
-        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listUsuario.get(cmbUsuario_perfil.getSelectedIndex()).getCod_usuario(), cod_usuario);
+        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil(), cod_usuario);
     }
+    
+       public void carregaperfilcmb()
+    {
+        PerfilCTR objperfil = new PerfilCTR();
+        listPerfil = objperfil.ListaPerfilBD();
+        cmbUsuario_perfil.removeAllItems();
+        int i = 0;
+        
+        while(i < listPerfil.size())
+        {
+            cmbUsuario_perfil.addItem(listPerfil.get(i).getNome_perfil());
+            i++;
+        }
+        
+    }
+    
     
     public void pesquisausuario(){
     UsuarioCTR objctr = new UsuarioCTR();
