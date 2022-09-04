@@ -235,15 +235,28 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         
     public void insereusuario(){
         
+       int cod_perfilselecionado;
+         
        UsuarioCTR objctr = new UsuarioCTR();
        
-       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil());
-}
+       cod_perfilselecionado = listPerfil.get((int) cmbUsuario_perfil.getSelectedItem()).getCod_perfil();
+       
+       
+       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),
+       cod_perfilselecionado);
+    
+    }
+    
+    
+    
+    
     public void alterausuario()
     {
         UsuarioCTR objusuario = new UsuarioCTR();
         
-        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil(), cod_usuario);
+        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),
+        listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil(), cod_usuario);
+    
     }
     
 

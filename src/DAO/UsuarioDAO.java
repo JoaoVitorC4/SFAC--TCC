@@ -131,7 +131,7 @@ public void AlteraUsuario(UsuarioMODEL gs)
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from usuario inner join contato on cod_usuario = fk_cod_usuario where cod_usuario =" +cod_usuario;
+        String sql = "select * from usuario where cod_usuario =" +cod_usuario;
        
         
         try {

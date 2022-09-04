@@ -50,8 +50,7 @@ public class PerfilDAO {
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from perfil"
-                + "where cod_perfil = " + cod_perfil;
+        String sql = "select * from perfil where cod_perfil ="+ cod_perfil;
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,

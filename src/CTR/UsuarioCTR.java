@@ -43,10 +43,10 @@ public class UsuarioCTR {
         }
     }
     
-    public List<UsuarioMODEL> pegarUsuarioBD(int id_cidade) {
+    public List<UsuarioMODEL> pegarUsuarioBD(int cod_usuario) {
         List<UsuarioMODEL> ausuario = new ArrayList<>();
         UsuarioDAO objdao = new UsuarioDAO();
-        ResultSet rsusuario = objdao.pegarIDUsuario(id_cidade);
+        ResultSet rsusuario = objdao.pegarIDUsuario(cod_usuario);
 
         try {
             while (rsusuario.next()) {
@@ -84,7 +84,6 @@ public class UsuarioCTR {
         objusuario.setSenha_usuario(senha_usuario);
         objusuario.setUsuario_perfil(usuario_perfil);
         
-       
         objusuario.setCod_usuario(cod_usuario);
         
         //Declara objeto da DAO

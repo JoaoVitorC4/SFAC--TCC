@@ -6,7 +6,9 @@
 package VIEW;
 
 
+import CTR.PerfilCTR;
 import CTR.UsuarioCTR;
+import MODEL.PerfilMODEL;
 import MODEL.UsuarioMODEL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +28,8 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
 
     ResultSet rsusuario;
     UsuarioVIEW objusuario = new UsuarioVIEW();
+    List<PerfilMODEL> listPerfil;
+    PerfilCTR objperfil = new PerfilCTR();
 
 
     public Psq_UsuarioVIEW() {
@@ -228,7 +232,10 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
+        objusuario.txtSenha_usuario.setText((String)tblUsuario.getValueAt(linha, 2));
         
+        listPerfil = objperfil.pegarPerfilBD
+        ((int) tblUsuario.getValueAt(linha, 3));
             
             
         objusuario.setVisible(true);
@@ -329,7 +336,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
     
     public void preenche_conusuario(){
         
-        String [] colunas = {"Código" ,"Nome",};
+        String [] colunas = {"Código" ,"Nome","Senha","Perfil do Usuário"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -349,6 +356,8 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
                
                regVetor.add(rsusuario.getInt("cod_usuario"));
                 regVetor.add(rsusuario.getString("nome_usuario"));             
+                regVetor.add(rsusuario.getString("senha_usuario"));             
+                regVetor.add(rsusuario.getInt("usuario_perfil"));             
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);
