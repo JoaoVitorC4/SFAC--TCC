@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class PessoaCTR {
  
      public void inserePESSOACTR( String nome_pessoa ,String endereco_pessoa, String bairro_pessoa, String numero_pessoa,
-    int cidade_pessoa, int estado_pessoa,String cep_pessoa, String telefone_pessoa, String cpf_pessoa, 
+    int cidade_pessoa,String cep_pessoa, String telefone_pessoa, String cpf_pessoa, 
     int grupo_pessoa, int usuario_pessoa){
          PessoaMODEL objpessoa = new PessoaMODEL();
          
@@ -31,7 +31,6 @@ public class PessoaCTR {
      objpessoa.setBairro_pessoa(bairro_pessoa);
      objpessoa.setNumero_pessoa(numero_pessoa);
      objpessoa.setCidade_pessoa(cidade_pessoa);
-     objpessoa.setEstado_pessoa(estado_pessoa);
      objpessoa.setCep_pessoa(cep_pessoa);
      objpessoa.setTelefone_pessoa(telefone_pessoa);
      objpessoa.setCpf_pessoa(cpf_pessoa);
@@ -47,7 +46,7 @@ public class PessoaCTR {
     
      
      public void AlteraPessoaCTR(String nome_pessoa ,String endereco_pessoa, String bairro_pessoa, String numero_pessoa,
-    int cidade_pessoa, int estado_pessoa,String cep_pessoa, String telefone_pessoa, String cpf_pessoa, 
+    int cidade_pessoa,String cep_pessoa, String telefone_pessoa, String cpf_pessoa, 
     int grupo_pessoa, int usuario_pessoa,int cod_pessoa)
     {
         // Cria um objeto da MODEL
@@ -58,7 +57,6 @@ public class PessoaCTR {
      objpessoa.setBairro_pessoa(bairro_pessoa);
      objpessoa.setNumero_pessoa(numero_pessoa);
      objpessoa.setCidade_pessoa(cidade_pessoa);
-     objpessoa.setEstado_pessoa(estado_pessoa);
      objpessoa.setCep_pessoa(cep_pessoa);
      objpessoa.setTelefone_pessoa(telefone_pessoa);
      objpessoa.setCpf_pessoa(cpf_pessoa);

@@ -10,10 +10,12 @@ import CTR.CidadeCTR;
 import CTR.EstadoCTR;
 import CTR.GrupoCTR;
 import CTR.PessoaCTR;
+import CTR.UsuarioCTR;
 import MODEL.CidadeMODEL;
 import MODEL.EstadoMODEL;
 import MODEL.GrupoMODEL;
 import MODEL.PessoaMODEL;
+import MODEL.UsuarioMODEL;
 import java.util.List;
 
 /**
@@ -27,6 +29,10 @@ public class PessoaVIEW extends javax.swing.JFrame {
     List<EstadoMODEL> listEstado;
     List<CidadeMODEL> listCidade = null;
     List<GrupoMODEL> listGrupo = null;
+    List<UsuarioMODEL> listUsuario = null;
+    int item_cidade;
+    int item_grupo;
+    int item_usuario;
     //List<UsuarioMODEL> listUsuario = null;
     String opcao = "Inserir";
     /**
@@ -38,6 +44,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
         carregaestadocmb();
         carregacidadecmb();
         carregagrupocmb();
+        carregausuariocmb();
 
     }
 
@@ -126,6 +133,11 @@ public class PessoaVIEW extends javax.swing.JFrame {
         jScrollPane1.setViewportView(imgBiometria);
 
         cmbCidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCidadeActionPerformed(evt);
+            }
+        });
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbEstado.addItemListener(new java.awt.event.ItemListener() {
@@ -142,6 +154,11 @@ public class PessoaVIEW extends javax.swing.JFrame {
         jLabel7.setText("Usuário:");
 
         cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUsuarioActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +311,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbGrupoPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGrupoPessoaActionPerformed
-        // TODO add your handling code here:
+        item_grupo = cmbGrupoPessoa.getSelectedIndex();
     }//GEN-LAST:event_cmbGrupoPessoaActionPerformed
 
     private void txtNumeroPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPessoaActionPerformed
@@ -340,6 +357,14 @@ public class PessoaVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void cmbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioActionPerformed
+        item_usuario = cmbUsuario.getSelectedIndex();
+    }//GEN-LAST:event_cmbUsuarioActionPerformed
+
+    private void cmbCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCidadeActionPerformed
+        item_cidade = cmbCidade.getSelectedIndex();
+    }//GEN-LAST:event_cmbCidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,24 +472,40 @@ public class PessoaVIEW extends javax.swing.JFrame {
         }
         
     }
+    
+        public void carregausuariocmb()
+    {
+        UsuarioCTR objusuario = new UsuarioCTR();
+        listUsuario = objusuario.ListaUsuarioBD();
+        
+        cmbUsuario.removeAllItems();
+        int i = 0;
+        
+        while(i < listUsuario.size())
+        {
+            cmbUsuario.addItem(listUsuario.get(i).getNome_usuario());
+            i++;
+        }
+        
+    }
         
         
     public void inserepessoa(){
         PessoaCTR objctr = new PessoaCTR();
 
             objctr.inserePESSOACTR(txtNomePessoa.getText(),txtEnderecoPessoa.getText(),txtBairroPessoa.getText(),
-                txtNumeroPessoa.getText(),listCidade.get(cmbCidade.getSelectedIndex()).getCod_cidade(),
-                listEstado.get(cmbEstado.getSelectedIndex()).getCod_uf(),txtCEPPessoa.getText(),txtTelefonePessoa.getText(),
-                txtCPFPessoa.getText(),listGrupo.get(cmbGrupoPessoa.getSelectedIndex()).getCod_grupo(),cod_usuario);
+                txtNumeroPessoa.getText(),listCidade.get(item_cidade).getCod_cidade(),
+                txtCEPPessoa.getText(),txtTelefonePessoa.getText(),
+                txtCPFPessoa.getText(),listGrupo.get(item_grupo).getCod_grupo(),listUsuario.get(item_usuario).getCod_usuario());
 }
      public void alterapessoa()
     {
         PessoaCTR objfpagamento = new PessoaCTR();
         
             objfpagamento.AlteraPessoaCTR(txtNomePessoa.getText(),txtEnderecoPessoa.getText(),txtBairroPessoa.getText(),
-                txtNumeroPessoa.getText(),listCidade.get(cmbCidade.getSelectedIndex()).getCod_cidade(),
-                listEstado.get(cmbEstado.getSelectedIndex()).getCod_uf(),txtCEPPessoa.getText(),txtTelefonePessoa.getText(),
-                txtCPFPessoa.getText(),listGrupo.get(cmbGrupoPessoa.getSelectedIndex()).getCod_grupo(),cod_usuario,cod_pessoa);
+                txtNumeroPessoa.getText(),listCidade.get(item_cidade).getCod_cidade(),
+                txtCEPPessoa.getText(),txtTelefonePessoa.getText(),
+                txtCPFPessoa.getText(),listGrupo.get(item_grupo).getCod_grupo(),listUsuario.get(item_usuario).getCod_usuario(),cod_pessoa);
     }
     
     
