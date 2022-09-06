@@ -26,6 +26,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     
     Psq_UsuarioVIEW objusuariotbl;
     List<PerfilMODEL> listPerfil = null;
+    int item;
 
     /**
      * 
@@ -199,13 +200,11 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     private void cmbUsuario_perfilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilItemStateChanged
         
     }//GEN-LAST:event_cmbUsuario_perfilItemStateChanged
-
-    int item;
+  
     private void cmbUsuario_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilActionPerformed
         // TODO add your handling code here:
        item = cmbUsuario_perfil.getSelectedIndex();
         // JOptionPane.showMessageDialog(null, "Item: "+item);
-        
     }//GEN-LAST:event_cmbUsuario_perfilActionPerformed
 
     private void cmbUsuario_perfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilMouseClicked
