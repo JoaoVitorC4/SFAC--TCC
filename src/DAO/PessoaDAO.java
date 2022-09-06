@@ -37,9 +37,9 @@ public void inserePessoa(PessoaMODEL gs){
                    + "usuario_pessoa) values (?,?,?,?,?,?,?,?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_pessoa());
-            pgsql.setString(2, gs.getEndereco_pessoa());
-            pgsql.setString(3, gs.getBairro_pessoa());
+            pgsql.setString(1, gs.getNome_pessoa().toUpperCase());
+            pgsql.setString(2, gs.getEndereco_pessoa().toUpperCase());
+            pgsql.setString(3, gs.getBairro_pessoa().toUpperCase());
             pgsql.setString(4, gs.getNumero_pessoa());
             pgsql.setInt(5, gs.getCidade_pessoa());
             pgsql.setString(6, gs.getCep_pessoa());
@@ -73,9 +73,9 @@ public void AlteraPessoa(PessoaMODEL gs){
                    + "cpf_pessoa = ?,grupo_pessoa = ?,usuario_pessoa = ? where cod_pessoa = ?";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_pessoa());
-            pgsql.setString(2, gs.getEndereco_pessoa());
-            pgsql.setString(3, gs.getBairro_pessoa());
+            pgsql.setString(1, gs.getNome_pessoa().toUpperCase());
+            pgsql.setString(2, gs.getEndereco_pessoa().toUpperCase());
+            pgsql.setString(3, gs.getBairro_pessoa().toUpperCase());
             pgsql.setString(4, gs.getNumero_pessoa());
             pgsql.setInt(5, gs.getCidade_pessoa());
             pgsql.setString(6, gs.getCep_pessoa());

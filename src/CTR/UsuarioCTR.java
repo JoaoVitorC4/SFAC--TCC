@@ -64,6 +64,7 @@ public class UsuarioCTR {
     }
   
         public void insereUSUARIOCTR(String nome_usuario, String senha_usuario, int usuario_perfil){
+           
             UsuarioMODEL objusuario = new UsuarioMODEL();
          
             objusuario.setNome_usuario(nome_usuario);

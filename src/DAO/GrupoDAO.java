@@ -36,7 +36,7 @@ public void insereGrupo(GrupoMODEL gs){
            String sql = "insert into grupo(nome_grupo) values (?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_grupo());
+            pgsql.setString(1, gs.getNome_grupo().toUpperCase());
 
  
         
@@ -60,7 +60,7 @@ public void AlteraGrupo(GrupoMODEL gs)
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_grupo());
+            pgsql.setString(1, gs.getNome_grupo().toUpperCase());
             pgsql.setInt(2, gs.getCod_grupo());
             
             pgsql.executeUpdate();

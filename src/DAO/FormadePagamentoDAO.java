@@ -36,7 +36,7 @@ public void insereFormadePagamento(FormadePagamentoMODEL gs){
            String sql = "insert into formadepagamento(nome_fpagamento,taxa_fpagamento) values (?,?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_formadepagamento());
+            pgsql.setString(1, gs.getNome_formadepagamento().toUpperCase());
             pgsql.setFloat(2, gs.getTaxa_formadepagamento());
 
  
@@ -64,7 +64,7 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_formadepagamento());
+            pgsql.setString(1, gs.getNome_formadepagamento().toUpperCase());
             pgsql.setFloat(2, gs.getTaxa_formadepagamento());
             pgsql.setInt(3, gs.getCod_formadepagamento());
             

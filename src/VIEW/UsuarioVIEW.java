@@ -12,6 +12,7 @@ import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
 import MODEL.UsuarioMODEL;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +25,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     public static int cod_usuario;
     
     Psq_UsuarioVIEW objusuariotbl;
-    List<PerfilMODEL> listPerfil;
+    List<PerfilMODEL> listPerfil = null;
 
     /**
      * 
@@ -90,6 +91,16 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         cmbUsuario_perfil.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbUsuario_perfilItemStateChanged(evt);
+            }
+        });
+        cmbUsuario_perfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbUsuario_perfilMouseClicked(evt);
+            }
+        });
+        cmbUsuario_perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbUsuario_perfilActionPerformed(evt);
             }
         });
 
@@ -186,8 +197,20 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void cmbUsuario_perfilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilItemStateChanged
-
+        
     }//GEN-LAST:event_cmbUsuario_perfilItemStateChanged
+
+    int item;
+    private void cmbUsuario_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilActionPerformed
+        // TODO add your handling code here:
+       item = cmbUsuario_perfil.getSelectedIndex();
+        // JOptionPane.showMessageDialog(null, "Item: "+item);
+        
+    }//GEN-LAST:event_cmbUsuario_perfilActionPerformed
+
+    private void cmbUsuario_perfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbUsuario_perfilMouseClicked
 
     /**
      * @param args the command line arguments
@@ -235,15 +258,16 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         
     public void insereusuario(){
         
-       int cod_perfilselecionado;
-         
+       int perfil_selecicionado;
+       
+        
        UsuarioCTR objctr = new UsuarioCTR();
+        
+        
        
-       cod_perfilselecionado = listPerfil.get((int) cmbUsuario_perfil.getSelectedItem()).getCod_perfil();
-       
-       
-       objctr.insereUSUARIOCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),
-       cod_perfilselecionado);
+        objctr.insereUSUARIOCTR(txtNome_usuario.getText(), 
+                                txtSenha_usuario.getText(), 
+                                listPerfil.get(item).getCod_perfil());
     
     }
     
@@ -254,8 +278,9 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     {
         UsuarioCTR objusuario = new UsuarioCTR();
         
-        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(),txtSenha_usuario.getText(),
-        listPerfil.get(cmbUsuario_perfil.getSelectedIndex()).getCod_perfil(), cod_usuario);
+        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(), 
+                                txtSenha_usuario.getText(), 
+                                listPerfil.get(item).getCod_perfil(), cod_usuario);
     
     }
     

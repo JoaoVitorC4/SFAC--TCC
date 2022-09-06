@@ -39,7 +39,7 @@ public void insereUsuario(UsuarioMODEL gs){
            String sql = "insert into usuario(nome_usuario,senha_usuario,usuario_perfil) values (?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_usuario());
+            pgsql.setString(1, gs.getNome_usuario().toUpperCase());
             pgsql.setString(2, gs.getSenha_usuario());
             pgsql.setInt(3, gs.getUsuario_perfil());
 
@@ -65,7 +65,7 @@ public void AlteraUsuario(UsuarioMODEL gs)
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_usuario());
+            pgsql.setString(1, gs.getNome_usuario().toUpperCase());
             pgsql.setString(2, gs.getSenha_usuario());
             pgsql.setInt(3, gs.getUsuario_perfil());
 
