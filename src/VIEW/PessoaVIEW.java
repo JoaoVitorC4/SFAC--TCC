@@ -529,8 +529,8 @@ public class PessoaVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvar;
     public static javax.swing.JComboBox<String> cmbCidade;
     public static javax.swing.JComboBox<String> cmbEstado;
-    public javax.swing.JComboBox<String> cmbGrupoPessoa;
-    public javax.swing.JComboBox<String> cmbUsuario;
+    public static javax.swing.JComboBox<String> cmbGrupoPessoa;
+    public static javax.swing.JComboBox<String> cmbUsuario;
     public javax.swing.JTextPane imgBiometria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

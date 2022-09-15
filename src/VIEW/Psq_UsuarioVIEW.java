@@ -237,6 +237,8 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         listPerfil = objperfil.pegarPerfilBD
         ((int) tblUsuario.getValueAt(linha, 3));
             
+        objusuario.cmbUsuario_perfil.setSelectedItem
+            (listPerfil.get(0).getNome_perfil());
             
         objusuario.setVisible(true);
             this.dispose();
