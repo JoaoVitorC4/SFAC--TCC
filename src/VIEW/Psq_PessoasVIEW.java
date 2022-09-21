@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -349,7 +350,17 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        objpessoa.e
+        String [] options = new String[] {"Sim","Não"};
+        
+        Object ret = JOptionPane.showOptionDialog
+    (null, "Tem certeza que deseja excluir: " 
+            +objpessoa.txtNomePessoa.getText() + "?","AVISO", JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+        
+        if(options[Integer.valueOf(ret.toString())].equals("Sim"))
+        {
+            ExcluirPessoa();
+        }   
     }//GEN-LAST:event_btnDeletarActionPerformed
 
     /**
@@ -450,14 +461,14 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     
     public void ExcluirPessoa()
     {
-        UsuarioCTR objgru = new UsuarioCTR();
+        PessoaCTR objpes = new PessoaCTR();
         
         int linha = tblPessoa.getSelectedRow();
             
-        objusuario.coo = (int) tblUsuario.getValueAt(linha, 0);
+        objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
         
         
-        objgru.ExcluiUsuarioCTR(objusuario.cod_usuario);
+        objpes.ExcluiUsuarioCTR(objpessoa.cod_pessoa);
     }
     
     

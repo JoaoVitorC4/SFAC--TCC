@@ -374,14 +374,14 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
     
     public void ExcluirUsuario()
     {
-        UsuarioCTR objgru = new UsuarioCTR();
+        UsuarioCTR objusu = new UsuarioCTR();
         
         int linha = tblUsuario.getSelectedRow();
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         
         
-        objgru.ExcluiUsuarioCTR(objusuario.cod_usuario);
+        objusu.ExcluiUsuarioCTR(objusuario.cod_usuario);
     }
     
     

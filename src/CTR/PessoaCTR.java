@@ -101,10 +101,17 @@ public class PessoaCTR {
             Logger.getLogger(PessoaCTR.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        
-        
+               
     }
-    
+     public void ExcluiUsuarioCTR(int cod_pessoa)
+     {
+         PessoaMODEL objpessoa = new PessoaMODEL();
+         
+         objpessoa.setCod_pessoa(cod_pessoa);
+         
+         PessoaDAO objdao = new PessoaDAO();
+         objdao.ExcluirPessoa(objpessoa);
+     }
     
     
     
