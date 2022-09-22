@@ -164,7 +164,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
            insereformadepagamento(); 
                 limparCampos();
                     objformadepagamentotbl.setVisible(true);
-                        this.dispose();
+                        objformadepagamentotbl.pesquisarFormadePagamento();
+                            this.dispose();
                         
         }
         else if(opcao.equals("Alterar"))
@@ -181,7 +182,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
             alteraformadepagamento();
                 limparCampos();
                     objformadepagamentotbl.setVisible(true);
-                        this.dispose();
+                        objformadepagamentotbl.pesquisarFormadePagamento();
+                            this.dispose();
                         
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -189,7 +191,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_FormadePagamentoVIEW objformadepagamentotbl = new Psq_FormadePagamentoVIEW();
             objformadepagamentotbl.setVisible(true);
-                this.dispose();
+                objformadepagamentotbl.pesquisarFormadePagamento();
+                    this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtNome_grupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome_grupoActionPerformed

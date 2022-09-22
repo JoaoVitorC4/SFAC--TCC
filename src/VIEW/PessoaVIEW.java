@@ -341,6 +341,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
            inserepessoa(); 
            limparCampos();
            objpessoa.setVisible(true);
+           objpessoa.pesquisarPessoa();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -350,12 +351,18 @@ public class PessoaVIEW extends javax.swing.JFrame {
             alterapessoa();
             limparCampos();
             objpessoa.setVisible(true);
+            objpessoa.pesquisarPessoa();
             this.dispose();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        Psq_PessoasVIEW objtela = new Psq_PessoasVIEW();
+        objtela.setVisible(true);
+        objtela.pesquisarPessoa();
+        
         this.dispose();
+
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void cmbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioActionPerformed

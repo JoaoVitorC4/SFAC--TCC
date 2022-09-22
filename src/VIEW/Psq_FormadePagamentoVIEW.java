@@ -30,6 +30,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     public Psq_FormadePagamentoVIEW() {
         initComponents();
         ativabotoes();
+        pesquisarFormadePagamento();
     }
 
     /**

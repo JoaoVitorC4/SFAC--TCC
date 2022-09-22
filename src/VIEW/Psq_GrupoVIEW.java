@@ -30,7 +30,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
 
     public Psq_GrupoVIEW() {
         initComponents();
-        
+        pesquisarGrupo();
     }
 
     /**

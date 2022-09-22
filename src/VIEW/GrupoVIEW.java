@@ -122,6 +122,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
            inseregrupo(); 
            limparCampos();
            objgrupo.setVisible(true);
+           objgrupo.pesquisarGrupo();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -131,6 +132,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
             alteragrupo();
             limparCampos();
             objgrupo.setVisible(true);
+            objgrupo.pesquisarGrupo();
             this.dispose();
         }
 
@@ -139,7 +141,8 @@ public class GrupoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_GrupoVIEW psqtela = new Psq_GrupoVIEW();
             psqtela.setVisible(true);
-                this.dispose();
+                psqtela.pesquisarGrupo();
+                    this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**

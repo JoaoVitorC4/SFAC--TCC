@@ -34,7 +34,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
 
     public Psq_UsuarioVIEW() {
         initComponents();
-        
+        pesquisarUsuario();
     }
 
     /**

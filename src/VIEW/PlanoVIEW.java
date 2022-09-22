@@ -170,6 +170,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
            insereplano(); 
            limparCampos();
            objplano.setVisible(true);
+           objplano.pesquisarPlano();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -185,6 +186,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
             alteraplano();
             limparCampos();
             objplano.setVisible(true);
+            objplano.pesquisarPlano();
             this.dispose();
         }
 
@@ -193,7 +195,8 @@ public class PlanoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_PlanoVIEW psqtela = new Psq_PlanoVIEW();
             psqtela.setVisible(true);
-        this.dispose();
+                psqtela.pesquisarPlano();
+                    this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtQtd_convidado_planoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtd_convidado_planoActionPerformed

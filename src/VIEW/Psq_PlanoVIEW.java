@@ -30,6 +30,7 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
 
     public Psq_PlanoVIEW() {
         initComponents();
+        pesquisarPlano();
         
     }
 

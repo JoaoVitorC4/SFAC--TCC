@@ -177,6 +177,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
            insereusuario(); 
            limparCampos();
            objusuario.setVisible(true);
+           objusuario.pesquisarUsuario();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -186,6 +187,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
             alterausuario();
             limparCampos();
             objusuario.setVisible(true);
+            objusuario.pesquisarUsuario();
             this.dispose();
         }
 
@@ -194,6 +196,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_UsuarioVIEW psqtela = new Psq_UsuarioVIEW();
             psqtela.setVisible(true);
+            psqtela.pesquisarUsuario();
                 this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

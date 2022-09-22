@@ -46,7 +46,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
 
     public Psq_PessoasVIEW() {
         initComponents();
-        
+        pesquisarPessoa();
     }
 
     /**
