@@ -419,7 +419,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     
     public void preenche_pessoa(){
         
-        String [] colunas = {"Cod" ,"Nome", "Endereço","Bairro","N°","Cidade","Estado","CEP","Telefone","CPF","Grupo","Usuario"};
+        String [] colunas = {"Cod" ,"Nome", "Endereço","Bairro","N°","Cidade","CEP","Telefone","CPF","Grupo","Usuario"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -442,7 +442,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
                  regVetor.add(rspessoa.getString("endereco_pessoa"));              
                  regVetor.add(rspessoa.getString("bairro_pessoa"));              
                  regVetor.add(rspessoa.getString("numero_pessoa"));              
-                 regVetor.add(rspessoa.getInt("cidade_pessoa"));              
+                 regVetor.add(rspessoa.getInt("cidade_pessoa"));                          
                  regVetor.add(rspessoa.getString("cep_pessoa"));                  
                  regVetor.add(rspessoa.getString("telefone_pessoa"));              
                  regVetor.add(rspessoa.getString("cpf_pessoa"));              
