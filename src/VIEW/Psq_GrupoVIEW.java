@@ -30,7 +30,8 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
 
     public Psq_GrupoVIEW() {
         initComponents();
-        
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
+        pesquisarGrupo();
     }
 
     /**
@@ -52,6 +53,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Grupo");
 
         jLabel1.setText("Pesquisar :");
 
@@ -171,6 +173,8 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
+
+        getAccessibleContext().setAccessibleDescription("Grupo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

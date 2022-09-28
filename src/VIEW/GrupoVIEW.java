@@ -23,6 +23,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
      */
     public GrupoVIEW() {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         desativacampo();
         limparCampos();
     }
@@ -47,6 +48,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
         txtNome_grupo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Grupo");
 
         jLabel1.setText("Cadastro de Grupo");
 
@@ -110,6 +112,8 @@ public class GrupoVIEW extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleDescription("Cadastro de Grupo");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,6 +126,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
            inseregrupo(); 
            limparCampos();
            objgrupo.setVisible(true);
+           objgrupo.pesquisarGrupo();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -131,6 +136,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
             alteragrupo();
             limparCampos();
             objgrupo.setVisible(true);
+            objgrupo.pesquisarGrupo();
             this.dispose();
         }
 
@@ -139,7 +145,8 @@ public class GrupoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_GrupoVIEW psqtela = new Psq_GrupoVIEW();
             psqtela.setVisible(true);
-                this.dispose();
+                psqtela.pesquisarGrupo();
+                    this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**

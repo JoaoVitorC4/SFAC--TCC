@@ -23,6 +23,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
      */
     public PlanoVIEW() {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         desativacampo();
         limparCampos();
     }
@@ -53,8 +54,9 @@ public class PlanoVIEW extends javax.swing.JFrame {
         txtQtd_convidado_plano = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Plano");
 
-        jLabel1.setText("Cadastro de Grupo");
+        jLabel1.setText("Cadastro de Plano");
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +152,8 @@ public class PlanoVIEW extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleDescription("Cadastro de Plano");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,6 +174,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
            insereplano(); 
            limparCampos();
            objplano.setVisible(true);
+           objplano.pesquisarPlano();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -185,6 +190,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
             alteraplano();
             limparCampos();
             objplano.setVisible(true);
+            objplano.pesquisarPlano();
             this.dispose();
         }
 
@@ -193,7 +199,8 @@ public class PlanoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_PlanoVIEW psqtela = new Psq_PlanoVIEW();
             psqtela.setVisible(true);
-        this.dispose();
+                psqtela.pesquisarPlano();
+                    this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtQtd_convidado_planoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtd_convidado_planoActionPerformed

@@ -24,6 +24,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
      */
     public FormadePagamentoVIEW() {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         desativacampo();
         limparCampos();
         //Psq_FormadePagamentoVIEW objformadepagamentotbl;
@@ -51,6 +52,9 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         txtTaxa_formadepagamento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Forma de Pagamento");
+        setFocusCycleRoot(false);
+        setFocusable(false);
 
         jLabel1.setText("Cadastro de Forma de Pagamento");
 
@@ -146,6 +150,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
                         .addGap(31, 31, 31))))
         );
 
+        getAccessibleContext().setAccessibleDescription("Cadastro de Forma de Pagamento");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,7 +170,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
            insereformadepagamento(); 
                 limparCampos();
                     objformadepagamentotbl.setVisible(true);
-                        this.dispose();
+                        objformadepagamentotbl.pesquisarFormadePagamento();
+                            this.dispose();
                         
         }
         else if(opcao.equals("Alterar"))
@@ -181,7 +188,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
             alteraformadepagamento();
                 limparCampos();
                     objformadepagamentotbl.setVisible(true);
-                        this.dispose();
+                        objformadepagamentotbl.pesquisarFormadePagamento();
+                            this.dispose();
                         
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -189,7 +197,8 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_FormadePagamentoVIEW objformadepagamentotbl = new Psq_FormadePagamentoVIEW();
             objformadepagamentotbl.setVisible(true);
-                this.dispose();
+                objformadepagamentotbl.pesquisarFormadePagamento();
+                    this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtNome_grupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome_grupoActionPerformed

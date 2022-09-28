@@ -29,7 +29,9 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
     public Psq_FormadePagamentoVIEW() {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         ativabotoes();
+        pesquisarFormadePagamento();
     }
 
     /**
@@ -51,6 +53,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Forma de Pagamento");
 
         jLabel1.setText("Pesquisar :");
 
@@ -170,6 +173,8 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
+
+        getAccessibleContext().setAccessibleDescription("Forma de Pagamento");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

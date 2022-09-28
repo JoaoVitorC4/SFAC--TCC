@@ -16,6 +16,7 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
      */
     public MenuAdministrativoVIEW() {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
     }
 
     /**
@@ -33,6 +34,7 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
         btnUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Menu Administrativo");
 
         jToolBar1.setRollover(true);
 
@@ -83,6 +85,8 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(330, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleDescription("Menu Administrativo");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

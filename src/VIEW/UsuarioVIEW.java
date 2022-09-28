@@ -34,7 +34,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
      */
     public UsuarioVIEW() {
         initComponents();
-        
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         //desativacampo();
         //limparCampos();
         carregaperfilcmb();
@@ -65,6 +65,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Usuário");
 
         jLabel1.setText("Cadastro de Usuário");
 
@@ -165,6 +166,8 @@ public class UsuarioVIEW extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleDescription("Cadastro de Usuário");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,6 +180,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
            insereusuario(); 
            limparCampos();
            objusuario.setVisible(true);
+           objusuario.pesquisarUsuario();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -186,6 +190,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
             alterausuario();
             limparCampos();
             objusuario.setVisible(true);
+            objusuario.pesquisarUsuario();
             this.dispose();
         }
 
@@ -194,6 +199,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_UsuarioVIEW psqtela = new Psq_UsuarioVIEW();
             psqtela.setVisible(true);
+            psqtela.pesquisarUsuario();
                 this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

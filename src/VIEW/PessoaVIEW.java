@@ -40,6 +40,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
      */
     public PessoaVIEW() {  
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         desativarBotoes();
         carregaestadocmb();
         carregacidadecmb();
@@ -89,6 +90,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Pessoa");
         setFocusCycleRoot(false);
 
         jLabel1.setText("Cadastro de Pessoa");
@@ -307,6 +309,8 @@ public class PessoaVIEW extends javax.swing.JFrame {
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleDescription("Cadastro de Pessoa");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -341,6 +345,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
            inserepessoa(); 
            limparCampos();
            objpessoa.setVisible(true);
+           objpessoa.pesquisarPessoa();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
@@ -350,12 +355,18 @@ public class PessoaVIEW extends javax.swing.JFrame {
             alterapessoa();
             limparCampos();
             objpessoa.setVisible(true);
+            objpessoa.pesquisarPessoa();
             this.dispose();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        Psq_PessoasVIEW objtela = new Psq_PessoasVIEW();
+        objtela.setVisible(true);
+        objtela.pesquisarPessoa();
+        
         this.dispose();
+
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void cmbUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuarioActionPerformed

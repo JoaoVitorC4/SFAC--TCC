@@ -46,7 +46,8 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
 
     public Psq_PessoasVIEW() {
         initComponents();
-        
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
+        pesquisarPessoa();
     }
 
     /**
@@ -68,6 +69,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pessoas");
 
         jLabel1.setText("Pesquisar :");
 
@@ -187,6 +189,8 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
+
+        getAccessibleContext().setAccessibleDescription("Pessoas");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -419,7 +423,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     
     public void preenche_pessoa(){
         
-        String [] colunas = {"Cod" ,"Nome", "Endereço","Bairro","N°","Cidade","Estado","CEP","Telefone","CPF","Grupo","Usuario"};
+        String [] colunas = {"Cod" ,"Nome", "Endereço","Bairro","N°","Cidade","CEP","Telefone","CPF","Grupo","Usuario"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -442,7 +446,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
                  regVetor.add(rspessoa.getString("endereco_pessoa"));              
                  regVetor.add(rspessoa.getString("bairro_pessoa"));              
                  regVetor.add(rspessoa.getString("numero_pessoa"));              
-                 regVetor.add(rspessoa.getInt("cidade_pessoa"));              
+                 regVetor.add(rspessoa.getInt("cidade_pessoa"));                          
                  regVetor.add(rspessoa.getString("cep_pessoa"));                  
                  regVetor.add(rspessoa.getString("telefone_pessoa"));              
                  regVetor.add(rspessoa.getString("cpf_pessoa"));              

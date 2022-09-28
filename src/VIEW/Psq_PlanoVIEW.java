@@ -30,6 +30,8 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
 
     public Psq_PlanoVIEW() {
         initComponents();
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
+        pesquisarPlano();
         
     }
 
@@ -52,6 +54,7 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Plano");
 
         jLabel1.setText("Pesquisar :");
 
@@ -171,6 +174,8 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
+
+        getAccessibleContext().setAccessibleDescription("Plano");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

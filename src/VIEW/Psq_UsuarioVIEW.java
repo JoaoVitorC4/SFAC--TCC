@@ -34,7 +34,8 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
 
     public Psq_UsuarioVIEW() {
         initComponents();
-        
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
+        pesquisarUsuario();
     }
 
     /**
@@ -56,6 +57,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Usuário");
 
         jLabel1.setText("Pesquisar :");
 
@@ -175,6 +177,8 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
+
+        getAccessibleContext().setAccessibleDescription("Usuário");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
