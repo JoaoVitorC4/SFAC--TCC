@@ -5,6 +5,11 @@
  */
 package VIEW;
 
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
+import javax.swing.border.Border;
+
 /**
  *
  * @author LOUISE
@@ -43,6 +48,7 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnConfiguracoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
         btnConfiguracoes.setText("Configurações");
+        btnConfiguracoes.setBorder(new RoundedBorder(20));
         btnConfiguracoes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnConfiguracoes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +59,7 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnPessoas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/perfil.png"))); // NOI18N
         btnPessoas.setText("Pessoas");
+        btnPessoas.setBorder(new RoundedBorder(20));
         btnPessoas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPessoas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPessoas.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +71,7 @@ public class menuVIEW extends javax.swing.JFrame {
         btnopcoesadministrativas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/opcoes administrativas.png"))); // NOI18N
         btnopcoesadministrativas.setText("Opções Administrativas");
         btnopcoesadministrativas.setToolTipText("");
+        btnopcoesadministrativas.setBorder(new RoundedBorder(20));
         btnopcoesadministrativas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnopcoesadministrativas.setMargin(new java.awt.Insets(2, 2, 2, 2));
         btnopcoesadministrativas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -75,11 +83,13 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnMensalidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/calendario.png"))); // NOI18N
         btnMensalidades.setText("Mensalidades");
+        btnMensalidades.setBorder(new RoundedBorder(20));
         btnMensalidades.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMensalidades.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         btnPlanos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/planos.png"))); // NOI18N
         btnPlanos.setText("Planos");
+        btnPlanos.setBorder(new RoundedBorder(20));
         btnPlanos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPlanos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPlanos.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +100,7 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnPacote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pacote.png"))); // NOI18N
         btnPacote.setText("Pacote");
+        btnPacote.setBorder(new RoundedBorder(20));
         btnPacote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPacote.setVerifyInputWhenFocusTarget(false);
         btnPacote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -192,6 +203,26 @@ public class menuVIEW extends javax.swing.JFrame {
                 new menuVIEW().setVisible(true);
             }
         });
+    }
+    
+       private static class RoundedBorder implements Border {
+        
+        private int radius;
+        
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+
+        public boolean isBorderOpaque() {
+            return true;
+        }
+
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x,y,width-1,height-1,radius,radius);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

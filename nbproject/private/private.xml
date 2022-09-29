@@ -3,23 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/CTR/UsuarioCTR.java</file>
-            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/CTR/PerfilCTR.java</file>
-            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/VIEW/UsuarioVIEW.java</file>
-            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/MODEL/PerfilMODEL.java</file>
-            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/DAO/UsuarioDAO.java</file>
-=======
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/DAO/PerfilDAO.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/VIEW/UsuarioVIEW.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/DAO/CidadeDAO.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/DAO/EstadoDAO.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/CTR/PerfilCTR.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/DAO/ConexaoDAO.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/DAO/FormadePagamentoDAO.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/VIEW/Psq_PessoasVIEW.java</file>
-            <file>file:/C:/Users/LOUISE/Desktop/Programação/TCC/CODIGO/SFAC/SFAC/src/VIEW/Psq_UsuarioVIEW.java</file>
->>>>>>> origin/master
+            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/VIEW/Psq_PlanoVIEW.java</file>
+            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/VIEW/Psq_PessoasVIEW.java</file>
+            <file>file:/C:/Users/C4/Desktop/Faculdade/TCC/CODIGO/SFAC/SFAC--TCC/src/VIEW/Psq_GrupoVIEW.java</file>
         </group>
     </open-files>
 </project-private>

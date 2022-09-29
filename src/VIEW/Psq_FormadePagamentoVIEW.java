@@ -7,6 +7,9 @@ package VIEW;
 
 
 import CTR.FormadePagamentoCTR;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.ParseConversionEvent;
 
@@ -57,6 +61,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
         jLabel1.setText("Pesquisar :");
 
+        txtPesquisar.setBorder(new RoundedBorder(20));
         txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarActionPerformed(evt);
@@ -84,6 +89,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblFormadePagamento);
 
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa.png"))); // NOI18N
+        btnPesquisar.setBorder(new RoundedBorder(20));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -92,6 +98,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
         btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/deletar.png"))); // NOI18N
         btnDeletar.setText("Deletar");
+        btnDeletar.setBorder(new RoundedBorder(20));
         btnDeletar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +108,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar.png"))); // NOI18N
         btnNovo.setText("Novo");
+        btnNovo.setBorder(new RoundedBorder(20));
         btnNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +118,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
+        btnEditar.setBorder(new RoundedBorder(20));
         btnEditar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,6 +413,26 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
         btnDeletar.setEnabled(true);
         btnEditar.setEnabled(true);
         btnNovo.setEnabled(true);
+    }
+        
+           private static class RoundedBorder implements Border {
+        
+        private int radius;
+        
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+
+        public boolean isBorderOpaque() {
+            return true;
+        }
+
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x,y,width-1,height-1,radius,radius);
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

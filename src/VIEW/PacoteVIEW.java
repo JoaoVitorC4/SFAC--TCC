@@ -7,10 +7,10 @@ package VIEW;
 
 import CTR.GrupoCTR;
 import CTR.PerfilCTR;
-import CTR.UsuarioCTR;
+import CTR.PacoteCTR;
 import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
-import MODEL.UsuarioMODEL;
+import MODEL.PacoteMODEL;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -22,21 +22,21 @@ import javax.swing.border.Border;
  *
  * @author LOUISE
  */
-public class UsuarioVIEW extends javax.swing.JFrame {
+public class PacoteVIEW extends javax.swing.JFrame {
     
     public String opcao ="Inserir";
     
     public static int cod_usuario;
     
-    Psq_UsuarioVIEW objusuariotbl;
+    Psq_PacoteVIEW objusuariotbl;
     List<PerfilMODEL> listPerfil = null;
     int item;
 
     /**
      * 
-     * Creates new form UsuarioVIEW
+     * Creates new form PacoteVIEW
      */
-    public UsuarioVIEW() {
+    public PacoteVIEW() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         //desativacampo();
@@ -179,31 +179,31 @@ public class UsuarioVIEW extends javax.swing.JFrame {
 
         if(opcao.equals("Inserir"))
         {
-           Psq_UsuarioVIEW objusuario = new Psq_UsuarioVIEW();
+           Psq_PacoteVIEW objusuario = new Psq_PacoteVIEW();
             
            insereusuario(); 
            limparCampos();
            objusuario.setVisible(true);
-           objusuario.pesquisarUsuario();
+           objusuario.pesquisarPacote();
            this.dispose();
         }
         else if(opcao.equals("Alterar"))
         {
-            Psq_UsuarioVIEW objusuario = new Psq_UsuarioVIEW();
+            Psq_PacoteVIEW objusuario = new Psq_PacoteVIEW();
             
             alterausuario();
             limparCampos();
             objusuario.setVisible(true);
-            objusuario.pesquisarUsuario();
+            objusuario.pesquisarPacote();
             this.dispose();
         }
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        Psq_UsuarioVIEW psqtela = new Psq_UsuarioVIEW();
+        Psq_PacoteVIEW psqtela = new Psq_PacoteVIEW();
             psqtela.setVisible(true);
-            psqtela.pesquisarUsuario();
+            psqtela.pesquisarPacote();
                 this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -213,7 +213,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
   
     private void cmbUsuario_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuario_perfilActionPerformed
         // TODO add your handling code here:
-       item = cmbUsuario_perfil.getSelectedIndex();
+       item = cmbPacote_perfil.getSelectedIndex();
         // JOptionPane.showMessageDialog(null, "Item: "+item);
     }//GEN-LAST:event_cmbUsuario_perfilActionPerformed
 
@@ -238,21 +238,23 @@ public class UsuarioVIEW extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuarioVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuarioVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuarioVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuarioVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UsuarioVIEW().setVisible(true);
+                new PacoteVIEW().setVisible(true);
             }
         });
     }
@@ -270,7 +272,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
        int perfil_selecicionado;
        
         
-       UsuarioCTR objctr = new UsuarioCTR();
+       PacoteCTR objctr = new PacoteCTR();
         
         
        
@@ -285,9 +287,9 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     
     public void alterausuario()
     {
-        UsuarioCTR objusuario = new UsuarioCTR();
+        PacoteCTR objusuario = new PacoteCTR();
         
-        objusuario.AlteraUsuarioCTR(txtNome_usuario.getText(), 
+        objusuario.AlteraPacoteCTR(txtNome_usuario.getText(), 
                                 txtSenha_usuario.getText(), 
                                 listPerfil.get(item).getCod_perfil(), cod_usuario);
     
@@ -298,12 +300,12 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     {
         PerfilCTR objperfil = new PerfilCTR();
         listPerfil = objperfil.ListaPerfilBD();
-        cmbUsuario_perfil.removeAllItems();
+        cmbPacote_perfil.removeAllItems();
         int i = 0;
         
         while(i < listPerfil.size())
         {
-            cmbUsuario_perfil.addItem(listPerfil.get(i).getNome_perfil());
+            cmbPacote_perfil.addItem(listPerfil.get(i).getNome_perfil());
             i++;
         }
         
@@ -311,13 +313,13 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     
     
     public void pesquisausuario(){
-    UsuarioCTR objctr = new UsuarioCTR();
+    PacoteCTR objctr = new PacoteCTR();
     objctr.PesquisarUSUARIOCTR(txtNome_usuario.getText());
     }
     
     
     public void psqusuario(){
-    Psq_UsuarioVIEW psqtel = new Psq_UsuarioVIEW();
+    Psq_PacoteVIEW psqtel = new Psq_PacoteVIEW();
     psqtel.setVisible(rootPaneCheckingEnabled);
            
     }

@@ -16,7 +16,11 @@ import MODEL.EstadoMODEL;
 import MODEL.GrupoMODEL;
 import MODEL.PessoaMODEL;
 import MODEL.UsuarioMODEL;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.util.List;
+import javax.swing.border.Border;
 
 /**
  *
@@ -530,6 +534,26 @@ public class PessoaVIEW extends javax.swing.JFrame {
     Psq_PessoasVIEW psqtel = new Psq_PessoasVIEW();
     psqtel.setVisible(rootPaneCheckingEnabled);
            
+    }
+    
+       private static class RoundedBorder implements Border {
+        
+        private int radius;
+        
+        RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+
+        public boolean isBorderOpaque() {
+            return true;
+        }
+
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x,y,width-1,height-1,radius,radius);
+        }
     }
     
     

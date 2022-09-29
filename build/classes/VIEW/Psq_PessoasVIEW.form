@@ -149,6 +149,9 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icones/pesquisa.png"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new RoundedBorder(20)" type="code"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarActionPerformed"/>
@@ -160,6 +163,9 @@
           <Image iconType="3" name="/icones/deletar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Deletar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new RoundedBorder(20)" type="code"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
       <Events>
@@ -172,6 +178,9 @@
           <Image iconType="3" name="/icones/adicionar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Novo"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new RoundedBorder(20)" type="code"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
       <Events>
@@ -184,6 +193,9 @@
           <Image iconType="3" name="/icones/editar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new RoundedBorder(20)" type="code"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <Events>
