@@ -104,6 +104,11 @@ public class menuVIEW extends javax.swing.JFrame {
         btnPacote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPacote.setVerifyInputWhenFocusTarget(false);
         btnPacote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPacote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPacoteActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/SFAC.png"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -169,6 +174,11 @@ public class menuVIEW extends javax.swing.JFrame {
         MenuAdministrativoVIEW objtelamenuadm = new MenuAdministrativoVIEW();
         objtelamenuadm.setVisible(true);
     }//GEN-LAST:event_btnopcoesadministrativasActionPerformed
+
+    private void btnPacoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacoteActionPerformed
+        PacoteVIEW objtelapacote = new PacoteVIEW();
+        objtelapacote.setVisible(true);
+    }//GEN-LAST:event_btnPacoteActionPerformed
 
     /**
      * @param args the command line arguments
