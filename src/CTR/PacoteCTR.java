@@ -101,11 +101,11 @@ public class PacoteCTR {
     }
     
 
-    public ResultSet PesquisarPACOTECTR(int identificacao_pacote){
+    public ResultSet PesquisarPACOTECTR(String nome){
         
         PacoteDAO objtel = new PacoteDAO();
         
-        return objtel.PesquisarPacote(identificacao_pacote);
+        return objtel.PesquisarPacote(nome);
     
     }
 

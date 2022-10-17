@@ -83,15 +83,15 @@ public void AlteraPacote(PacoteMODEL gs)
         }
     }
 
-     public ResultSet PesquisarPacote (int identificacao_pacote){
+     public ResultSet PesquisarPacote (String nome){
          ConexaoDAO cb = new ConexaoDAO();
          con = cb.conectaPostgre();
          
          
-         String sql = "select * from pacote where (identificacao_pacote) like(?) order by identificacao_pacote";
+         String sql = "select * from pacote where identificacao_pacote::text like (?) order by identificacao_pacote";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1,"%" + identificacao_pacote + "%");
+            pgsql.setString(1,"%" + nome + "%");
             
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE, ResultSet.TYPE_SCROLL_INSENSITIVE);
             

@@ -114,6 +114,55 @@ public class PessoaCTR {
      }
     
     
+     
+     
+     
+     
+     public List<PessoaMODEL> ListaPessoaBD() {
+        List<PessoaMODEL> apessoa = new ArrayList<>();
+        PessoaDAO objdao = new PessoaDAO();
+        ResultSet rspessoa = objdao.listaPessoa();
+
+        try {
+            while (rspessoa.next()) {
+                PessoaMODEL gs = new PessoaMODEL();
+                gs.setCod_pessoa(rspessoa.getInt("cod_pessoa"));
+                gs.setNome_pessoa(rspessoa.getString("nome_pessoa"));
+
+                apessoa.add(gs);
+            }
+            return apessoa;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EstadoCTR.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public List<PessoaMODEL> pegarPessoaBD(int cod_pessoa) {
+        List<PessoaMODEL> apessoa = new ArrayList<>();
+        PessoaDAO objdao = new PessoaDAO();
+        ResultSet rspessoa = objdao.pegarIDPessoa(cod_pessoa);
+
+        try {
+            while (rspessoa.next()) {
+                PessoaMODEL gs = new PessoaMODEL();
+                gs.setNome_pessoa(rspessoa.getString("nome_pessoa"));
+
+                apessoa.add(gs);
+            }
+            return apessoa;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EstadoCTR.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+     
+     
+     
+     
+     
     
     
 }

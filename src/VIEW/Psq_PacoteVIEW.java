@@ -6,13 +6,20 @@
 package VIEW;
 
 
+import CTR.GrupoCTR;
 import CTR.PerfilCTR;
 import CTR.PacoteCTR;
+import CTR.PessoaCTR;
+import CTR.PlanoCTR;
+import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
 import MODEL.PacoteMODEL;
+import MODEL.PessoaMODEL;
+import MODEL.PlanoMODEL;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,9 +36,14 @@ import javax.swing.table.DefaultTableModel;
  * @author aquin
  */
 public class Psq_PacoteVIEW extends javax.swing.JFrame {
-
+    List<PessoaMODEL> listPessoa = null;
+    List<PlanoMODEL> listPlano = null;
+    List<GrupoMODEL> listGrupo = null;
     ResultSet rspacote;
     PacoteVIEW objpacote = new PacoteVIEW();
+    PessoaCTR objpessoa = new PessoaCTR();
+    PlanoCTR objplano = new PlanoCTR();
+    GrupoCTR objgrupo = new GrupoCTR();
     List<PerfilMODEL> listPerfil;
     PerfilCTR objperfil = new PerfilCTR();
 
@@ -61,7 +73,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Usuário");
+        setTitle("Pacote");
 
         jLabel1.setText("Pesquisar :");
 
@@ -187,7 +199,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
 
-        getAccessibleContext().setAccessibleDescription("Usuário");
+        getAccessibleContext().setAccessibleDescription("Pacote");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -204,27 +216,76 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
     private void tblPacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacoteMouseClicked
         if(evt.getClickCount() == 2)
         {
-            int linha = tblPacote.getSelectedRow();
+        objpacote.opcao = "Alterar";
+        int linha = tblPacote.getSelectedRow();
+
+        objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
+        objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
+        objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
+        objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
+        objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
+        
+        listPessoa = objpessoa.PegarPessoaBD
+        ((int) tblPacote.getValueAt(linha, 5));
             
-            objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
-            objpacote.txtNome_pacote.setText((String)tblPacote.getValueAt(linha, 1));
+        objpacote.cmbPessoa_pacote.setSelectedItem
+            (listPessoa.get(0).getNome_pessoa());
+        
+        
+        
+        listPlano = objplano.PegarPlanoBD
+        ((int) tblPacote.getValueAt(linha, 6));
             
+        objpacote.cmbPlano_pacote.setSelectedItem
+            (listPlano.get(0).getNome_plano());
+        
+        
+        
+        listGrupo = objgrupo.PegarGrupoBD
+        ((int) tblPacote.getValueAt(linha, 7));
             
+        objpacote.cmbGrupo_pacote.setSelectedItem
+            (listGrupo.get(0).getNome_grupo());
             
-            objpacote.setVisible(true);
-                this.dispose();
+        objpacote.setVisible(true);
+            this.dispose();
         }
         
         
     }//GEN-LAST:event_tblPacoteMouseClicked
 
     private void tblPacoteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPacoteKeyPressed
-        
+        objpacote.opcao = "Alterar";
         int linha = tblPacote.getSelectedRow();
-            
+
         objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
-        objpacote.txtNome_pacote.setText((String)tblPacote.getValueAt(linha, 1));
-                  
+        objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
+        objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
+        objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
+        objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
+        
+        listPessoa = objpessoa.PegarPessoaBD
+        ((int) tblPacote.getValueAt(linha, 5));
+            
+        objpacote.cmbPessoa_pacote.setSelectedItem
+            (listPessoa.get(0).getNome_pessoa());
+        
+        
+        
+        listPlano = objplano.PegarPlanoBD
+        ((int) tblPacote.getValueAt(linha, 6));
+            
+        objpacote.cmbPlano_pacote.setSelectedItem
+            (listPlano.get(0).getNome_plano());
+        
+        
+        
+        listGrupo = objgrupo.PegarGrupoBD
+        ((int) tblPacote.getValueAt(linha, 7));
+            
+        objpacote.cmbGrupo_pacote.setSelectedItem
+            (listGrupo.get(0).getNome_grupo());
+            
         objpacote.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_tblPacoteKeyPressed
@@ -242,16 +303,34 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         objpacote.opcao = "Alterar";
         int linha = tblPacote.getSelectedRow();
-            
+
         objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
-        objpacote.txtNome_pacote.setText((String)tblPacote.getValueAt(linha, 1));
-        objpacote.txtSenha_pacote.setText((String)tblPacote.getValueAt(linha, 2));
+        objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
+        objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
+        objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
+        objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
         
-        listPerfil = objperfil.pegarPerfilBD
-        ((int) tblPacote.getValueAt(linha, 3));
+        listPessoa = objpessoa.PegarPessoaBD
+        ((int) tblPacote.getValueAt(linha, 5));
             
-        objpacote.cmbPacote_perfil.setSelectedItem
-            (listPerfil.get(0).getNome_perfil());
+        objpacote.cmbPessoa_pacote.setSelectedItem
+            (listPessoa.get(0).getNome_pessoa());
+        
+        
+        
+        listPlano = objplano.PegarPlanoBD
+        ((int) tblPacote.getValueAt(linha, 6));
+            
+        objpacote.cmbPlano_pacote.setSelectedItem
+            (listPlano.get(0).getNome_plano());
+        
+        
+        
+        listGrupo = objgrupo.PegarGrupoBD
+        ((int) tblPacote.getValueAt(linha, 7));
+            
+        objpacote.cmbGrupo_pacote.setSelectedItem
+            (listGrupo.get(0).getNome_grupo());
             
         objpacote.setVisible(true);
             this.dispose();
@@ -262,7 +341,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         Object ret = JOptionPane.showOptionDialog
     (null, "Tem certeza que deseja excluir: " 
-            +objpacote.txtNome_pacote.getText() + "?","AVISO", JOptionPane.YES_NO_OPTION,
+            +objpacote.txtIdentificacao_pacote.getText() + "?","AVISO", JOptionPane.YES_NO_OPTION,
             JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
@@ -373,8 +452,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         public void pesquisarPacote(){
         
             PacoteCTR objpacote = new PacoteCTR();
-            
-            rspacote = objpacote.PesquisarUSUARIOCTR(txtPesquisar.getText());
+            rspacote = objpacote.PesquisarPACOTECTR(txtPesquisar.getText());
         
             preenche_conpacote();
         
@@ -383,7 +461,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
     
     public void preenche_conpacote(){
         
-        String [] colunas = {"Código" ,"Nome","Senha","Perfil do Pacote"};
+        String [] colunas = {"Código" ,"Pessoa","Plano","Grupo","Vencimento","Identificação"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -402,9 +480,12 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
                Vector regVetor = new Vector();
                
                regVetor.add(rspacote.getInt("cod_pacote"));
-                regVetor.add(rspacote.getString("nome_pacote"));             
-                regVetor.add(rspacote.getString("senha_pacote"));             
-                regVetor.add(rspacote.getInt("pacote_perfil"));             
+                regVetor.add(rspacote.getInt("pessoa_pacote"));             
+                regVetor.add(rspacote.getInt("plano_pacote"));             
+                regVetor.add(rspacote.getInt("grupo_pacote"));
+                regVetor.add(rspacote.getDate("vencimento_pacote"));
+                regVetor.add(rspacote.getInt("identificacao_pacote"));
+                
                    
                dados.add(regVetor);
                tablemodel.addRow(regVetor);
