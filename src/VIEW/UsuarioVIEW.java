@@ -74,6 +74,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         jLabel1.setText("Cadastro de Usuário");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(new RoundedBorder(7));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -85,11 +86,14 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         jLabel3.setText("Nome do Usuário:");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new RoundedBorder(7));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+
+        txtCod_usuario.setEditable(false);
 
         jLabel4.setText("Senha do Usuário:");
 

@@ -63,6 +63,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         jLabel1.setText("Cadastro de Forma de Pagamento");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(new RoundedBorder(7));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -74,11 +75,14 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         jLabel3.setText("Descrição:");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new RoundedBorder(7));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+
+        txtCod_formadepagamento.setEditable(false);
 
         txtnome_formadepagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

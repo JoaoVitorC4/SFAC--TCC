@@ -62,11 +62,11 @@ public void AlteraPacote(PacoteMODEL gs)
         con = cb.conectaPostgre();
         
         String sql = "update pacote set "
-                + "pessoa_pacote = ?,plano_pacote = ?, grupo_pacote = ?, vencimento_pacote = ?, identificacao_pacote = ?"
+                + "pessoa_pacote = ?, plano_pacote = ?, grupo_pacote = ?, vencimento_pacote = ?, identificacao_pacote = ?"
                 + "where cod_pacote = ?";
         
         try {
-             pgsql = con.prepareStatement(sql);
+            pgsql = con.prepareStatement(sql);
             pgsql.setInt(1, gs.getPessoa_pacote());
             pgsql.setInt(2, gs.getPlano_pacote());
             pgsql.setInt(3, gs.getGrupo_pacote());

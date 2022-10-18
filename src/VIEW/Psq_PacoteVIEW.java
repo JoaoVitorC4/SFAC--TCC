@@ -77,7 +77,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
 
         jLabel1.setText("Pesquisar :");
 
-        txtPesquisar.setBorder(new RoundedBorder(20));
+        txtPesquisar.setBorder(new RoundedBorder(2));
         txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarActionPerformed(evt);
@@ -105,7 +105,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblPacote);
 
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa.png"))); // NOI18N
-        btnPesquisar.setBorder(new RoundedBorder(20));
+        btnPesquisar.setBorder(new RoundedBorder(7));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -114,7 +114,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
 
         btnDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/deletar.png"))); // NOI18N
         btnDeletar.setText("Deletar");
-        btnDeletar.setBorder(new RoundedBorder(20));
+        btnDeletar.setBorder(new RoundedBorder(7));
         btnDeletar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar.png"))); // NOI18N
         btnNovo.setText("Novo");
-        btnNovo.setBorder(new RoundedBorder(20));
+        btnNovo.setBorder(new RoundedBorder(7));
         btnNovo.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +134,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
-        btnEditar.setBorder(new RoundedBorder(20));
+        btnEditar.setBorder(new RoundedBorder(7));
         btnEditar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,16 +217,17 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         if(evt.getClickCount() == 2)
         {
         objpacote.opcao = "Alterar";
-        int linha = tblPacote.getSelectedRow();
+int linha = tblPacote.getSelectedRow();
 
         objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
         objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
         objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
         objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
         objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
+        objpacote.txtIdentificacao_pacote.setText((String)tblPacote.getValueAt(linha, 5));  
         
         listPessoa = objpessoa.PegarPessoaBD
-        ((int) tblPacote.getValueAt(linha, 5));
+        ((int) tblPacote.getValueAt(linha, 1));
             
         objpacote.cmbPessoa_pacote.setSelectedItem
             (listPessoa.get(0).getNome_pessoa());
@@ -234,7 +235,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         
         listPlano = objplano.PegarPlanoBD
-        ((int) tblPacote.getValueAt(linha, 6));
+        ((int) tblPacote.getValueAt(linha, 2));
             
         objpacote.cmbPlano_pacote.setSelectedItem
             (listPlano.get(0).getNome_plano());
@@ -242,7 +243,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         
         listGrupo = objgrupo.PegarGrupoBD
-        ((int) tblPacote.getValueAt(linha, 7));
+        ((int) tblPacote.getValueAt(linha, 3));
             
         objpacote.cmbGrupo_pacote.setSelectedItem
             (listGrupo.get(0).getNome_grupo());
@@ -263,9 +264,10 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
         objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
         objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
+        objpacote.txtIdentificacao_pacote.setText((String)tblPacote.getValueAt(linha, 5));  
         
         listPessoa = objpessoa.PegarPessoaBD
-        ((int) tblPacote.getValueAt(linha, 5));
+        ((int) tblPacote.getValueAt(linha, 1));
             
         objpacote.cmbPessoa_pacote.setSelectedItem
             (listPessoa.get(0).getNome_pessoa());
@@ -273,7 +275,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         
         listPlano = objplano.PegarPlanoBD
-        ((int) tblPacote.getValueAt(linha, 6));
+        ((int) tblPacote.getValueAt(linha, 2));
             
         objpacote.cmbPlano_pacote.setSelectedItem
             (listPlano.get(0).getNome_plano());
@@ -281,7 +283,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         
         listGrupo = objgrupo.PegarGrupoBD
-        ((int) tblPacote.getValueAt(linha, 7));
+        ((int) tblPacote.getValueAt(linha, 3));
             
         objpacote.cmbGrupo_pacote.setSelectedItem
             (listGrupo.get(0).getNome_grupo());
@@ -309,6 +311,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
         objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
         objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
+        objpacote.txtIdentificacao_pacote.setText((String)tblPacote.getValueAt(linha, 5).toString());  
         
         listPessoa = objpessoa.PegarPessoaBD
         ((int) tblPacote.getValueAt(linha, 1));

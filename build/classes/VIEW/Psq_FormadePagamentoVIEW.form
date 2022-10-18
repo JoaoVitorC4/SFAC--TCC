@@ -108,7 +108,7 @@
     <Component class="javax.swing.JTextField" name="txtPesquisar">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new RoundedBorder(20)" type="code"/>
+          <Connection code="new RoundedBorder(2)" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -150,7 +150,7 @@
           <Image iconType="3" name="/icones/pesquisa.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new RoundedBorder(20)" type="code"/>
+          <Connection code="new RoundedBorder(7)" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -164,7 +164,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Deletar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new RoundedBorder(20)" type="code"/>
+          <Connection code="new RoundedBorder(7)" type="code"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -182,7 +182,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Novo"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new RoundedBorder(20)" type="code"/>
+          <Connection code="new RoundedBorder(7)" type="code"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -200,7 +200,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Editar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new RoundedBorder(20)" type="code"/>
+          <Connection code="new RoundedBorder(7)" type="code"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>

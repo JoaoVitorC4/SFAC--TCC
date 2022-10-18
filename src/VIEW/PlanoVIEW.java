@@ -63,6 +63,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
         jLabel1.setText("Cadastro de Plano");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(new RoundedBorder(7));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -74,11 +75,14 @@ public class PlanoVIEW extends javax.swing.JFrame {
         jLabel3.setText("Nome do Plano:");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(new RoundedBorder(7));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+
+        txtCod_plano.setEditable(false);
 
         jLabel4.setText("Valor do Plano:");
 
