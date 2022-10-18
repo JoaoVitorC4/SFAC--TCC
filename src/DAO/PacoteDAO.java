@@ -159,7 +159,7 @@ public void AlteraPacote(PacoteMODEL gs)
         try {
             while (rspacote.next()) {
                 PacoteMODEL gs = new PacoteMODEL();
-                gs.setCod_pacote(rspacote.getInt("cod_uf"));
+                gs.setCod_pacote(rspacote.getInt("cod_pacote"));
                 gs.setPessoa_pacote(rspacote.getInt("pessoa_pacote"));
                 gs.setPlano_pacote(rspacote.getInt("plano_pacote"));
                 gs.setGrupo_pacote(rspacote.getInt("grupo_pessoa"));
