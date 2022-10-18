@@ -311,7 +311,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
         
         listPessoa = objpessoa.PegarPessoaBD
-        ((int) tblPacote.getValueAt(linha, 5));
+        ((int) tblPacote.getValueAt(linha, 1));
             
         objpacote.cmbPessoa_pacote.setSelectedItem
             (listPessoa.get(0).getNome_pessoa());
@@ -319,7 +319,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         
         listPlano = objplano.PegarPlanoBD
-        ((int) tblPacote.getValueAt(linha, 6));
+        ((int) tblPacote.getValueAt(linha, 2));
             
         objpacote.cmbPlano_pacote.setSelectedItem
             (listPlano.get(0).getNome_plano());
@@ -327,7 +327,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         
         
         listGrupo = objgrupo.PegarGrupoBD
-        ((int) tblPacote.getValueAt(linha, 7));
+        ((int) tblPacote.getValueAt(linha, 3));
             
         objpacote.cmbGrupo_pacote.setSelectedItem
             (listGrupo.get(0).getNome_grupo());

@@ -176,7 +176,7 @@ public class menuVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnopcoesadministrativasActionPerformed
 
     private void btnPacoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacoteActionPerformed
-        PacoteVIEW objtelapacote = new PacoteVIEW();
+        Psq_PacoteVIEW objtelapacote = new Psq_PacoteVIEW();
         objtelapacote.setVisible(true);
     }//GEN-LAST:event_btnPacoteActionPerformed
 

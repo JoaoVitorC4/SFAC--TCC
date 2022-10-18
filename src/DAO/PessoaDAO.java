@@ -153,7 +153,7 @@ public void AlteraPessoa(PessoaMODEL gs){
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from pessoa inner join contato on cod_pessoa = fk_cod_pessoa where cod_pessoa =" +cod_pessoa;
+        String sql = "select * from pessoa where cod_pessoa =" +cod_pessoa;
        
         
         try {

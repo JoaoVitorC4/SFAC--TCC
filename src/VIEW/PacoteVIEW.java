@@ -19,7 +19,9 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -33,7 +35,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
     public String opcao ="Inserir";
     
     public static int cod_pacote;
-    public static int indentificacao_pacote;
+    public int indentificacao_pacote;
     
     Psq_PacoteVIEW objpacotetbl;
     List<PessoaMODEL> listPessoa = null;
@@ -86,9 +88,9 @@ public class PacoteVIEW extends javax.swing.JFrame {
         cmbPlano_pacote = new javax.swing.JComboBox<>();
         cmbPessoa_pacote = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        txtVencimento_pacote = new com.toedter.calendar.JDateChooser();
         txtIdentificacao_pacote = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        txtVencimento_pacote = new com.toedter.calendar.JDateChooser();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -153,6 +155,16 @@ public class PacoteVIEW extends javax.swing.JFrame {
         jLabel6.setText("Plano Pacote:");
 
         cmbPlano_pacote.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbPlano_pacote.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPlano_pacoteItemStateChanged(evt);
+            }
+        });
+        cmbPlano_pacote.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbPlano_pacoteMouseClicked(evt);
+            }
+        });
         cmbPlano_pacote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbPlano_pacoteActionPerformed(evt);
@@ -160,6 +172,16 @@ public class PacoteVIEW extends javax.swing.JFrame {
         });
 
         cmbPessoa_pacote.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbPessoa_pacote.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPessoa_pacoteItemStateChanged(evt);
+            }
+        });
+        cmbPessoa_pacote.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbPessoa_pacoteMouseClicked(evt);
+            }
+        });
         cmbPessoa_pacote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbPessoa_pacoteActionPerformed(evt);
@@ -183,8 +205,8 @@ public class PacoteVIEW extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtIdentificacao_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCod_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -206,7 +228,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbGrupo_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVencimento_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtVencimento_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,11 +243,11 @@ public class PacoteVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdentificacao_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtCod_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,9 +273,9 @@ public class PacoteVIEW extends javax.swing.JFrame {
                         .addComponent(btnCancelar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtVencimento_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
+                    .addComponent(txtVencimento_pacote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("Cadastro de Pacote");
@@ -304,7 +326,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbGrupo_pacoteActionPerformed
 
     private void cmbGrupo_pacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbGrupo_pacoteMouseClicked
-        // TODO add your handling code here:
+        itemgrupo = cmbGrupo_pacote.getSelectedIndex();
     }//GEN-LAST:event_cmbGrupo_pacoteMouseClicked
 
     private void cmbPessoa_pacoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPessoa_pacoteActionPerformed
@@ -314,6 +336,22 @@ public class PacoteVIEW extends javax.swing.JFrame {
     private void cmbPlano_pacoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPlano_pacoteActionPerformed
         itemplano = cmbPlano_pacote.getSelectedIndex();
     }//GEN-LAST:event_cmbPlano_pacoteActionPerformed
+
+    private void cmbPlano_pacoteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPlano_pacoteItemStateChanged
+        itemplano = cmbPlano_pacote.getSelectedIndex();
+    }//GEN-LAST:event_cmbPlano_pacoteItemStateChanged
+
+    private void cmbPlano_pacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbPlano_pacoteMouseClicked
+       itemplano = cmbPlano_pacote.getSelectedIndex();
+    }//GEN-LAST:event_cmbPlano_pacoteMouseClicked
+
+    private void cmbPessoa_pacoteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPessoa_pacoteItemStateChanged
+        itempessoa = cmbPessoa_pacote.getSelectedIndex();
+    }//GEN-LAST:event_cmbPessoa_pacoteItemStateChanged
+
+    private void cmbPessoa_pacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbPessoa_pacoteMouseClicked
+        itempessoa = cmbPessoa_pacote.getSelectedIndex();
+    }//GEN-LAST:event_cmbPessoa_pacoteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -360,7 +398,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
     public void desativacampo(){
         txtCod_pacote.setEditable(false);
     }
-        
+          
     public void inserepacote(){
         
        int perfil_selecicionado;
@@ -368,13 +406,18 @@ public class PacoteVIEW extends javax.swing.JFrame {
         
        PacoteCTR objctr = new PacoteCTR();
         
-       SimpleDateFormat formatadata = new SimpleDateFormat("dd/MM/yyyy");
+       //SimpleDateFormat formatadata = new SimpleDateFormat("dd/MM/yyyy");
        
-       String dataformatada = formatadata.format(txtVencimento_pacote.getDate());
+       java.util.Date utilDate = txtVencimento_pacote.getDate();
+       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+       
+       
+       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
        
         objctr.inserePACOTECTR(listPessoa.get(itempessoa).getCod_pessoa(),
                                 listPlano.get(itemplano).getCod_plano(),
-                                listGrupo.get(itemgrupo).getCod_grupo(), (Date) txtVencimento_pacote.getDate(),
+                                listGrupo.get(itemgrupo).getCod_grupo(), 
+                                sqlDate,
                                 indentificacao_pacote);
     
     }
@@ -386,10 +429,15 @@ public class PacoteVIEW extends javax.swing.JFrame {
     {
         PacoteCTR objpacote = new PacoteCTR();
         
+       java.util.Date utilDate = txtVencimento_pacote.getDate();
+       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());      
+        
+       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
+       
         objpacote.AlteraPacoteCTR(listPessoa.get(itempessoa).getCod_pessoa(),
                                 listPlano.get(itemplano).getCod_plano(),
                                 listGrupo.get(itemgrupo).getCod_grupo(),
-                                vencimento.valueOf(this.txtVencimento_pacote.getDate().toString()),
+                                sqlDate,
                                 indentificacao_pacote,
                                 cod_pacote);
     

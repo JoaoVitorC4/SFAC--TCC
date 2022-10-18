@@ -71,7 +71,7 @@ public class PacoteCTR {
             PacoteMODEL objpacote = new PacoteMODEL();
          
             objpacote.setPessoa_pacote(pessoa_pacote);
-            objpacote.setPessoa_pacote(plano_pacote);
+            objpacote.setPlano_pacote(plano_pacote);
             objpacote.setGrupo_pacote(grupo_plano);
             objpacote.setVencimento_pacote(vencimento_pacote);
             objpacote.setIdentificacao_pacote(identificacao_pacote);

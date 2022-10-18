@@ -130,7 +130,7 @@ public void AlteraPlano(PlanoMODEL gs)
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from plano inner join contato on cod_plano = fk_cod_plano where cod_plano =" +cod_plano;
+        String sql = "select * from plano where cod_plano =" +cod_plano;
        
         
         try {
