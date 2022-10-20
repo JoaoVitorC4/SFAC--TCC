@@ -130,7 +130,7 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from formadepagamento inner join contato on cod_fpagamento = fk_cod_fpagamento where cod_fpagamento =" +cod_formadepagamento;
+        String sql = "select * from formadepagamento where cod_fpagamento =" +cod_formadepagamento;
        
         
         try {

@@ -5,11 +5,13 @@
  */
 package VIEW;
 
+import CTR.FormadePagamentoCTR;
 import CTR.GrupoCTR;
 import CTR.PerfilCTR;
 import CTR.MensalidadeCTR;
 import CTR.PessoaCTR;
 import CTR.PlanoCTR;
+import CTR.StatusCTR;
 import MODEL.FormadePagamentoMODEL;
 import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
@@ -46,6 +48,11 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     int itemplano;
     int itemstatus;
     Date vencimento;
+    
+    String novo_valor;
+    String novo_valor_pago;
+    String novo_juros;
+    String novo_desconto;
 
     /**
      * 
@@ -99,7 +106,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtDesconto_mensalidade = new javax.swing.JTextField();
         txtEmissao_mensalidade = new com.toedter.calendar.JDateChooser();
-        txtVencimento_Mensalidade = new com.toedter.calendar.JDateChooser();
+        txtVencimento_mensalidade = new com.toedter.calendar.JDateChooser();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -222,87 +229,87 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtEmissao_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCod_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(cmbFormadepagamento_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel11)
-                                .addComponent(jLabel10))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtJuros_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtVencimento_Mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtValor_mensalidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtValor_pago_mensalidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtDesconto_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbPlano_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbStatus_Mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(255, 255, 255))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cmbFormadepagamento_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel10))
+                                    .addGap(22, 22, 22)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtJuros_mensalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                        .addComponent(txtValor_mensalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                        .addComponent(txtValor_pago_mensalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                        .addComponent(txtDesconto_mensalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                        .addComponent(txtEmissao_mensalidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbPlano_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbStatus_Mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtVencimento_mensalidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCod_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(367, 367, 367))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCod_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(txtEmissao_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(121, 121, 121)
                         .addComponent(btnSalvar)
                         .addGap(38, 38, 38)
                         .addComponent(btnCancelar))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtCod_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(6, 6, 6))
+                            .addComponent(txtEmissao_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7)
-                            .addComponent(txtVencimento_Mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                            .addComponent(txtVencimento_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txtValor_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -330,7 +337,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(cmbPlano_mensalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("Cadastro de Mensalidade");
@@ -344,6 +351,16 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
         {
            Psq_MensalidadeVIEW objmensalidade = new Psq_MensalidadeVIEW();
             
+           novo_valor = novo_valor.replace(",", ".");
+           txtValor_mensalidade.setText(novo_valor);
+            novo_valor_pago = novo_valor_pago.replace(",", ".");
+            txtValor_pago_mensalidade.setText(novo_valor_pago);
+                novo_juros = novo_juros.replace(",", ".");
+                txtJuros_mensalidade.setText(novo_juros);
+                    novo_desconto = novo_desconto.replace(",", ".");
+                    txtDesconto_mensalidade.setText(novo_desconto);
+           
+           
            inseremensalidade(); 
            limparCampos();
            objmensalidade.setVisible(true);
@@ -474,7 +491,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
        java.util.Date utilDateemi = txtEmissao_mensalidade.getDate();
        java.sql.Date sqlDateEmissao = new java.sql.Date(utilDateemi.getTime());
        
-       java.util.Date utilDate = txtVencimento_Mensalidade.getDate();
+       java.util.Date utilDate = txtVencimento_mensalidade.getDate();
        java.sql.Date sqlDateVencimento = new java.sql.Date(utilDate.getTime());
        
        
@@ -497,8 +514,11 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     {
         MensalidadeCTR objmensalidade = new MensalidadeCTR();
         
+       java.util.Date utilDateemi = txtEmissao_mensalidade.getDate();
+       java.sql.Date sqlDateEmissao = new java.sql.Date(utilDateemi.getTime());
+       
        java.util.Date utilDate = txtVencimento_mensalidade.getDate();
-       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());      
+       java.sql.Date sqlDateVencimento = new java.sql.Date(utilDate.getTime());     
         
        //indentificacao_mensalidade = Integer.parseInt(txtIdentificacao_mensalidade.getText());
        
@@ -516,16 +536,16 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     }
     
 
-    public void carregapessoacmb()
+    public void carregaformadepagamentocmb()
     {
-        PessoaCTR objpessoa = new PessoaCTR();
-        listPessoa = objpessoa.ListaPessoaBD();
-        cmbPessoa_mensalidade.removeAllItems();
+        FormadePagamentoCTR objformadepagamento = new FormadePagamentoCTR();
+        listFormadepagamento = objformadepagamento.ListaFormadePagamentoBD();
+        cmbFormadepagamento_mensalidade.removeAllItems();
         int i = 0;
         
-        while(i < listPessoa.size())
+        while(i < listFormadepagamento.size())
         {
-            cmbPessoa_mensalidade.addItem(listPessoa.get(i).getNome_pessoa());
+            cmbFormadepagamento_mensalidade.addItem(listFormadepagamento.get(i).getNome_formadepagamento());
             i++;
         }
         
@@ -548,16 +568,16 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
      
      
      
-      public void carregagrupocmb()
+      public void carregastatuscmb()
     {
-        GrupoCTR objgrupo = new GrupoCTR();
-        listGrupo = objgrupo.ListaGrupoBD();
-        cmbGrupo_mensalidade.removeAllItems();
+        StatusCTR objstatus = new StatusCTR();
+        listStatus = objstatus.ListaStatusBD();
+        cmbStatus_Mensalidade.removeAllItems();
         int i = 0;
         
-        while(i < listGrupo.size())
+        while(i < listStatus.size())
         {
-            cmbGrupo_mensalidade.addItem(listGrupo.get(i).getNome_grupo());
+            cmbStatus_Mensalidade.addItem(listStatus.get(i).getNome_status());
             i++;
         }
         
@@ -566,8 +586,13 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     
     
     public void pesquisamensalidade(){
+        
+    java.util.Date utilDate = txtVencimento_mensalidade.getDate();
+    java.sql.Date sqlDateVencimento = new java.sql.Date(utilDate.getTime());       
+        
+        
     MensalidadeCTR objctr = new MensalidadeCTR();
-    objctr.PesquisarMENSALIDADECTR(txtIdentificacao_mensalidade.getText());
+    objctr.PesquisarMENSALIDADECTR(sqlDateVencimento.toString());
     }
     
     
@@ -621,10 +646,10 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextField txtCod_mensalidade;
     public javax.swing.JTextField txtDesconto_mensalidade;
-    private com.toedter.calendar.JDateChooser txtEmissao_mensalidade;
+    public com.toedter.calendar.JDateChooser txtEmissao_mensalidade;
     public javax.swing.JTextField txtJuros_mensalidade;
     public javax.swing.JTextField txtValor_mensalidade;
     public javax.swing.JTextField txtValor_pago_mensalidade;
-    private com.toedter.calendar.JDateChooser txtVencimento_Mensalidade;
+    public com.toedter.calendar.JDateChooser txtVencimento_mensalidade;
     // End of variables declaration//GEN-END:variables
 }

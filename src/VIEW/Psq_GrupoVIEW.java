@@ -257,6 +257,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirGrupo();
+            pesquisarGrupo();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 

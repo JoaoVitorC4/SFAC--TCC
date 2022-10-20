@@ -268,6 +268,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirUsuario();
+            pesquisarUsuario();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 

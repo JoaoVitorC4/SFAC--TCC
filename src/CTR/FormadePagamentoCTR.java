@@ -94,7 +94,7 @@ public class FormadePagamentoCTR {
             while(rsformadepagamento.next())
             {
                 FormadePagamentoMODEL gs = new FormadePagamentoMODEL();
-                gs.setNome_formadepagamento(rsformadepagamento.getString("nome_formadepagamento"));
+                gs.setNome_formadepagamento(rsformadepagamento.getString("nome_fpagamento"));
                 gs.setTaxa_formadepagamento(rsformadepagamento.getFloat("taxa_fpagamento"));
                 
                 aformadepagamento.add(gs);

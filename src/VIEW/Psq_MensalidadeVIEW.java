@@ -6,16 +6,20 @@
 package VIEW;
 
 
+import CTR.FormadePagamentoCTR;
 import CTR.GrupoCTR;
 import CTR.PerfilCTR;
 import CTR.MensalidadeCTR;
 import CTR.PessoaCTR;
 import CTR.PlanoCTR;
+import CTR.StatusCTR;
+import MODEL.FormadePagamentoMODEL;
 import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
 import MODEL.MensalidadeMODEL;
 import MODEL.PessoaMODEL;
 import MODEL.PlanoMODEL;
+import MODEL.StatusMODEL;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -36,14 +40,14 @@ import javax.swing.table.DefaultTableModel;
  * @author aquin
  */
 public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
-    List<PessoaMODEL> listPessoa = null;
+    List<FormadePagamentoMODEL> listFormadepagamento = null;
     List<PlanoMODEL> listPlano = null;
-    List<GrupoMODEL> listGrupo = null;
+    List<StatusMODEL> listStatus = null;
     ResultSet rsmensalidade;
     MensalidadeVIEW objmensalidade = new MensalidadeVIEW();
-    PessoaCTR objpessoa = new PessoaCTR();
+    FormadePagamentoCTR objformadepagamento = new FormadePagamentoCTR();
     PlanoCTR objplano = new PlanoCTR();
-    GrupoCTR objgrupo = new GrupoCTR();
+    StatusCTR objstatus = new StatusCTR();
     List<PerfilMODEL> listPerfil;
     PerfilCTR objperfil = new PerfilCTR();
 
@@ -66,7 +70,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtPesquisar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblPacote = new javax.swing.JTable();
+        tblMensalidade = new javax.swing.JTable();
         btnPesquisar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
@@ -84,7 +88,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
             }
         });
 
-        tblPacote.setModel(new javax.swing.table.DefaultTableModel(
+        tblMensalidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -92,17 +96,17 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
 
             }
         ));
-        tblPacote.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblMensalidade.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblPacoteMouseClicked(evt);
+                tblMensalidadeMouseClicked(evt);
             }
         });
-        tblPacote.addKeyListener(new java.awt.event.KeyAdapter() {
+        tblMensalidade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tblPacoteKeyPressed(evt);
+                tblMensalidadeKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(tblPacote);
+        jScrollPane1.setViewportView(tblMensalidade);
 
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa.png"))); // NOI18N
         btnPesquisar.setBorder(new RoundedBorder(7));
@@ -213,84 +217,100 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void tblPacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacoteMouseClicked
+    private void tblMensalidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMensalidadeMouseClicked
         if(evt.getClickCount() == 2)
         {
         objmensalidade.opcao = "Alterar";
-int linha = tblMensalidade.getSelectedRow();
+        int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
-        objmensalidade.itempessoa = (int) tblMensalidade.getValueAt(linha, 1);
-        objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 2);
-        objmensalidade.itemgrupo = (int) tblMensalidade.getValueAt(linha, 3);
-        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 4));  
-        objmensalidade.txtIdentificacao_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5));  
+        objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
+        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2));  
+        objmensalidade.txtValor_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 3));
+        objmensalidade.txtValor_pago_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 4));
+        objmensalidade.txtJuros_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5));
+        objmensalidade.txtDesconto_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 6));
+        objmensalidade.itemformadepagamento = (int) tblMensalidade.getValueAt(linha, 7);
+        objmensalidade.itemstatus = (int) tblMensalidade.getValueAt(linha, 8);
+        objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 9);       
         
-        listPessoa = objpessoa.PegarPessoaBD
-        ((int) tblMensalidade.getValueAt(linha, 1));
+        listFormadepagamento = objformadepagamento.PegarFormadePagamentoBD
+        ((int) tblMensalidade.getValueAt(linha, 7));
             
-        objmensalidade.cmbPessoa_mensalidade.setSelectedItem
-            (listPessoa.get(0).getNome_pessoa());
+        objmensalidade.cmbFormadepagamento_mensalidade.setSelectedItem
+            (listFormadepagamento.get(0).getNome_formadepagamento());
+        
+        
+        
+        listStatus = objstatus.pegarStatusBD
+        ((int) tblMensalidade.getValueAt(linha, 8));
+            
+        objmensalidade.cmbStatus_Mensalidade.setSelectedItem
+            (listStatus.get(0).getNome_status());
+            
         
         
         
         listPlano = objplano.PegarPlanoBD
-        ((int) tblMensalidade.getValueAt(linha, 2));
+        ((int) tblMensalidade.getValueAt(linha, 9));
             
         objmensalidade.cmbPlano_mensalidade.setSelectedItem
             (listPlano.get(0).getNome_plano());
         
         
         
-        listGrupo = objgrupo.PegarGrupoBD
-        ((int) tblMensalidade.getValueAt(linha, 3));
-            
-        objmensalidade.cmbGrupo_mensalidade.setSelectedItem
-            (listGrupo.get(0).getNome_grupo());
-            
+
         objmensalidade.setVisible(true);
             this.dispose();
         }
         
         
-    }//GEN-LAST:event_tblPacoteMouseClicked
+    }//GEN-LAST:event_tblMensalidadeMouseClicked
 
-    private void tblPacoteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPacoteKeyPressed
-        objmensalidade.opcao = "Alterar";
+    private void tblMensalidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblMensalidadeKeyPressed
+                objmensalidade.opcao = "Alterar";
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
-        objmensalidade.itempessoa = (int) tblMensalidade.getValueAt(linha, 1);
-        objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 2);
-        objmensalidade.itemgrupo = (int) tblMensalidade.getValueAt(linha, 3);
-        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 4));  
-        objmensalidade.txtIdentificacao_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5));  
+        objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
+        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2));  
+        objmensalidade.txtValor_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 3));
+        objmensalidade.txtValor_pago_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 4));
+        objmensalidade.txtJuros_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5));
+        objmensalidade.txtDesconto_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 6));
+        objmensalidade.itemformadepagamento = (int) tblMensalidade.getValueAt(linha, 7);
+        objmensalidade.itemstatus = (int) tblMensalidade.getValueAt(linha, 8);
+        objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 9);       
         
-        listPessoa = objpessoa.PegarPessoaBD
-        ((int) tblMensalidade.getValueAt(linha, 1));
+        listFormadepagamento = objformadepagamento.PegarFormadePagamentoBD
+        ((int) tblMensalidade.getValueAt(linha, 7));
             
-        objmensalidade.cmbPessoa_mensalidade.setSelectedItem
-            (listPessoa.get(0).getNome_pessoa());
+        objmensalidade.cmbFormadepagamento_mensalidade.setSelectedItem
+            (listFormadepagamento.get(0).getNome_formadepagamento());
+        
+        
+        
+        listStatus = objstatus.pegarStatusBD
+        ((int) tblMensalidade.getValueAt(linha, 8));
+            
+        objmensalidade.cmbStatus_Mensalidade.setSelectedItem
+            (listStatus.get(0).getNome_status());
+            
         
         
         
         listPlano = objplano.PegarPlanoBD
-        ((int) tblMensalidade.getValueAt(linha, 2));
+        ((int) tblMensalidade.getValueAt(linha, 9));
             
         objmensalidade.cmbPlano_mensalidade.setSelectedItem
             (listPlano.get(0).getNome_plano());
         
         
         
-        listGrupo = objgrupo.PegarGrupoBD
-        ((int) tblMensalidade.getValueAt(linha, 3));
-            
-        objmensalidade.cmbGrupo_mensalidade.setSelectedItem
-            (listGrupo.get(0).getNome_grupo());
-            
+
         objmensalidade.setVisible(true);
             this.dispose();
-    }//GEN-LAST:event_tblPacoteKeyPressed
+    }//GEN-LAST:event_tblMensalidadeKeyPressed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         
@@ -304,37 +324,58 @@ int linha = tblMensalidade.getSelectedRow();
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         objmensalidade.opcao = "Alterar";
+        float valor_mensalidade = 0;
+        float valor_pago_mensalidade = 0;
+        float juros_mensalidade = 0;
+        float desconto_mensalidade = 0;
+        
+        
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
-        objmensalidade.itempessoa = (int) tblMensalidade.getValueAt(linha, 1);
-        objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 2);
-        objmensalidade.itemgrupo = (int) tblMensalidade.getValueAt(linha, 3);
-        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 4));  
-        objmensalidade.txtIdentificacao_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5).toString());  
+        objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
+        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2)); 
+            //Enviar valor para o txt da tela de edição quando for do tipo float 
+            valor_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 3));            
+            objmensalidade.txtValor_mensalidade.setText((String)Float.toString(valor_mensalidade));
+                valor_pago_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 4));            
+                objmensalidade.txtValor_pago_mensalidade.setText((String)Float.toString(valor_pago_mensalidade));
+                    juros_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 5));            
+                    objmensalidade.txtJuros_mensalidade.setText((String)Float.toString(juros_mensalidade));
+                        desconto_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 6));            
+                        objmensalidade.txtDesconto_mensalidade.setText((String)Float.toString(desconto_mensalidade));
+                        
+                        
+        objmensalidade.itemformadepagamento = (int) tblMensalidade.getValueAt(linha, 7);
+        objmensalidade.itemstatus = (int) tblMensalidade.getValueAt(linha, 8);
+        objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 9);       
         
-        listPessoa = objpessoa.PegarPessoaBD
-        ((int) tblMensalidade.getValueAt(linha, 1));
+        listFormadepagamento = objformadepagamento.PegarFormadePagamentoBD
+        ((int) tblMensalidade.getValueAt(linha, 7));
             
-        objmensalidade.cmbPessoa_mensalidade.setSelectedItem
-            (listPessoa.get(0).getNome_pessoa());
+        objmensalidade.cmbFormadepagamento_mensalidade.setSelectedItem
+            (listFormadepagamento.get(0).getNome_formadepagamento());
+        
+        
+        
+        listStatus = objstatus.pegarStatusBD
+        ((int) tblMensalidade.getValueAt(linha, 8));
+            
+        objmensalidade.cmbStatus_Mensalidade.setSelectedItem
+            (listStatus.get(0).getNome_status());
+            
         
         
         
         listPlano = objplano.PegarPlanoBD
-        ((int) tblMensalidade.getValueAt(linha, 2));
+        ((int) tblMensalidade.getValueAt(linha, 9));
             
         objmensalidade.cmbPlano_mensalidade.setSelectedItem
             (listPlano.get(0).getNome_plano());
         
         
         
-        listGrupo = objgrupo.PegarGrupoBD
-        ((int) tblMensalidade.getValueAt(linha, 3));
-            
-        objmensalidade.cmbGrupo_mensalidade.setSelectedItem
-            (listGrupo.get(0).getNome_grupo());
-            
+
         objmensalidade.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -344,12 +385,13 @@ int linha = tblMensalidade.getSelectedRow();
         
         Object ret = JOptionPane.showOptionDialog
     (null, "Tem certeza que deseja excluir: " 
-            +objmensalidade.txtIdentificacao_mensalidade.getText() + "?","AVISO", JOptionPane.YES_NO_OPTION,
+            +objmensalidade.txtCod_mensalidade.getText() + "?","AVISO", JOptionPane.YES_NO_OPTION,
             JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirMensalidade();
+            pesquisarMensalidade();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -528,7 +570,8 @@ int linha = tblMensalidade.getSelectedRow();
     
     public void preenche_conmensalidade(){
         
-        String [] colunas = {"Código" ,"Pessoa","Plano","Grupo","Vencimento","Identificação"};
+        String [] colunas = {"Código" ,"Emissão","Vencimento","Valor","Valor pago",
+        "Juros", "Desconto","Forma de Pagamento", "Status","Plano"} ;
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -546,12 +589,19 @@ int linha = tblMensalidade.getSelectedRow();
             {
                Vector regVetor = new Vector();
                
-               regVetor.add(rsmensalidade.getInt("cod_mensalidade"));
-                regVetor.add(rsmensalidade.getInt("pessoa_mensalidade"));             
-                regVetor.add(rsmensalidade.getInt("plano_mensalidade"));             
-                regVetor.add(rsmensalidade.getInt("grupo_mensalidade"));
-                regVetor.add(rsmensalidade.getDate("vencimento_mensalidade"));
-                regVetor.add(rsmensalidade.getInt("identificacao_mensalidade"));
+                regVetor.add(rsmensalidade.getInt("cod_mensalidade"));
+                regVetor.add(rsmensalidade.getDate("emissao_mensalidade"));             
+                regVetor.add(rsmensalidade.getDate("vencimento_mensalidade"));             
+                regVetor.add(rsmensalidade.getFloat("valor_mensalidade"));             
+                regVetor.add(rsmensalidade.getFloat("valor_pago_mensalidade"));             
+                regVetor.add(rsmensalidade.getFloat("juros_mensalidade"));             
+                regVetor.add(rsmensalidade.getFloat("desconto_mensalidade"));             
+                regVetor.add(rsmensalidade.getInt("mensalidade_formadepagamento"));             
+                regVetor.add(rsmensalidade.getInt("mensalidade_status"));             
+                regVetor.add(rsmensalidade.getInt("mensalidade_plano"));
+                
+                
+                //regVetor.add(rsmensalidade.getString("nome_formadepagamento")); 
                 
                    
                dados.add(regVetor);
@@ -605,7 +655,7 @@ int linha = tblMensalidade.getSelectedRow();
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tblPacote;
+    public javax.swing.JTable tblMensalidade;
     private javax.swing.JTextField txtPesquisar;
     // End of variables declaration//GEN-END:variables
 

@@ -350,6 +350,7 @@ int linha = tblPacote.getSelectedRow();
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirPacote();
+            pesquisarPacote();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 

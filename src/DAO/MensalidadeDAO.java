@@ -98,7 +98,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
          con = cb.conectaPostgre();
          
          
-         String sql = "select * from mensalidade where vencimento_mensalidade like (?) order by vencimento_mensalidade";
+         String sql = "select * from mensalidade where vencimento_mensalidade::text like (?) order by vencimento_mensalidade";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1,"%" + nome + "%");

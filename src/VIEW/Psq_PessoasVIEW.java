@@ -373,6 +373,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirPessoa();
+            pesquisarPessoa();
         }   
     }//GEN-LAST:event_btnDeletarActionPerformed
 

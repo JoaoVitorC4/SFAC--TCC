@@ -313,6 +313,7 @@ objplano.opcao = "Alterar";
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirPlano();
+            pesquisarPlano();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 
