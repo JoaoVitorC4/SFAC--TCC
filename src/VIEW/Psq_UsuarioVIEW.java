@@ -10,6 +10,7 @@ import CTR.PerfilCTR;
 import CTR.UsuarioCTR;
 import MODEL.PerfilMODEL;
 import MODEL.UsuarioMODEL;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -40,6 +41,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         pesquisarUsuario();
+        CoresdosBotoes();
     }
 
     /**
@@ -337,7 +339,14 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
             }
         });
     }
-       
+        public void CoresdosBotoes(){
+        Color cornovo = new Color(192, 255, 206);
+        Color coreditar = new Color(251, 246, 138);
+        Color cordeletar = new Color(251, 138, 138);
+        btnNovo.setBackground(cornovo);
+        btnEditar.setBackground(coreditar);
+        btnDeletar.setBackground(cordeletar);
+        }
    
         public void pesquisarUsuario(){
         

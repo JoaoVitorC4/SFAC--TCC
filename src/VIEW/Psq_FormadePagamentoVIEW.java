@@ -7,6 +7,7 @@ package VIEW;
 
 
 import CTR.FormadePagamentoCTR;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -36,6 +37,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         ativabotoes();
         pesquisarFormadePagamento();
+        CoresdosBotoes();
     }
 
     /**
@@ -237,7 +239,8 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             objtelaformadepagamento.txtTaxa_formadepagamento.setText("0"); //define o valor do campo na nova tela que vai ser aberta
             
             
-            objtelaformadepagamento.setVisible(true);     
+            objtelaformadepagamento.setVisible(true);    
+            objformadepagamento.setLocationRelativeTo(null);
                 this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -341,7 +344,14 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             }
         });
     }
-       
+        public void CoresdosBotoes(){
+        Color cornovo = new Color(192, 255, 206);
+        Color coreditar = new Color(251, 246, 138);
+        Color cordeletar = new Color(251, 138, 138);
+        btnNovo.setBackground(cornovo);
+        btnEditar.setBackground(coreditar);
+        btnDeletar.setBackground(cordeletar);
+        }
    
         public void pesquisarFormadePagamento(){
         

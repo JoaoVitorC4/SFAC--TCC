@@ -100,18 +100,24 @@ public class MenuAdministrativoVIEW extends javax.swing.JFrame {
         Psq_FormadePagamentoVIEW objpsqformadepagamento = new Psq_FormadePagamentoVIEW();
         
         objpsqformadepagamento.setVisible(true);
+        objpsqformadepagamento.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnFormadePagamentoActionPerformed
 
     private void btnGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrupoActionPerformed
     Psq_GrupoVIEW objtelagrupo = new Psq_GrupoVIEW();
     
     objtelagrupo.setVisible(true);
+    objtelagrupo.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnGrupoActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         Psq_UsuarioVIEW objtelausuario = new Psq_UsuarioVIEW();
         
         objtelausuario.setVisible(true);
+        objtelausuario.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**

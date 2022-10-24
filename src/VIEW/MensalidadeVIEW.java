@@ -19,6 +19,7 @@ import MODEL.MensalidadeMODEL;
 import MODEL.PessoaMODEL;
 import MODEL.PlanoMODEL;
 import MODEL.StatusMODEL;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -66,6 +67,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
         carregaformadepagamentocmb();
         carregaplanocmb();
         carregastatuscmb();
+        Coresbotoes();
     }
 
     /**
@@ -470,6 +472,13 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
             }
         });
     }
+    
+        public void Coresbotoes(){
+        Color salvarcor = new Color(62, 123, 242);
+        Color cancelarcor = new Color(242, 62, 62);
+        btnSalvar.setBackground(salvarcor);
+        btnCancelar.setBackground(cancelarcor);
+        }
     
         public void limparCampos(){
                  

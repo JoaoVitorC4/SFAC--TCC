@@ -11,6 +11,7 @@ import CTR.UsuarioCTR;
 import MODEL.GrupoMODEL;
 import MODEL.PerfilMODEL;
 import MODEL.UsuarioMODEL;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -42,6 +43,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         //desativacampo();
         //limparCampos();
         carregaperfilcmb();
+        Coresbotoes();
 
     }
 
@@ -259,6 +261,14 @@ public class UsuarioVIEW extends javax.swing.JFrame {
                 new UsuarioVIEW().setVisible(true);
             }
         });
+    }
+    
+    
+    public void Coresbotoes(){
+    Color salvarcor = new Color(62, 123, 242);
+    Color cancelarcor = new Color(242, 62, 62);
+    btnSalvar.setBackground(salvarcor);
+    btnCancelar.setBackground(cancelarcor);
     }
     
         public void limparCampos(){

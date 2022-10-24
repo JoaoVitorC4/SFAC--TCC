@@ -6,6 +6,7 @@
 package VIEW;
 
 import CTR.FormadePagamentoCTR;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -31,6 +32,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         desativacampo();
         limparCampos();
+        Coresbotoes();
         //Psq_FormadePagamentoVIEW objformadepagamentotbl;
     }
 
@@ -252,6 +254,13 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
             }
         });
     }
+    
+        public void Coresbotoes(){
+        Color salvarcor = new Color(62, 123, 242);
+        Color cancelarcor = new Color(242, 62, 62);
+        btnSalvar.setBackground(salvarcor);
+        btnCancelar.setBackground(cancelarcor);
+        }
     
         public void limparCampos(){
            txtnome_formadepagamento.setText("");        

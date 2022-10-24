@@ -15,6 +15,7 @@ import MODEL.PerfilMODEL;
 import MODEL.PacoteMODEL;
 import MODEL.PessoaMODEL;
 import MODEL.PlanoMODEL;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -58,6 +59,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
         carregapessoacmb();
         carregaplanocmb();
         carregagrupocmb();
+        Coresbotoes();
     }
 
     /**
@@ -407,6 +409,13 @@ public class PacoteVIEW extends javax.swing.JFrame {
         });
     }
     
+        public void Coresbotoes(){
+        Color salvarcor = new Color(62, 123, 242);
+        Color cancelarcor = new Color(242, 62, 62);
+        btnSalvar.setBackground(salvarcor);
+        btnCancelar.setBackground(cancelarcor);
+        }
+        
         public void limparCampos(){
            txtIdentificacao_pacote.setText("");        
         }

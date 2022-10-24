@@ -16,6 +16,7 @@ import MODEL.EstadoMODEL;
 import MODEL.GrupoMODEL;
 import MODEL.PessoaMODEL;
 import MODEL.UsuarioMODEL;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Insets;
@@ -50,6 +51,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
         carregacidadecmb();
         carregagrupocmb();
         carregausuariocmb();
+        Coresbotoes();
 
     }
 
@@ -421,6 +423,14 @@ public class PessoaVIEW extends javax.swing.JFrame {
                 new PessoaVIEW().setVisible(true);
             }
         });
+    }
+    
+    
+    public void Coresbotoes(){
+    Color salvarcor = new Color(62, 123, 242);
+    Color cancelarcor = new Color(242, 62, 62);
+    btnSalvar.setBackground(salvarcor);
+    btnCancelar.setBackground(cancelarcor);
     }
     
     
