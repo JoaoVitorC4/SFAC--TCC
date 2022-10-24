@@ -67,7 +67,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
         con = cb.conectaPostgre();
         
         String sql = "update mensalidade set "
-                + "emissao_mensalidade = ?, vencimento_mensalidade = ?, valor_mensalidade = ?,valor_pago_mensalidade = ?, juros_mensalidade = ?"
+                + "emissao_mensalidade = ?, vencimento_mensalidade = ?, valor_mensalidade = ?,valor_pago_mensalidade = ?, juros_mensalidade = ?,"
                 +"desconto_mensalidade = ?, mensalidade_formadepagamento = ?, mensalidade_status = ?, mensalidade_plano = ?"
                 + "where cod_mensalidade = ?";
         

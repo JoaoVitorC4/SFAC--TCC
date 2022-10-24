@@ -190,6 +190,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
            insereusuario(); 
            limparCampos();
            objusuario.setVisible(true);
+           objusuario.setLocationRelativeTo(null);
            objusuario.pesquisarUsuario();
            this.dispose();
         }
@@ -200,6 +201,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
             alterausuario();
             limparCampos();
             objusuario.setVisible(true);
+            objusuario.setLocationRelativeTo(null);
             objusuario.pesquisarUsuario();
             this.dispose();
         }
@@ -209,6 +211,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_UsuarioVIEW psqtela = new Psq_UsuarioVIEW();
             psqtela.setVisible(true);
+            psqtela.setLocationRelativeTo(null);
             psqtela.pesquisarUsuario();
             psqtela.setLocationRelativeTo(null);
                 this.dispose();

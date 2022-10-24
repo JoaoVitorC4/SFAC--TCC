@@ -180,6 +180,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
            insereformadepagamento(); 
                 limparCampos();
                     objformadepagamentotbl.setVisible(true);
+                    objformadepagamentotbl.setLocationRelativeTo(null);
                         objformadepagamentotbl.pesquisarFormadePagamento();
                             this.dispose();
                         
@@ -198,6 +199,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
             alteraformadepagamento();
                 limparCampos();
                     objformadepagamentotbl.setVisible(true);
+                    objformadepagamentotbl.setLocationRelativeTo(null);
                         objformadepagamentotbl.pesquisarFormadePagamento();
                             this.dispose();
                         

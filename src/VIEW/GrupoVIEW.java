@@ -136,6 +136,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
            inseregrupo(); 
            limparCampos();
            objgrupo.setVisible(true);
+           objgrupo.setLocationRelativeTo(null);
            objgrupo.pesquisarGrupo();
            this.dispose();
         }
@@ -146,6 +147,7 @@ public class GrupoVIEW extends javax.swing.JFrame {
             alteragrupo();
             limparCampos();
             objgrupo.setVisible(true);
+            objgrupo.setLocationRelativeTo(null);
             objgrupo.pesquisarGrupo();
             this.dispose();
         }

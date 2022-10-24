@@ -355,6 +355,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
            inserepessoa(); 
            limparCampos();
            objpessoa.setVisible(true);
+           objpessoa.setLocationRelativeTo(null);
            objpessoa.pesquisarPessoa();
            this.dispose();
         }
@@ -365,6 +366,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
             alterapessoa();
             limparCampos();
             objpessoa.setVisible(true);
+            objpessoa.setLocationRelativeTo(null);
             objpessoa.pesquisarPessoa();
             this.dispose();
         }

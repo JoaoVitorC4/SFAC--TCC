@@ -306,6 +306,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
            inserepacote(); 
            limparCampos();
            objpacote.setVisible(true);
+           objpacote.setLocationRelativeTo(null);
            objpacote.pesquisarPacote();
            this.dispose();
         }
@@ -316,6 +317,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
             alterapacote();
             limparCampos();
             objpacote.setVisible(true);
+            objpacote.setLocationRelativeTo(null);
             objpacote.pesquisarPacote();
             this.dispose();
         }

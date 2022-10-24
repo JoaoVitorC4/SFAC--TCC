@@ -348,24 +348,24 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-
+           
+       
+           novo_valor = txtValor_mensalidade.getText().replace(",", ".");
+           txtValor_mensalidade.setText(novo_valor);
+            novo_valor_pago = txtValor_pago_mensalidade.getText().replace(",", ".");
+            txtValor_pago_mensalidade.setText(novo_valor_pago);
+                novo_juros = txtJuros_mensalidade.getText().replace(",", ".");
+                txtJuros_mensalidade.setText(novo_juros);
+                    novo_desconto = txtDesconto_mensalidade.getText().replace(",", ".");
+                    txtDesconto_mensalidade.setText(novo_desconto);
         if(opcao.equals("Inserir"))
         {
            Psq_MensalidadeVIEW objmensalidade = new Psq_MensalidadeVIEW();
-            
-           novo_valor = novo_valor.replace(",", ".");
-           txtValor_mensalidade.setText(novo_valor);
-            novo_valor_pago = novo_valor_pago.replace(",", ".");
-            txtValor_pago_mensalidade.setText(novo_valor_pago);
-                novo_juros = novo_juros.replace(",", ".");
-                txtJuros_mensalidade.setText(novo_juros);
-                    novo_desconto = novo_desconto.replace(",", ".");
-                    txtDesconto_mensalidade.setText(novo_desconto);
-           
-           
+
            inseremensalidade(); 
            limparCampos();
            objmensalidade.setVisible(true);
+           objmensalidade.setLocationRelativeTo(null);
            objmensalidade.pesquisarMensalidade();
            this.dispose();
         }
@@ -376,6 +376,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
             alteramensalidade();
             limparCampos();
             objmensalidade.setVisible(true);
+            objmensalidade.setLocationRelativeTo(null);
             objmensalidade.pesquisarMensalidade();
             this.dispose();
         }
@@ -495,6 +496,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
        
         
        MensalidadeCTR objctr = new MensalidadeCTR();
+
         
        //SimpleDateFormat formatadata = new SimpleDateFormat("dd/MM/yyyy");
        

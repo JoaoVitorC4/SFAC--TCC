@@ -184,6 +184,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
            insereplano(); 
            limparCampos();
            objplano.setVisible(true);
+           objplano.setLocationRelativeTo(null);
            objplano.pesquisarPlano();
            this.dispose();
         }
@@ -200,6 +201,7 @@ public class PlanoVIEW extends javax.swing.JFrame {
             alteraplano();
             limparCampos();
             objplano.setVisible(true);
+            objplano.setLocationRelativeTo(null);
             objplano.pesquisarPlano();
             this.dispose();
         }
