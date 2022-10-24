@@ -373,6 +373,7 @@ public class PessoaVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_PessoasVIEW objtela = new Psq_PessoasVIEW();
         objtela.setVisible(true);
+        objtela.setLocationRelativeTo(null);
         objtela.pesquisarPessoa();
         
         this.dispose();

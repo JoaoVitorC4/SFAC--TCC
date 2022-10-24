@@ -210,6 +210,7 @@ public class UsuarioVIEW extends javax.swing.JFrame {
         Psq_UsuarioVIEW psqtela = new Psq_UsuarioVIEW();
             psqtela.setVisible(true);
             psqtela.pesquisarUsuario();
+            psqtela.setLocationRelativeTo(null);
                 this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

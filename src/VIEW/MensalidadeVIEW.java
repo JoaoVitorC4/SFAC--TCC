@@ -385,6 +385,7 @@ public class MensalidadeVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_MensalidadeVIEW psqtela = new Psq_MensalidadeVIEW();
             psqtela.setVisible(true);
+            psqtela.setLocationRelativeTo(null);
             psqtela.pesquisarMensalidade();
                 this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed

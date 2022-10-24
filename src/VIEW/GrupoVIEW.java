@@ -155,8 +155,9 @@ public class GrupoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_GrupoVIEW psqtela = new Psq_GrupoVIEW();
             psqtela.setVisible(true);
-                psqtela.pesquisarGrupo();
-                    this.dispose();
+                psqtela.setLocationRelativeTo(null);
+                    psqtela.pesquisarGrupo();
+                        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**

@@ -263,6 +263,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
         
 
         objmensalidade.setVisible(true);
+        objmensalidade.setLocationRelativeTo(null);
             this.dispose();
         }
         
@@ -311,6 +312,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
         
 
         objmensalidade.setVisible(true);
+        objmensalidade.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_tblMensalidadeKeyPressed
 
@@ -321,6 +323,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
         objtelamensalidade.opcao = "Inserir";
         
         objtelamensalidade.setVisible(true);
+        objtelamensalidade.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -379,6 +382,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
         
 
         objmensalidade.setVisible(true);
+        objmensalidade.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

@@ -211,6 +211,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objformadepagamento.setVisible(true);
+            objformadepagamento.setLocationRelativeTo(null);
                 this.dispose();
         }
         
@@ -228,6 +229,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objformadepagamento.setVisible(true);
+            objformadepagamento.setLocationRelativeTo(null);
                 this.dispose();
     }//GEN-LAST:event_tblFormadePagamentoKeyPressed
 
@@ -240,7 +242,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objtelaformadepagamento.setVisible(true);    
-            objformadepagamento.setLocationRelativeTo(null);
+            objtelaformadepagamento.setLocationRelativeTo(null);
                 this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -262,6 +264,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             
             
             objformadepagamento.setVisible(true);
+            objformadepagamento.setLocationRelativeTo(null);
                 this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

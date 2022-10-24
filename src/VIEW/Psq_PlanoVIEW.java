@@ -228,6 +228,7 @@ objplano.opcao = "Alterar";
             
         
         objplano.setVisible(true);
+        objplano.setLocationRelativeTo(null);
             this.dispose();
         }
         
@@ -260,6 +261,7 @@ objplano.opcao = "Alterar";
             
         
         objplano.setVisible(true);
+        objplano.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_tblPlanoKeyPressed
 
@@ -272,6 +274,7 @@ objplano.opcao = "Alterar";
             objtelaplano.txtQtd_dependente_plano.setText("0");
             
         objtelaplano.setVisible(true);
+        objtelaplano.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -301,6 +304,7 @@ objplano.opcao = "Alterar";
             
         
         objplano.setVisible(true);
+        objplano.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

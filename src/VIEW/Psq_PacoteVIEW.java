@@ -251,6 +251,7 @@ int linha = tblPacote.getSelectedRow();
             (listGrupo.get(0).getNome_grupo());
             
         objpacote.setVisible(true);
+        objpacote.setLocationRelativeTo(null);
             this.dispose();
         }
         
@@ -291,6 +292,7 @@ int linha = tblPacote.getSelectedRow();
             (listGrupo.get(0).getNome_grupo());
             
         objpacote.setVisible(true);
+        objpacote.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_tblPacoteKeyPressed
 
@@ -301,6 +303,7 @@ int linha = tblPacote.getSelectedRow();
         objtelapacote.opcao = "Inserir";
         
         objtelapacote.setVisible(true);
+        objtelapacote.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -338,6 +341,7 @@ int linha = tblPacote.getSelectedRow();
             (listGrupo.get(0).getNome_grupo());
             
         objpacote.setVisible(true);
+        objpacote.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

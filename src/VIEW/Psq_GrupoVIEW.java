@@ -210,6 +210,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
             
             
             objgrupo.setVisible(true);
+            objgrupo.setLocationRelativeTo(null);
                 this.dispose();
         }
         
@@ -224,6 +225,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
                   
         objgrupo.setVisible(true);
+        objgrupo.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_tblGrupoKeyPressed
 
@@ -232,6 +234,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         GrupoVIEW objtelagrupo = new GrupoVIEW();
        
         objtelagrupo.setVisible(true);
+        objtelagrupo.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -245,6 +248,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
             
             
         objgrupo.setVisible(true);
+        objgrupo.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

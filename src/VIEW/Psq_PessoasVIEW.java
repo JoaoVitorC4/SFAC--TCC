@@ -257,7 +257,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             (listUsuario.get(0).getUsuario_perfil());   
     
             objpessoa.setVisible(true);
-            
+            objpessoa.setLocationRelativeTo(null);
             this.dispose();
         }
         
@@ -306,7 +306,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             (listUsuario.get(0).getUsuario_perfil());   
     
             objpessoa.setVisible(true);
-            
+            objpessoa.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_tblPessoaKeyPressed
 
@@ -351,7 +351,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             (listUsuario.get(0).getUsuario_perfil());   
     
             objpessoa.setVisible(true);
-            
+            objpessoa.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -361,6 +361,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
        objtelapessoa.opcao = "Inserir";
        
         objtelapessoa.setVisible(true);
+        objtelapessoa.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 

@@ -207,6 +207,7 @@ public class FormadePagamentoVIEW extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         Psq_FormadePagamentoVIEW objformadepagamentotbl = new Psq_FormadePagamentoVIEW();
             objformadepagamentotbl.setVisible(true);
+            objformadepagamentotbl.setLocationRelativeTo(null);
                 objformadepagamentotbl.pesquisarFormadePagamento();
                     this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed

@@ -214,6 +214,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
             
             
             objusuario.setVisible(true);
+            objusuario.setLocationRelativeTo(null);
                 this.dispose();
         }
         
@@ -228,6 +229,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
                   
         objusuario.setVisible(true);
+        objusuario.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_tblUsuarioKeyPressed
 
@@ -238,6 +240,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
         objtelausuario.opcao = "Inserir";
         
         objtelausuario.setVisible(true);
+        objtelausuario.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -256,6 +259,7 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
             (listPerfil.get(0).getNome_perfil());
             
         objusuario.setVisible(true);
+        objusuario.setLocationRelativeTo(null);
             this.dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
