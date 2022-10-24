@@ -48,7 +48,7 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnConfiguracoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
         btnConfiguracoes.setText("Configurações");
-        btnConfiguracoes.setBorder(new RoundedBorder(20));
+        btnConfiguracoes.setBorder(new RoundedBorder(7));
         btnConfiguracoes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnConfiguracoes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnPessoas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/perfil.png"))); // NOI18N
         btnPessoas.setText("Pessoas");
-        btnPessoas.setBorder(new RoundedBorder(20));
+        btnPessoas.setBorder(new RoundedBorder(7));
         btnPessoas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPessoas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPessoas.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class menuVIEW extends javax.swing.JFrame {
         btnopcoesadministrativas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/opcoes administrativas.png"))); // NOI18N
         btnopcoesadministrativas.setText("Opções Administrativas");
         btnopcoesadministrativas.setToolTipText("");
-        btnopcoesadministrativas.setBorder(new RoundedBorder(20));
+        btnopcoesadministrativas.setBorder(new RoundedBorder(7));
         btnopcoesadministrativas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnopcoesadministrativas.setMargin(new java.awt.Insets(2, 2, 2, 2));
         btnopcoesadministrativas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -83,13 +83,18 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnMensalidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/calendario.png"))); // NOI18N
         btnMensalidades.setText("Mensalidades");
-        btnMensalidades.setBorder(new RoundedBorder(20));
+        btnMensalidades.setBorder(new RoundedBorder(7));
         btnMensalidades.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMensalidades.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnMensalidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMensalidadesActionPerformed(evt);
+            }
+        });
 
         btnPlanos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/planos.png"))); // NOI18N
         btnPlanos.setText("Planos");
-        btnPlanos.setBorder(new RoundedBorder(20));
+        btnPlanos.setBorder(new RoundedBorder(7));
         btnPlanos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPlanos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPlanos.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +105,7 @@ public class menuVIEW extends javax.swing.JFrame {
 
         btnPacote.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pacote.png"))); // NOI18N
         btnPacote.setText("Pacote");
-        btnPacote.setBorder(new RoundedBorder(20));
+        btnPacote.setBorder(new RoundedBorder(7));
         btnPacote.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPacote.setVerifyInputWhenFocusTarget(false);
         btnPacote.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -159,6 +164,7 @@ public class menuVIEW extends javax.swing.JFrame {
     private void btnPlanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlanosActionPerformed
         Psq_PlanoVIEW objtelaplano = new Psq_PlanoVIEW();
             objtelaplano.setVisible(true);
+            objtelaplano.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnPlanosActionPerformed
 
     private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
@@ -168,17 +174,26 @@ public class menuVIEW extends javax.swing.JFrame {
     private void btnPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPessoasActionPerformed
         Psq_PessoasVIEW objtelapessoa = new Psq_PessoasVIEW();
         objtelapessoa.setVisible(true);
+        objtelapessoa.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnPessoasActionPerformed
 
     private void btnopcoesadministrativasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopcoesadministrativasActionPerformed
         MenuAdministrativoVIEW objtelamenuadm = new MenuAdministrativoVIEW();
         objtelamenuadm.setVisible(true);
+        objtelamenuadm.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnopcoesadministrativasActionPerformed
 
     private void btnPacoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacoteActionPerformed
         Psq_PacoteVIEW objtelapacote = new Psq_PacoteVIEW();
         objtelapacote.setVisible(true);
+        objtelapacote.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnPacoteActionPerformed
+
+    private void btnMensalidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMensalidadesActionPerformed
+        Psq_MensalidadeVIEW objtelamensalidade = new Psq_MensalidadeVIEW();
+        objtelamensalidade.setVisible(true);
+        objtelamensalidade.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnMensalidadesActionPerformed
 
     /**
      * @param args the command line arguments
