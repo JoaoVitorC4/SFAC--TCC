@@ -71,6 +71,12 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
             }
         });
 
+        tblPlano = new javax.swing.JTable()
+        {
+            public boolean isCellEditable(int rollIndex, int colIndex){
+                return false;
+            }
+        };
         tblPlano.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

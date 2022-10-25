@@ -70,6 +70,12 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             }
         });
 
+        tblFormadePagamento = new javax.swing.JTable()
+        {
+            public boolean isCellEditable(int rollIndex, int colIndex){
+                return false;
+            }
+        };
         tblFormadePagamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -202,12 +208,20 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     private void tblFormadePagamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFormadePagamentoMouseClicked
         if(evt.getClickCount() == 2)
         {
+            objformadepagamento.opcao = "Alterar";
+            float objtxfpagamento = 0;
+            
             int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
-            objformadepagamento.txtTaxa_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 2));
+            //objformadepagamento.txtnome_formadepagamento.equals((Float)tblFormadePagamento.getValueAt(linha, 2));
             
+            objtxfpagamento = (Float)(tblFormadePagamento.getValueAt(linha, 2));
+            //define o valor em outra variavel do tipo float
+            
+            objformadepagamento.txtTaxa_formadepagamento.setText((String)Float.toString(objtxfpagamento));
+            //passa o valor da variavel em float para o campo da tela view
             
             
             objformadepagamento.setVisible(true);
@@ -219,13 +233,20 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tblFormadePagamentoMouseClicked
 
     private void tblFormadePagamentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblFormadePagamentoKeyPressed
-
-        int linha = tblFormadePagamento.getSelectedRow();
+            objformadepagamento.opcao = "Alterar";
+            float objtxfpagamento = 0;
+            
+            int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
-            objformadepagamento.txtTaxa_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 2));
+            //objformadepagamento.txtnome_formadepagamento.equals((Float)tblFormadePagamento.getValueAt(linha, 2));
             
+            objtxfpagamento = (Float)(tblFormadePagamento.getValueAt(linha, 2));
+            //define o valor em outra variavel do tipo float
+            
+            objformadepagamento.txtTaxa_formadepagamento.setText((String)Float.toString(objtxfpagamento));
+            //passa o valor da variavel em float para o campo da tela view
             
             
             objformadepagamento.setVisible(true);

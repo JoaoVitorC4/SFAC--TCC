@@ -74,6 +74,12 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
             }
         });
 
+        tblUsuario = new javax.swing.JTable()
+        {
+            public boolean isCellEditable(int rollIndex, int colIndex){
+                return false;
+            }
+        };
         tblUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -206,28 +212,41 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
     private void tblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuarioMouseClicked
         if(evt.getClickCount() == 2)
         {
-            int linha = tblUsuario.getSelectedRow();
+objusuario.opcao = "Alterar";
+        int linha = tblUsuario.getSelectedRow();
             
-            objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
-            objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
+        objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
+        objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
+        objusuario.txtSenha_usuario.setText((String)tblUsuario.getValueAt(linha, 2));
+        
+        listPerfil = objperfil.pegarPerfilBD
+        ((int) tblUsuario.getValueAt(linha, 3));
             
+        objusuario.cmbUsuario_perfil.setSelectedItem
+            (listPerfil.get(0).getNome_perfil());
             
-            
-            objusuario.setVisible(true);
-            objusuario.setLocationRelativeTo(null);
-                this.dispose();
+        objusuario.setVisible(true);
+        objusuario.setLocationRelativeTo(null);
+            this.dispose();
         }
         
         
     }//GEN-LAST:event_tblUsuarioMouseClicked
 
     private void tblUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblUsuarioKeyPressed
-        
+ objusuario.opcao = "Alterar";
         int linha = tblUsuario.getSelectedRow();
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
-                  
+        objusuario.txtSenha_usuario.setText((String)tblUsuario.getValueAt(linha, 2));
+        
+        listPerfil = objperfil.pegarPerfilBD
+        ((int) tblUsuario.getValueAt(linha, 3));
+            
+        objusuario.cmbUsuario_perfil.setSelectedItem
+            (listPerfil.get(0).getNome_perfil());
+            
         objusuario.setVisible(true);
         objusuario.setLocationRelativeTo(null);
             this.dispose();

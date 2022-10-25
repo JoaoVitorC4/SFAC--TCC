@@ -70,6 +70,12 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
             }
         });
 
+        tblGrupo = new javax.swing.JTable()
+        {
+            public boolean isCellEditable(int rollIndex, int colIndex){
+                return false;
+            }
+        };
         tblGrupo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -202,28 +208,31 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
     private void tblGrupoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblGrupoMouseClicked
         if(evt.getClickCount() == 2)
         {
-            int linha = tblGrupo.getSelectedRow();
+        objgrupo.opcao = "Alterar";
+        int linha = tblGrupo.getSelectedRow();
             
-            objgrupo.cod_grupo = (int) tblGrupo.getValueAt(linha, 0);
-            objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
+        objgrupo.cod_grupo = (int) tblGrupo.getValueAt(linha, 0);
+        objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
             
             
             
-            objgrupo.setVisible(true);
-            objgrupo.setLocationRelativeTo(null);
-                this.dispose();
+        objgrupo.setVisible(true);
+        objgrupo.setLocationRelativeTo(null);
+            this.dispose();
         }
         
         
     }//GEN-LAST:event_tblGrupoMouseClicked
 
     private void tblGrupoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblGrupoKeyPressed
-        
+        objgrupo.opcao = "Alterar";
         int linha = tblGrupo.getSelectedRow();
             
         objgrupo.cod_grupo = (int) tblGrupo.getValueAt(linha, 0);
         objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
-                  
+            
+            
+            
         objgrupo.setVisible(true);
         objgrupo.setLocationRelativeTo(null);
             this.dispose();

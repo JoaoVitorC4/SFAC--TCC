@@ -79,7 +79,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Pacote");
+        setTitle("Mensalidade");
 
         jLabel1.setText("Pesquisar :");
 
@@ -90,6 +90,12 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
             }
         });
 
+        tblMensalidade = new javax.swing.JTable()
+        {
+            public boolean isCellEditable(int rollIndex, int colIndex){
+                return false;
+            }
+        };
         tblMensalidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -205,7 +211,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
                     .addContainerGap(232, Short.MAX_VALUE)))
         );
 
-        getAccessibleContext().setAccessibleDescription("Pacote");
+        getAccessibleContext().setAccessibleDescription("Mensalidade");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,16 +228,29 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
     private void tblMensalidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMensalidadeMouseClicked
         if(evt.getClickCount() == 2)
         {
-        objmensalidade.opcao = "Alterar";
+objmensalidade.opcao = "Alterar";
+        float valor_mensalidade = 0;
+        float valor_pago_mensalidade = 0;
+        float juros_mensalidade = 0;
+        float desconto_mensalidade = 0;
+        
+        
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
         objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
-        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2));  
-        objmensalidade.txtValor_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 3));
-        objmensalidade.txtValor_pago_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 4));
-        objmensalidade.txtJuros_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5));
-        objmensalidade.txtDesconto_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 6));
+        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2)); 
+            //Enviar valor para o txt da tela de edição quando for do tipo float 
+            valor_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 3));            
+            objmensalidade.txtValor_mensalidade.setText((String)Float.toString(valor_mensalidade));
+                valor_pago_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 4));            
+                objmensalidade.txtValor_pago_mensalidade.setText((String)Float.toString(valor_pago_mensalidade));
+                    juros_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 5));            
+                    objmensalidade.txtJuros_mensalidade.setText((String)Float.toString(juros_mensalidade));
+                        desconto_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 6));            
+                        objmensalidade.txtDesconto_mensalidade.setText((String)Float.toString(desconto_mensalidade));
+                        
+                        
         objmensalidade.itemformadepagamento = (int) tblMensalidade.getValueAt(linha, 7);
         objmensalidade.itemstatus = (int) tblMensalidade.getValueAt(linha, 8);
         objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 9);       
@@ -271,16 +290,29 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tblMensalidadeMouseClicked
 
     private void tblMensalidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblMensalidadeKeyPressed
-                objmensalidade.opcao = "Alterar";
+objmensalidade.opcao = "Alterar";
+        float valor_mensalidade = 0;
+        float valor_pago_mensalidade = 0;
+        float juros_mensalidade = 0;
+        float desconto_mensalidade = 0;
+        
+        
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
         objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
-        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2));  
-        objmensalidade.txtValor_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 3));
-        objmensalidade.txtValor_pago_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 4));
-        objmensalidade.txtJuros_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 5));
-        objmensalidade.txtDesconto_mensalidade.setText((String)tblMensalidade.getValueAt(linha, 6));
+        objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2)); 
+            //Enviar valor para o txt da tela de edição quando for do tipo float 
+            valor_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 3));            
+            objmensalidade.txtValor_mensalidade.setText((String)Float.toString(valor_mensalidade));
+                valor_pago_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 4));            
+                objmensalidade.txtValor_pago_mensalidade.setText((String)Float.toString(valor_pago_mensalidade));
+                    juros_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 5));            
+                    objmensalidade.txtJuros_mensalidade.setText((String)Float.toString(juros_mensalidade));
+                        desconto_mensalidade = (Float)(tblMensalidade.getValueAt(linha, 6));            
+                        objmensalidade.txtDesconto_mensalidade.setText((String)Float.toString(desconto_mensalidade));
+                        
+                        
         objmensalidade.itemformadepagamento = (int) tblMensalidade.getValueAt(linha, 7);
         objmensalidade.itemstatus = (int) tblMensalidade.getValueAt(linha, 8);
         objmensalidade.itemplano = (int) tblMensalidade.getValueAt(linha, 9);       
