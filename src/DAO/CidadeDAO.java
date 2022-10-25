@@ -51,8 +51,8 @@ public class CidadeDAO {
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from cidade "
-                + "where cod_cidade =" + cod_cidade;
+        String sql = "select * from cidade where cod_cidade = " 
+                                                        + cod_cidade;
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,
@@ -67,5 +67,6 @@ public class CidadeDAO {
         return rs;
                 
     }
+    
     
 }

@@ -50,8 +50,8 @@ public class EstadoDAO {
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from estado e "
-                + "inner join cidade c on e.cod_uf = c.fk_estado where c.cod_cidade = " + id_cidade;
+        String sql = "select * from uf e "
+                + "inner join cidade c on e.cod_uf = c.cidade_uf where c.cod_cidade = " + id_cidade;
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,

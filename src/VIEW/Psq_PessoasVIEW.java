@@ -234,61 +234,12 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             objpessoa.cmbCidade.setSelectedItem
             (listCidade.get(0).getNome_cidade());
             
-          /*  listEstado = objestado.pegarEstadoBD
+            listEstado = objestado.pegarEstadoBD
             ((int) tblPessoa.getValueAt(linha, 5));
            
             objpessoa.cmbEstado.setSelectedItem
             (listEstado.get(0).getNome_estado());
-            */
-            objpessoa.txtCEPPessoa.setText((String) tblPessoa.getValueAt(linha, 6));
-            objpessoa.txtTelefonePessoa.setText((String) tblPessoa.getValueAt(linha, 7));
-            objpessoa.txtCPFPessoa.setText((String) tblPessoa.getValueAt(linha, 8));
-            
-            listGrupo = objgrupo.PegarGrupoBD
-            ((int) tblPessoa.getValueAt(linha, 9));
-           
-            objpessoa.cmbGrupoPessoa.setSelectedItem
-            (listGrupo.get(0).getNome_grupo());
-            
-            listUsuario = objusuario.pegarUsuarioBD
-            ((int) tblPessoa.getValueAt(linha, 10));
-            
-            objpessoa.cmbUsuario.setSelectedIndex
-            (listUsuario.get(0).getUsuario_perfil());   
-    
-            objpessoa.setVisible(true);
-            objpessoa.setLocationRelativeTo(null);
-            this.dispose();
-        }
-        
-        
-    }//GEN-LAST:event_tblPessoaMouseClicked
 
-    private void tblPessoaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPessoaKeyPressed
-
-        
-            objpessoa.opcao="Alterar";
-        
-            int linha = tblPessoa.getSelectedRow();
-            
-            objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
-            objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
-            objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
-            objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
-            objpessoa.txtNumeroPessoa.setText((String) tblPessoa.getValueAt(linha, 4));
-            
-            listCidade = objcidade.pegarCidadeBD
-            ((int) tblPessoa.getValueAt(linha, 5));
-            
-            objpessoa.cmbCidade.setSelectedItem
-            (listCidade.get(0).getNome_cidade());
-            
-          /*  listEstado = objestado.pegarEstadoBD
-            ((int) tblPessoa.getValueAt(linha, 5));
-           
-            objpessoa.cmbEstado.setSelectedItem
-            (listEstado.get(0).getNome_estado());
-            */
             objpessoa.txtCEPPessoa.setText((String) tblPessoa.getValueAt(linha, 6));
             objpessoa.txtTelefonePessoa.setText((String) tblPessoa.getValueAt(linha, 7));
             objpessoa.txtCPFPessoa.setText((String) tblPessoa.getValueAt(linha, 8));
@@ -303,7 +254,56 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             ((int) tblPessoa.getValueAt(linha, 10));
             
             objpessoa.cmbUsuario.setSelectedItem
-            (listUsuario.get(0).getUsuario_perfil());   
+            (listUsuario.get(0).getNome_usuario());   
+    
+            objpessoa.setVisible(true);
+            objpessoa.setLocationRelativeTo(null);
+            this.dispose();
+        }
+        
+        
+    }//GEN-LAST:event_tblPessoaMouseClicked
+
+    private void tblPessoaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPessoaKeyPressed
+
+        
+            objpessoa.opcao="Alterar";
+            
+            int linha = tblPessoa.getSelectedRow();
+            
+            objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
+            objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
+            objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
+            objpessoa.txtNumeroPessoa.setText((String) tblPessoa.getValueAt(linha, 4));
+            
+            listCidade = objcidade.pegarCidadeBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+            
+            objpessoa.cmbCidade.setSelectedItem
+            (listCidade.get(0).getNome_cidade());
+            
+           listEstado = objestado.pegarEstadoBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+           
+            objpessoa.cmbEstado.setSelectedItem
+            (listEstado.get(0).getNome_estado());
+            
+            objpessoa.txtCEPPessoa.setText((String) tblPessoa.getValueAt(linha, 6));
+            objpessoa.txtTelefonePessoa.setText((String) tblPessoa.getValueAt(linha, 7));
+            objpessoa.txtCPFPessoa.setText((String) tblPessoa.getValueAt(linha, 8));
+            
+            listGrupo = objgrupo.PegarGrupoBD
+            ((int) tblPessoa.getValueAt(linha, 9));
+           
+            objpessoa.cmbGrupoPessoa.setSelectedItem
+            (listGrupo.get(0).getNome_grupo());
+            
+            listUsuario = objusuario.pegarUsuarioBD
+            ((int) tblPessoa.getValueAt(linha, 10));
+            
+            objpessoa.cmbUsuario.setSelectedItem
+            (listUsuario.get(0).getNome_usuario());   
     
             objpessoa.setVisible(true);
             objpessoa.setLocationRelativeTo(null);
@@ -322,18 +322,20 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
             objpessoa.txtNumeroPessoa.setText((String) tblPessoa.getValueAt(linha, 4));
             
+
+            
+            listEstado = objestado.pegarEstadoBD
+            ((int) tblPessoa.getValueAt(linha, 5));
+           
+            objpessoa.cmbEstado.setSelectedItem
+            (listEstado.get(0).getNome_estado());
+            
             listCidade = objcidade.pegarCidadeBD
             ((int) tblPessoa.getValueAt(linha, 5));
             
             objpessoa.cmbCidade.setSelectedItem
             (listCidade.get(0).getNome_cidade());
             
-            /*listEstado = objestado.pegarEstadoBD
-            ((int) tblPessoa.getValueAt(linha, 5));
-           
-            objpessoa.cmbEstado.setSelectedItem
-            (listEstado.get(0).getNome_estado());
-            */
             objpessoa.txtCEPPessoa.setText((String) tblPessoa.getValueAt(linha, 6));
             objpessoa.txtTelefonePessoa.setText((String) tblPessoa.getValueAt(linha, 7));
             objpessoa.txtCPFPessoa.setText((String) tblPessoa.getValueAt(linha, 8));
@@ -348,7 +350,7 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
             ((int) tblPessoa.getValueAt(linha, 10));
             
             objpessoa.cmbUsuario.setSelectedItem
-            (listUsuario.get(0).getUsuario_perfil());   
+            (listUsuario.get(0).getNome_usuario());     
     
             objpessoa.setVisible(true);
             objpessoa.setLocationRelativeTo(null);

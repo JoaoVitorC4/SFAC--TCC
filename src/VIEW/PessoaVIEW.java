@@ -47,6 +47,9 @@ public class PessoaVIEW extends javax.swing.JFrame {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         desativarBotoes();
+        if(opcao == "Alterar"){
+        
+        }
         carregaestadocmb();
         carregacidadecmb();
         carregagrupocmb();
@@ -108,6 +111,16 @@ public class PessoaVIEW extends javax.swing.JFrame {
         txtCodPessoa.setEditable(false);
 
         cmbGrupoPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbGrupoPessoa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbGrupoPessoaItemStateChanged(evt);
+            }
+        });
+        cmbGrupoPessoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbGrupoPessoaMouseClicked(evt);
+            }
+        });
         cmbGrupoPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbGrupoPessoaActionPerformed(evt);
@@ -164,6 +177,16 @@ public class PessoaVIEW extends javax.swing.JFrame {
         jLabel7.setText("Usuário:");
 
         cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbUsuario.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbUsuarioItemStateChanged(evt);
+            }
+        });
+        cmbUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbUsuarioMouseClicked(evt);
+            }
+        });
         cmbUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuarioActionPerformed(evt);
@@ -389,6 +412,22 @@ public class PessoaVIEW extends javax.swing.JFrame {
     private void cmbCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCidadeActionPerformed
         item_cidade = cmbCidade.getSelectedIndex();
     }//GEN-LAST:event_cmbCidadeActionPerformed
+
+    private void cmbUsuarioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbUsuarioItemStateChanged
+        item_usuario = cmbUsuario.getSelectedIndex();
+    }//GEN-LAST:event_cmbUsuarioItemStateChanged
+
+    private void cmbUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbUsuarioMouseClicked
+        item_usuario = cmbUsuario.getSelectedIndex();
+    }//GEN-LAST:event_cmbUsuarioMouseClicked
+
+    private void cmbGrupoPessoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbGrupoPessoaMouseClicked
+       item_grupo = cmbGrupoPessoa.getSelectedIndex();
+    }//GEN-LAST:event_cmbGrupoPessoaMouseClicked
+
+    private void cmbGrupoPessoaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbGrupoPessoaItemStateChanged
+        item_grupo = cmbGrupoPessoa.getSelectedIndex();
+    }//GEN-LAST:event_cmbGrupoPessoaItemStateChanged
 
     /**
      * @param args the command line arguments
