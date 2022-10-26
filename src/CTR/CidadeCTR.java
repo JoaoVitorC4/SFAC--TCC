@@ -52,7 +52,9 @@ public class CidadeCTR {
         try {
             while (rscidade.next()) {
                 CidadeMODEL gs = new CidadeMODEL();
+                gs.setCod_cidade(rscidade.getInt("cod_cidade"));
                 gs.setNome_cidade(rscidade.getString("nome_cidade"));
+                gs.setCidade_uf(rscidade.getInt("cidade_uf"));
 
                 acidade.add(gs);
             }
