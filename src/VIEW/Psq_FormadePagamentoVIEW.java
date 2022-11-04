@@ -208,12 +208,13 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     private void tblFormadePagamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFormadePagamentoMouseClicked
         if(evt.getClickCount() == 2)
         {
-            objformadepagamento.opcao = "Alterar";
+objformadepagamento.opcao = "Alterar";
             float objtxfpagamento = 0;
             
             int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
+            objformadepagamento.txtCod_formadepagamento.setText((String)Integer.toString(objformadepagamento.cod_formadepagamento));
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
             //objformadepagamento.txtnome_formadepagamento.equals((Float)tblFormadePagamento.getValueAt(linha, 2));
             
@@ -233,12 +234,13 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tblFormadePagamentoMouseClicked
 
     private void tblFormadePagamentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblFormadePagamentoKeyPressed
-            objformadepagamento.opcao = "Alterar";
+objformadepagamento.opcao = "Alterar";
             float objtxfpagamento = 0;
             
             int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
+            objformadepagamento.txtCod_formadepagamento.setText((String)Integer.toString(objformadepagamento.cod_formadepagamento));
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
             //objformadepagamento.txtnome_formadepagamento.equals((Float)tblFormadePagamento.getValueAt(linha, 2));
             
@@ -274,6 +276,7 @@ public class Psq_FormadePagamentoVIEW extends javax.swing.JFrame {
             int linha = tblFormadePagamento.getSelectedRow();
             
             objformadepagamento.cod_formadepagamento = (int) tblFormadePagamento.getValueAt(linha, 0);
+            objformadepagamento.txtCod_formadepagamento.setText((String)Integer.toString(objformadepagamento.cod_formadepagamento));
             objformadepagamento.txtnome_formadepagamento.setText((String)tblFormadePagamento.getValueAt(linha, 1));
             //objformadepagamento.txtnome_formadepagamento.equals((Float)tblFormadePagamento.getValueAt(linha, 2));
             

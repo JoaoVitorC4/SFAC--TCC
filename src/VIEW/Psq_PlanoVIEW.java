@@ -209,7 +209,7 @@ public class Psq_PlanoVIEW extends javax.swing.JFrame {
     private void tblPlanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPlanoMouseClicked
         if(evt.getClickCount() == 2)
         {
-objplano.opcao = "Alterar";
+        objplano.opcao = "Alterar";
         int linha = tblPlano.getSelectedRow();
         float objtxtvalor_plano = 0;
         int objtxtqtddependente = 0;
@@ -218,7 +218,7 @@ objplano.opcao = "Alterar";
         
             
         objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
-        
+        objplano.txtCod_plano.setText((String)Integer.toString(objplano.cod_plano));
         objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
             
             objtxtvalor_plano = (Float)(tblPlano.getValueAt(linha, 2));
@@ -242,7 +242,7 @@ objplano.opcao = "Alterar";
     }//GEN-LAST:event_tblPlanoMouseClicked
 
     private void tblPlanoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPlanoKeyPressed
-objplano.opcao = "Alterar";
+        objplano.opcao = "Alterar";
         int linha = tblPlano.getSelectedRow();
         float objtxtvalor_plano = 0;
         int objtxtqtddependente = 0;
@@ -251,7 +251,7 @@ objplano.opcao = "Alterar";
         
             
         objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
-        
+        objplano.txtCod_plano.setText((String)Integer.toString(objplano.cod_plano));
         objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
             
             objtxtvalor_plano = (Float)(tblPlano.getValueAt(linha, 2));
@@ -294,7 +294,7 @@ objplano.opcao = "Alterar";
         
             
         objplano.cod_plano = (int) tblPlano.getValueAt(linha, 0);
-        
+        objplano.txtCod_plano.setText((String)Integer.toString(objplano.cod_plano));
         objplano.txtNome_plano.setText((String)tblPlano.getValueAt(linha, 1));
             
             objtxtvalor_plano = (Float)(tblPlano.getValueAt(linha, 2));

@@ -228,7 +228,7 @@ public class Psq_MensalidadeVIEW extends javax.swing.JFrame {
     private void tblMensalidadeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMensalidadeMouseClicked
         if(evt.getClickCount() == 2)
         {
-objmensalidade.opcao = "Alterar";
+        objmensalidade.opcao = "Alterar";
         float valor_mensalidade = 0;
         float valor_pago_mensalidade = 0;
         float juros_mensalidade = 0;
@@ -238,6 +238,7 @@ objmensalidade.opcao = "Alterar";
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
+        objmensalidade.txtCod_mensalidade.setText((String)Integer.toString(objmensalidade.cod_mensalidade));
         objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
         objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2)); 
             //Enviar valor para o txt da tela de edição quando for do tipo float 
@@ -290,7 +291,7 @@ objmensalidade.opcao = "Alterar";
     }//GEN-LAST:event_tblMensalidadeMouseClicked
 
     private void tblMensalidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblMensalidadeKeyPressed
-objmensalidade.opcao = "Alterar";
+        objmensalidade.opcao = "Alterar";
         float valor_mensalidade = 0;
         float valor_pago_mensalidade = 0;
         float juros_mensalidade = 0;
@@ -300,6 +301,7 @@ objmensalidade.opcao = "Alterar";
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
+        objmensalidade.txtCod_mensalidade.setText((String)Integer.toString(objmensalidade.cod_mensalidade));
         objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
         objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2)); 
             //Enviar valor para o txt da tela de edição quando for do tipo float 
@@ -370,6 +372,7 @@ objmensalidade.opcao = "Alterar";
         int linha = tblMensalidade.getSelectedRow();
 
         objmensalidade.cod_mensalidade = (int) tblMensalidade.getValueAt(linha, 0);
+        objmensalidade.txtCod_mensalidade.setText((String)Integer.toString(objmensalidade.cod_mensalidade));
         objmensalidade.txtEmissao_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 1));
         objmensalidade.txtVencimento_mensalidade.setDate((Date)tblMensalidade.getValueAt(linha, 2)); 
             //Enviar valor para o txt da tela de edição quando for do tipo float 

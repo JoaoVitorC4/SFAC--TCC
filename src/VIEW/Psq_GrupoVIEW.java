@@ -212,6 +212,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         int linha = tblGrupo.getSelectedRow();
             
         objgrupo.cod_grupo = (int) tblGrupo.getValueAt(linha, 0);
+        objgrupo.txtCod_grupo.setText((String)Integer.toString(objgrupo.cod_grupo));
         objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
             
             
@@ -229,6 +230,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         int linha = tblGrupo.getSelectedRow();
             
         objgrupo.cod_grupo = (int) tblGrupo.getValueAt(linha, 0);
+        objgrupo.txtCod_grupo.setText((String)Integer.toString(objgrupo.cod_grupo));
         objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
             
             
@@ -252,6 +254,7 @@ public class Psq_GrupoVIEW extends javax.swing.JFrame {
         int linha = tblGrupo.getSelectedRow();
             
         objgrupo.cod_grupo = (int) tblGrupo.getValueAt(linha, 0);
+        objgrupo.txtCod_grupo.setText((String)Integer.toString(objgrupo.cod_grupo));
         objgrupo.txtNome_grupo.setText((String)tblGrupo.getValueAt(linha, 1));
             
             

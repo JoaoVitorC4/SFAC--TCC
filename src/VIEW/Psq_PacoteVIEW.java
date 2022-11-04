@@ -224,10 +224,16 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
     private void tblPacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacoteMouseClicked
         if(evt.getClickCount() == 2)
         {
-objpacote.opcao = "Alterar";
+        objpacote.opcao = "Alterar";
         int linha = tblPacote.getSelectedRow();
 
         objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
+        objpacote.txtCod_pacote.setText((String)Integer.toString(objpacote.cod_pacote));
+        objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
+        objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
+        objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
+        objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
+        objpacote.txtIdentificacao_pacote.setText((String)tblPacote.getValueAt(linha, 5).toString());  
         
         listPessoa = objpessoa.PegarPessoaBD
         ((int) tblPacote.getValueAt(linha, 1));
@@ -250,15 +256,6 @@ objpacote.opcao = "Alterar";
             
         objpacote.cmbGrupo_pacote.setSelectedItem
             (listGrupo.get(0).getNome_grupo());
-        
-        
-       // objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
-        //objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
-        //objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
-        objpacote.txtVencimento_pacote.setDate((Date)tblPacote.getValueAt(linha, 4));  
-        objpacote.txtIdentificacao_pacote.setText((String)tblPacote.getValueAt(linha, 5).toString());  
-        
-        
             
         objpacote.setVisible(true);
         objpacote.setLocationRelativeTo(null);
@@ -269,10 +266,11 @@ objpacote.opcao = "Alterar";
     }//GEN-LAST:event_tblPacoteMouseClicked
 
     private void tblPacoteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPacoteKeyPressed
-objpacote.opcao = "Alterar";
+        objpacote.opcao = "Alterar";
         int linha = tblPacote.getSelectedRow();
 
         objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
+        objpacote.txtCod_pacote.setText((String)Integer.toString(objpacote.cod_pacote));
         objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
         objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
         objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);
@@ -322,6 +320,7 @@ objpacote.opcao = "Alterar";
         int linha = tblPacote.getSelectedRow();
 
         objpacote.cod_pacote = (int) tblPacote.getValueAt(linha, 0);
+        objpacote.txtCod_pacote.setText((String)Integer.toString(objpacote.cod_pacote));
         objpacote.itempessoa = (int) tblPacote.getValueAt(linha, 1);
         objpacote.itemplano = (int) tblPacote.getValueAt(linha, 2);
         objpacote.itemgrupo = (int) tblPacote.getValueAt(linha, 3);

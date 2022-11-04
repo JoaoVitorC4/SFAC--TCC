@@ -212,10 +212,11 @@ public class Psq_UsuarioVIEW extends javax.swing.JFrame {
     private void tblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuarioMouseClicked
         if(evt.getClickCount() == 2)
         {
-objusuario.opcao = "Alterar";
+        objusuario.opcao = "Alterar";
         int linha = tblUsuario.getSelectedRow();
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
+        objusuario.txtCod_usuario.setText((String)Integer.toString(objusuario.cod_usuario));
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
         objusuario.txtSenha_usuario.setText((String)tblUsuario.getValueAt(linha, 2));
         
@@ -234,10 +235,11 @@ objusuario.opcao = "Alterar";
     }//GEN-LAST:event_tblUsuarioMouseClicked
 
     private void tblUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblUsuarioKeyPressed
- objusuario.opcao = "Alterar";
+        objusuario.opcao = "Alterar";
         int linha = tblUsuario.getSelectedRow();
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
+        objusuario.txtCod_usuario.setText((String)Integer.toString(objusuario.cod_usuario));
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
         objusuario.txtSenha_usuario.setText((String)tblUsuario.getValueAt(linha, 2));
         
@@ -268,6 +270,7 @@ objusuario.opcao = "Alterar";
         int linha = tblUsuario.getSelectedRow();
             
         objusuario.cod_usuario = (int) tblUsuario.getValueAt(linha, 0);
+        objusuario.txtCod_usuario.setText((String)Integer.toString(objusuario.cod_usuario));
         objusuario.txtNome_usuario.setText((String)tblUsuario.getValueAt(linha, 1));
         objusuario.txtSenha_usuario.setText((String)tblUsuario.getValueAt(linha, 2));
         

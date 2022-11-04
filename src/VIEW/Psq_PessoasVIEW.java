@@ -225,11 +225,12 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     private void tblPessoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPessoaMouseClicked
         if(evt.getClickCount() == 2)
         {        
-            objpessoa.opcao="Alterar";
-        
+objpessoa.opcao="Alterar";
+            
             int linha = tblPessoa.getSelectedRow();
             
             objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtCodPessoa.setText((String)Integer.toString(objpessoa.cod_pessoa));
             objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
             objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
             objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
@@ -274,12 +275,12 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tblPessoaMouseClicked
 
     private void tblPessoaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPessoaKeyPressed
-
-            objpessoa.opcao="Alterar";
-        
+objpessoa.opcao="Alterar";
+            
             int linha = tblPessoa.getSelectedRow();
             
             objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtCodPessoa.setText((String)Integer.toString(objpessoa.cod_pessoa));
             objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
             objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
             objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
@@ -321,12 +322,12 @@ public class Psq_PessoasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_tblPessoaKeyPressed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-
             objpessoa.opcao="Alterar";
-        
+            
             int linha = tblPessoa.getSelectedRow();
             
             objpessoa.cod_pessoa = (int) tblPessoa.getValueAt(linha, 0);
+            objpessoa.txtCodPessoa.setText((String)Integer.toString(objpessoa.cod_pessoa));
             objpessoa.txtNomePessoa.setText((String) tblPessoa.getValueAt(linha, 1));
             objpessoa.txtEnderecoPessoa.setText((String) tblPessoa.getValueAt(linha, 2));
             objpessoa.txtBairroPessoa.setText((String) tblPessoa.getValueAt(linha, 3));
