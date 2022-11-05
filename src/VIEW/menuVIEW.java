@@ -168,7 +168,9 @@ public class menuVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPlanosActionPerformed
 
     private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
-        // TODO add your handling code here:
+       LoginVIEW objtelalogin = new LoginVIEW();
+       objtelalogin.setVisible(true);
+       objtelalogin.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConfiguracoesActionPerformed
 
     private void btnPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPessoasActionPerformed
