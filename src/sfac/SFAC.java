@@ -5,6 +5,7 @@
  */
 package sfac;
 
+import VIEW.LoginVIEW;
 import VIEW.menuVIEW;
 
 /**
@@ -19,8 +20,9 @@ public class SFAC {
     public static void main(String[] args) {
         // TODO code application logic here
     
-    menuVIEW objtela = new menuVIEW();
+    LoginVIEW objtela = new LoginVIEW();
     
     objtela.setVisible(true);
+    objtela.setLocationRelativeTo(null);
     }
 }

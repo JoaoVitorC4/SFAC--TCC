@@ -164,6 +164,9 @@
         <Property name="text" type="java.lang.String" value="  Entrar                 "/>
         <Property name="horizontalTextPosition" type="int" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntrarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

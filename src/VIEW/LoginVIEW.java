@@ -10,6 +10,7 @@ import MODEL.UsuarioMODEL;
 import static VIEW.PessoaVIEW.cmbUsuario;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -86,6 +87,11 @@ public class LoginVIEW extends javax.swing.JFrame {
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/entrar.png"))); // NOI18N
         btnEntrar.setText("  Entrar                 ");
         btnEntrar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,6 +165,10 @@ public class LoginVIEW extends javax.swing.JFrame {
         item_usuario = cmbUsuario_login.getSelectedIndex();
     }//GEN-LAST:event_cmbUsuario_loginMouseClicked
 
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        RealizaLogin();
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,7 +225,20 @@ public class LoginVIEW extends javax.swing.JFrame {
         btnEntrar.setBackground(entrarcor);
         }
     
+    public void RealizaLogin(){
+        
+    String senhaBD = listUsuario.get(item_usuario).getSenha_usuario();
+    String senhaLogin = txtSenha_login.getText();
     
+    if(senhaLogin.equals(senhaBD)){
+        menuVIEW telamenu = new menuVIEW();
+        telamenu.setVisible(true);
+        this.dispose();
+    }
+    else{
+        JOptionPane.showMessageDialog(null, "Senha Informada Incorreta !");
+    }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
