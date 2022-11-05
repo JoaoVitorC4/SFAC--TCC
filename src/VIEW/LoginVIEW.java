@@ -46,9 +46,9 @@ public class LoginVIEW extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtSenha_login = new javax.swing.JTextField();
         cmbUsuario_login = new javax.swing.JComboBox<>();
         btnEntrar = new javax.swing.JButton();
+        txtSenha_login = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
@@ -93,6 +93,17 @@ public class LoginVIEW extends javax.swing.JFrame {
             }
         });
 
+        txtSenha_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenha_loginActionPerformed(evt);
+            }
+        });
+        txtSenha_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenha_loginKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,13 +124,13 @@ public class LoginVIEW extends javax.swing.JFrame {
                                 .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cmbUsuario_login, 0, 222, Short.MAX_VALUE)
-                                    .addComponent(txtSenha_login)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbUsuario_login, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSenha_login, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbUsuario_login, txtSenha_login});
@@ -168,6 +179,14 @@ public class LoginVIEW extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         RealizaLogin();
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void txtSenha_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenha_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenha_loginActionPerformed
+
+    private void txtSenha_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenha_loginKeyPressed
+      
+    }//GEN-LAST:event_txtSenha_loginKeyPressed
 
     /**
      * @param args the command line arguments
@@ -248,6 +267,6 @@ public class LoginVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    public javax.swing.JTextField txtSenha_login;
+    public javax.swing.JPasswordField txtSenha_login;
     // End of variables declaration//GEN-END:variables
 }
