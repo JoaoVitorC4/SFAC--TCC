@@ -110,7 +110,7 @@ public void AlteraUsuario(UsuarioMODEL gs)
         con = cb.conectaPostgre();
         
         ResultSet rs = null;
-        String sql = "select * from usuario";
+        String sql = "select * from usuario order by nome_usuario";
         
         try {
             st = con.createStatement(ResultSet.CONCUR_UPDATABLE,ResultSet.TYPE_SCROLL_INSENSITIVE);
