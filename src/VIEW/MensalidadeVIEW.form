@@ -93,10 +93,11 @@
               <Component id="jLabel1" min="-2" pref="130" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jLabel2" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jLabel12" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel7" alignment="0" pref="151" max="32767" attributes="0"/>
                   <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
@@ -109,42 +110,53 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="cmbFormadepagamento_mensalidade" alignment="0" min="-2" pref="296" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtJuros_mensalidade" max="32767" attributes="0"/>
-                                  <Component id="txtValor_mensalidade" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtValor_pago_mensalidade" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtDesconto_mensalidade" max="32767" attributes="0"/>
-                                  <Component id="txtEmissao_mensalidade" alignment="1" min="-2" pref="151" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="cmbPlano_mensalidade" alignment="1" min="-2" pref="296" max="-2" attributes="0"/>
-                              <Component id="cmbStatus_Mensalidade" alignment="1" min="-2" pref="296" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="txtVencimento_mensalidade" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                      <Component id="txtVencimento_mensalidade" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtCod_mensalidade" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtCod_mensalidade" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="cmbFormadepagamento_mensalidade" alignment="0" min="-2" pref="296" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="btnPesquisa_identificacao" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtJuros_mensalidade" max="32767" attributes="0"/>
+                                              <Component id="txtValor_mensalidade" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtValor_pago_mensalidade" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtDesconto_mensalidade" max="32767" attributes="0"/>
+                                              <Component id="txtEmissao_mensalidade" alignment="1" min="-2" pref="151" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                      <Component id="cmbPlano_mensalidade" alignment="1" min="-2" pref="296" max="-2" attributes="0"/>
+                                      <Component id="cmbStatus_Mensalidade" alignment="1" min="-2" pref="296" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnCancelar" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
+                          <Component id="btnSalvar" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="txtIdentificacao_mensalidade" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCancelar" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
-                  <Component id="btnSalvar" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,6 +170,7 @@
                       <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -165,7 +178,13 @@
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCod_mensalidade" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace pref="9" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIdentificacao_mensalidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnPesquisa_identificacao" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEmissao_mensalidade" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -212,7 +231,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -398,6 +417,20 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Identifia&#xe7;&#xe3;o Mensalidade:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIdentificacao_mensalidade">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPesquisa_identificacao">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icones/magnifier-1_icon-icons.com_56924 (1)_1.png"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
