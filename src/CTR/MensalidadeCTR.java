@@ -71,7 +71,7 @@ public class MensalidadeCTR {
     }
   
         public void insereMENSALIDADECTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade, float valor_pago_mensalidade, 
-                float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano){
+                float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano,int mensalidade_identificacao){
            
             MensalidadeMODEL objmensalidade = new MensalidadeMODEL();
          
@@ -84,6 +84,7 @@ public class MensalidadeCTR {
             objmensalidade.setMensalidade_formadepagamento(mensalidade_formadepagamento);
             objmensalidade.setMensalidade_status(mensalidade_status);
             objmensalidade.setMensalidade_plano(mensalidade_plano);
+            objmensalidade.setMensalidade_identificacao(mensalidade_identificacao);
 
             MensalidadeDAO objdao = new MensalidadeDAO();
       
@@ -91,7 +92,7 @@ public class MensalidadeCTR {
     }
     
         public void AlteraMensalidadeCTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade, float valor_pago_mensalidade, 
-                float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano, 
+                float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano,int mensalidade_identificacao,
                 int cod_mensalidade)
     {
         // Cria um objeto da MODEL
@@ -106,6 +107,7 @@ public class MensalidadeCTR {
         objmensalidade.setMensalidade_formadepagamento(mensalidade_formadepagamento);
         objmensalidade.setMensalidade_status(mensalidade_status);
         objmensalidade.setMensalidade_plano(mensalidade_plano);
+        objmensalidade.setMensalidade_identificacao(mensalidade_identificacao);
         objmensalidade.setCod_mensalidade(cod_mensalidade);
         
         //Declara objeto da DAO

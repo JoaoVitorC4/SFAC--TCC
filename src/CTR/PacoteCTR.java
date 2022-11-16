@@ -65,6 +65,9 @@ public class PacoteCTR {
             return null;
         }
     }
+    
+    
+ 
   
         public void inserePACOTECTR(int pessoa_pacote, int plano_pacote, int grupo_plano, Date vencimento_pacote, int identificacao_pacote){
            
@@ -109,6 +112,14 @@ public class PacoteCTR {
     
     }
 
+        public ResultSet PesquisarIDENTIFICACAOCTR(String nome){
+        
+        PacoteDAO objtel = new PacoteDAO();
+        
+        return objtel.PesquisarIdentificacao(nome);
+    
+    }
+    
         
    public void ExcluiPacoteCTR(int cod_pacote)
      {

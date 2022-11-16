@@ -36,7 +36,7 @@ public void inserePlano(PlanoMODEL gs){
            String sql = "insert into plano(nome_plano,valor_plano,qtd_dependente,qtd_convidado) values (?,?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_plano());
+            pgsql.setString(1, gs.getNome_plano().toUpperCase());
             pgsql.setFloat(2, gs.getValor_plano());
             pgsql.setInt(3, gs.getQtd_dependente());
             pgsql.setInt(4, gs.getQtd_convidado());
@@ -63,7 +63,7 @@ public void AlteraPlano(PlanoMODEL gs)
         
         try {
             pgsql = con.prepareStatement(sql);
-            pgsql.setString(1, gs.getNome_plano());
+            pgsql.setString(1, gs.getNome_plano().toUpperCase());
             pgsql.setFloat(2, gs.getValor_plano());
             pgsql.setInt(3, gs.getQtd_dependente());
             pgsql.setInt(4, gs.getQtd_convidado());
@@ -138,6 +138,31 @@ public void AlteraPlano(PlanoMODEL gs)
             
             rs = st.executeQuery(sql);
             
+        } catch (SQLException ex) {
+            Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+           
+        }
+         return rs;
+    }
+         public ResultSet pegarNOMEPlano(String nome_plano)
+    {
+        ConexaoDAO cb = new ConexaoDAO();
+        con = cb.conectaPostgre();
+        ResultSet rs = null;
+        
+        
+        String sql = "select * from plano where upper(nome_plano) like upper(?) order by cod_plano";
+        try {
+            pgsql = con.prepareStatement(sql);
+            pgsql.setString(1,"%" + nome_plano + "%");
+            
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE, ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            
+             rs = st.executeQuery(pgsql.toString());
+            
+ 
         } catch (SQLException ex) {
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
             

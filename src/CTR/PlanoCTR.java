@@ -112,6 +112,35 @@ public class PlanoCTR {
         
         
     }
+        
+        
+    public List<PlanoMODEL> PegarPlanoBDPELONOME(String nome_plano)
+    {
+        List<PlanoMODEL> aplano = new ArrayList<>();
+        PlanoDAO objdao = new PlanoDAO();
+        ResultSet rsplano = objdao.pegarNOMEPlano(nome_plano);
+        
+        try {
+            while(rsplano.next())
+            {
+                PlanoMODEL gs = new PlanoMODEL();
+                gs.setCod_plano(rsplano.getInt("cod_plano"));
+                gs.setNome_plano(rsplano.getString("nome_plano"));
+                gs.setValor_plano(rsplano.getFloat("valor_plano"));
+                gs.setQtd_dependente(rsplano.getInt("qtd_dependente"));
+                gs.setQtd_convidado(rsplano.getInt("qtd_convidado"));
+                
+                aplano.add(gs);
+            }    
+            
+            return aplano;
+                } catch (SQLException ex) {
+            Logger.getLogger(PlanoCTR.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        
+        
+    }
     
     /*/    
         public void DesativaPlanoCTR(boolean status_cli, int id_cli)

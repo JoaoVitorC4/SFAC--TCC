@@ -48,7 +48,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
     List<PerfilMODEL> listPerfil;
     PerfilCTR objperfil = new PerfilCTR();
 
-
+    public int id_plano_pacote; 
     public Psq_PacoteVIEW() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
@@ -249,6 +249,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         objpacote.cmbPlano_pacote.setSelectedItem
             (listPlano.get(0).getNome_plano());
         
+        id_plano_pacote = listPlano.get(0).getCod_plano();
         
         
         listGrupo = objgrupo.PegarGrupoBD
@@ -291,7 +292,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
         objpacote.cmbPlano_pacote.setSelectedItem
             (listPlano.get(0).getNome_plano());
         
-        
+        id_plano_pacote = listPlano.get(0).getCod_plano();
         
         listGrupo = objgrupo.PegarGrupoBD
         ((int) tblPacote.getValueAt(linha, 3));
@@ -342,6 +343,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
             (listPlano.get(0).getNome_plano());
         
         
+        id_plano_pacote = listPlano.get(0).getCod_plano();
         
         listGrupo = objgrupo.PegarGrupoBD
         ((int) tblPacote.getValueAt(linha, 3));

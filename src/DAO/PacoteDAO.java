@@ -108,6 +108,31 @@ public void AlteraPacote(PacoteMODEL gs)
      }
      
      
+     public ResultSet PesquisarIdentificacao (String nome){
+         ConexaoDAO cb = new ConexaoDAO();
+         con = cb.conectaPostgre();
+         
+         
+         String sql = "select * from identificacao_mensalidade where nome_pessoa like upper (?) and nome_grupo like '%TITULARES%' order by identificacao_pacote";
+        try {
+            pgsql = con.prepareStatement(sql);
+            pgsql.setString(1,"%" + nome + "%");
+            
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE, ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            
+             rs = st.executeQuery(pgsql.toString());
+            
+        
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return rs;
+     }
+     
+     
      public ResultSet listaPacote()
     {
         ConexaoDAO cb = new ConexaoDAO();

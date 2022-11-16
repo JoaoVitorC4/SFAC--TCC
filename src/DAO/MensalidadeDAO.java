@@ -38,7 +38,7 @@ public void insereMensalidade(MensalidadeMODEL gs){
            
            String sql = "insert into mensalidade(emissao_mensalidade, vencimento_mensalidade, valor_mensalidade, "
                    + "valor_pago_mensalidade, juros_mensalidade, desconto_mensalidade, mensalidade_formadepagamento, "
-                   + "mensalidade_status, mensalidade_plano) values (?,?,?,?,?,?,?,?,?)";
+                   + "mensalidade_status, mensalidade_plano,mensalidade_identificacao) values (?,?,?,?,?,?,?,?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setDate(1, gs.getEmissao_mensalidade());
@@ -50,6 +50,7 @@ public void insereMensalidade(MensalidadeMODEL gs){
             pgsql.setInt(7, gs.getMensalidade_formadepagamento());
             pgsql.setInt(8, gs.getMensalidade_status());
             pgsql.setInt(9, gs.getMensalidade_plano());
+            pgsql.setInt(10, gs.getMensalidade_identificacao());
 
     
             pgsql.executeUpdate();
@@ -68,7 +69,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
         
         String sql = "update mensalidade set "
                 + "emissao_mensalidade = ?, vencimento_mensalidade = ?, valor_mensalidade = ?,valor_pago_mensalidade = ?, juros_mensalidade = ?,"
-                +"desconto_mensalidade = ?, mensalidade_formadepagamento = ?, mensalidade_status = ?, mensalidade_plano = ?"
+                +"desconto_mensalidade = ?, mensalidade_formadepagamento = ?, mensalidade_status = ?, mensalidade_plano = ?, mensalidade_identificacao = ?"
                 + "where cod_mensalidade = ?";
         
         try {
@@ -82,8 +83,9 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             pgsql.setInt(7, gs.getMensalidade_formadepagamento());
             pgsql.setInt(8, gs.getMensalidade_status());
             pgsql.setInt(9, gs.getMensalidade_plano());
+            pgsql.setInt(10, gs.getMensalidade_identificacao());
             
-            pgsql.setInt(10, gs.getCod_mensalidade());
+            pgsql.setInt(11, gs.getCod_mensalidade());
             
             pgsql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Mensalidade Alterado com Sucesso");
@@ -179,6 +181,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
                 gs.setMensalidade_formadepagamento(rsmensalidade.getInt("mensalidade_formadepagamento"));
                 gs.setMensalidade_status(rsmensalidade.getInt("mensalidade_status"));
                 gs.setMensalidade_plano(rsmensalidade.getInt("mensalidade_plano"));
+                gs.setMensalidade_plano(rsmensalidade.getInt("mensalidade_identificacao"));
            
 
                 amensalidade.add(gs);

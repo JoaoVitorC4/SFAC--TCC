@@ -22,6 +22,7 @@ public class MensalidadeMODEL {
     private int mensalidade_formadepagamento;
     private int mensalidade_status;
     private int mensalidade_plano;
+    private int mensalidade_identificacao;
 
     /**
      * @return the cod_mensalidade
@@ -161,5 +162,19 @@ public class MensalidadeMODEL {
      */
     public void setMensalidade_plano(int mensalidade_plano) {
         this.mensalidade_plano = mensalidade_plano;
+    }
+
+    /**
+     * @return the mensalidade_identificacao
+     */
+    public int getMensalidade_identificacao() {
+        return mensalidade_identificacao;
+    }
+
+    /**
+     * @param mensalidade_identificacao the mensalidade_identificacao to set
+     */
+    public void setMensalidade_identificacao(int mensalidade_identificacao) {
+        this.mensalidade_identificacao = mensalidade_identificacao;
     }
 }
