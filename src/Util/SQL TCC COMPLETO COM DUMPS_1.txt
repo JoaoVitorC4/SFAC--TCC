@@ -154,6 +154,14 @@ MENSALIDADE_IDENTIFICACAO INTEGER NOT NULL
 	inner join plano n on n.cod_plano = a.plano_pacote
 	inner join grupo g on g.cod_grupo = a.grupo_pacote
 
+        create view mensalidade_view as
+    select 
+    m.cod_mensalidade, m.mensalidade_identificacao,m.emissao_mensalidade,
+    m.vencimento_mensalidade,m.valor_mensalidade,m.valor_pago_mensalidade,m.juros_mensalidade,
+    m.desconto_mensalidade,f.nome_fpagamento,s.nome_status,p.nome_plano from mensalidade m
+    inner join formadepagamento f on m.mensalidade_formadepagamento = f.cod_fpagamento
+    inner join status s on m.mensalidade_status = s.cod_status
+    inner join plano p on m.mensalidade_plano = p.cod_plano
 
 
 

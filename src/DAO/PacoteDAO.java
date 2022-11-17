@@ -56,6 +56,32 @@ public void inserePacote(PacoteMODEL gs){
            
     }
 
+    public ResultSet QtdDependente(int identificacao_pacote)
+    {
+        ConexaoDAO cb = new ConexaoDAO();
+        con = cb.conectaPostgre();
+        
+        ResultSet rs = null;
+        String sql = "SELECT COUNT(pacote.plano_pacote) AS TOTAL FROM public.pacote, public.grupo WHERE "
+                + "pacote.grupo_pacote = grupo.cod_grupo AND grupo.nome_grupo LIKE '%DEPENDENTE%' "
+                + "AND pacote.identificacao_pacote = " +identificacao_pacote;
+       
+        
+        try {
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE,ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            rs = st.executeQuery(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+           
+        }
+         return rs;
+    }
+
+
+
 public void AlteraPacote(PacoteMODEL gs)
     {
         ConexaoDAO cb = new ConexaoDAO();

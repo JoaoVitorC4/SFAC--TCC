@@ -118,7 +118,29 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
          
          return rs;
      }
-     
+     public ResultSet VIEWMensalidade (String nome){
+         ConexaoDAO cb = new ConexaoDAO();
+         con = cb.conectaPostgre();
+         
+         
+         String sql = "select * from mensalidade_view where vencimento_mensalidade::text like (?) order by vencimento_mensalidade";
+        try {
+            pgsql = con.prepareStatement(sql);
+            pgsql.setString(1,"%" + nome + "%");
+            
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE, ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            
+             rs = st.executeQuery(pgsql.toString());
+            
+        
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return rs;
+     }
      
      public ResultSet listaMensalidade()
     {

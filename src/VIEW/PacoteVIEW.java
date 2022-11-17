@@ -42,6 +42,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
     List<PessoaMODEL> listPessoa = null;
     List<PlanoMODEL> listPlano = null;
     List<GrupoMODEL> listGrupo = null;
+    List<PacoteMODEL> listPacote = null;
     int itempessoa;
     int itemplano;
     int itemgrupo;
@@ -429,11 +430,37 @@ public class PacoteVIEW extends javax.swing.JFrame {
         
        int perfil_selecicionado;
        
-        
+       int qtd_dependente;
+       int teste = listPlano.get(itemplano).getQtd_dependente();
        PacoteCTR objctr = new PacoteCTR();
-        
-       //SimpleDateFormat formatadata = new SimpleDateFormat("dd/MM/yyyy");
        
+      qtd_dependente = objctr.QtdDependenteCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
+     
+      if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTE")){
+         
+            if(teste <= qtd_dependente ){
+            JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
+                    +" A quantidade maxima de dependentes nesse pacote é de "+qtd_dependente);
+            }
+      
+      else{
+          
+      java.util.Date utilDate = txtVencimento_pacote.getDate();
+      java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+       
+       
+       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
+       
+        objctr.inserePACOTECTR(listPessoa.get(itempessoa).getCod_pessoa(),
+                                listPlano.get(itemplano).getCod_plano(),
+                                listGrupo.get(itemgrupo).getCod_grupo(), 
+                                sqlDate,
+                                indentificacao_pacote);
+      
+      
+      }
+      }
+      else{
        java.util.Date utilDate = txtVencimento_pacote.getDate();
        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
        
@@ -445,10 +472,23 @@ public class PacoteVIEW extends javax.swing.JFrame {
                                 listGrupo.get(itemgrupo).getCod_grupo(), 
                                 sqlDate,
                                 indentificacao_pacote);
-    
+       //SimpleDateFormat formatadata = new SimpleDateFormat("dd/MM/yyyy");
+       
+//       java.util.Date utilDate = txtVencimento_pacote.getDate();
+//       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+//       
+//       
+//       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
+//       
+//        objctr.inserePACOTECTR(listPessoa.get(itempessoa).getCod_pessoa(),
+//                                listPlano.get(itemplano).getCod_plano(),
+//                                listGrupo.get(itemgrupo).getCod_grupo(), 
+//                                sqlDate,
+//                                indentificacao_pacote);
+//    
     }
     
-    
+    }
     
     
     public void alterapacote()

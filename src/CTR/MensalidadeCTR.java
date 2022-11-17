@@ -123,8 +123,13 @@ public class MensalidadeCTR {
         
         return objtel.PesquisarMensalidade(nome);
     
+    }public ResultSet ViewMENSALIDADECTR(String nome){
+        
+        MensalidadeDAO objtel = new MensalidadeDAO();
+        
+        return objtel.VIEWMensalidade(nome);
+    
     }
-
         
    public void ExcluiMensalidadeCTR(int cod_mensalidade)
      {
