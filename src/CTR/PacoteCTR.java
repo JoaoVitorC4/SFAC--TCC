@@ -142,6 +142,15 @@ public class PacoteCTR {
     
     }
     
+        public ResultSet PesquisarVIEWPACOTECTR(String nome){
+        
+        PacoteDAO objtel = new PacoteDAO();
+        
+        return objtel.PesquisarVIEWPacote(nome);
+    
+    }
+        
+        
         
    public void ExcluiPacoteCTR(int cod_pacote)
      {

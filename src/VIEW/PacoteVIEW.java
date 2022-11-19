@@ -436,7 +436,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
        
       qtd_dependente = objctr.QtdDependenteCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
      
-      if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTE")){
+      if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTES")){
          
             if(teste <= qtd_dependente ){
             JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
