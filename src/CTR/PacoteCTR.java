@@ -87,7 +87,25 @@ public class PacoteCTR {
     }
     
     
-    
+     public int QtdTitularesCTR(int identificacao_pacote) {
+        int qtd_titulares_pacote = 0;
+        PacoteDAO objdao = new PacoteDAO();
+        ResultSet rspacote = objdao.QtdTitulares(identificacao_pacote);
+
+        try {
+            while (rspacote.next()) {
+//                PacoteMODEL gs = new PacoteMODEL();
+//                gs.setPessoa_pacote(rspacote.getInt("identificacao_pacote"));
+//
+              qtd_titulares_pacote= rspacote.getInt("total");
+            }
+            return qtd_titulares_pacote;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacoteCTR.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
     
  
   

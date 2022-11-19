@@ -431,17 +431,49 @@ public class PacoteVIEW extends javax.swing.JFrame {
        int perfil_selecicionado;
        
        int qtd_dependente;
+       int qtd_titulares;
+       
+
        int teste = listPlano.get(itemplano).getQtd_dependente();
        PacoteCTR objctr = new PacoteCTR();
+      
+      qtd_titulares = objctr.QtdTitularesCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
        
       qtd_dependente = objctr.QtdDependenteCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
      
-      if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTES")){
-         
-            if(teste <= qtd_dependente ){
-            JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
-                    +" A quantidade maxima de dependentes nesse pacote é de "+qtd_dependente);
-            }
+      if(listGrupo.get(itemgrupo).getNome_grupo().equals("TITULARES") && qtd_titulares >= 1){
+//          if(qtd_titulares >= 1){
+       JOptionPane.showMessageDialog(null, "Só pode ter um Titular por pacote gerado !"
+                   +"\n Confira os dados informados");
+          //}
+      }
+      else if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTES") && teste <= qtd_dependente){
+        JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
+                    +"\n A quantidade máxima de dependentes nesse pacote é de "+qtd_dependente);
+    
+    }
+//          
+//      java.util.Date utilDate = txtVencimento_pacote.getDate();
+//      java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+//       
+//       
+//       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
+//       
+//        objctr.inserePACOTECTR(listPessoa.get(itempessoa).getCod_pessoa(),
+//                                listPlano.get(itemplano).getCod_plano(),
+//                                listGrupo.get(itemgrupo).getCod_grupo(), 
+//                                sqlDate,
+//                                indentificacao_pacote);
+//      
+      
+      
+      
+//      if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTES")){
+//         
+//            if(teste <= qtd_dependente ){
+//            JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
+//                    +" A quantidade maxima de dependentes nesse pacote é de "+qtd_dependente);
+//            }
       
       else{
           
@@ -458,20 +490,21 @@ public class PacoteVIEW extends javax.swing.JFrame {
                                 indentificacao_pacote);
       
       
-      }
-      }
-      else{
-       java.util.Date utilDate = txtVencimento_pacote.getDate();
-       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-       
-       
-       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
-       
-        objctr.inserePACOTECTR(listPessoa.get(itempessoa).getCod_pessoa(),
-                                listPlano.get(itemplano).getCod_plano(),
-                                listGrupo.get(itemgrupo).getCod_grupo(), 
-                                sqlDate,
-                                indentificacao_pacote);
+      
+      
+
+}
+//       java.util.Date utilDate = txtVencimento_pacote.getDate();
+//       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+//       
+//       
+//       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
+//       
+//        objctr.inserePACOTECTR(listPessoa.get(itempessoa).getCod_pessoa(),
+//                                listPlano.get(itemplano).getCod_plano(),
+//                                listGrupo.get(itemgrupo).getCod_grupo(), 
+//                                sqlDate,
+//                                indentificacao_pacote);
        //SimpleDateFormat formatadata = new SimpleDateFormat("dd/MM/yyyy");
        
 //       java.util.Date utilDate = txtVencimento_pacote.getDate();
@@ -486,14 +519,77 @@ public class PacoteVIEW extends javax.swing.JFrame {
 //                                sqlDate,
 //                                indentificacao_pacote);
 //    
-    }
+    
     
     }
     
     
     public void alterapacote()
     {
-        PacoteCTR objpacote = new PacoteCTR();
+        
+        
+        int perfil_selecicionado;
+       
+       int qtd_dependente;
+       int qtd_titulares;
+       
+
+       int teste = listPlano.get(itemplano).getQtd_dependente();
+       PacoteCTR objctr = new PacoteCTR();
+      
+      qtd_titulares = objctr.QtdTitularesCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
+       
+      qtd_dependente = objctr.QtdDependenteCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
+     
+      if(listGrupo.get(itemgrupo).getNome_grupo().equals("TITULARES") && qtd_titulares >= 1){
+//          if(qtd_titulares >= 1){
+       JOptionPane.showMessageDialog(null, "Só pode ter um Titular por pacote gerado !"
+                   +"\n Confira os dados informados");
+          //}
+      }
+      else if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTES") && teste <= qtd_dependente){
+        JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
+                    +"\n A quantidade máxima de dependentes nesse pacote é de "+qtd_dependente);
+    
+    }
+        
+//        int qtd_dependente;
+//       int teste = listPlano.get(itemplano).getQtd_dependente();
+//       PacoteCTR objctr = new PacoteCTR();
+//       
+//      qtd_dependente = objctr.QtdDependenteCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
+//     
+//      if(listGrupo.get(itemgrupo).getNome_grupo().equals("DEPENDENTES")){
+//         
+//            if(teste <= qtd_dependente ){
+//            JOptionPane.showMessageDialog(null, "Quantidade de Dependentes do pacote exedida !"
+//                    +" A quantidade maxima de dependentes nesse pacote é de "+qtd_dependente);
+//            }
+//      
+//      
+//      else{
+//        
+//        
+//        
+//        PacoteCTR objpacote = new PacoteCTR();
+//        
+//       java.util.Date utilDate = txtVencimento_pacote.getDate();
+//       java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());      
+//        
+//       indentificacao_pacote = Integer.parseInt(txtIdentificacao_pacote.getText());
+//       
+//        objpacote.AlteraPacoteCTR(listPessoa.get(itempessoa).getCod_pessoa(),
+//                                listPlano.get(itemplano).getCod_plano(),
+//                                listGrupo.get(itemgrupo).getCod_grupo(),
+//                                sqlDate,
+//                                indentificacao_pacote,
+//                                cod_pacote);
+//            }
+//            }
+       
+      else{
+ 
+       PacoteCTR objpacote = new PacoteCTR();
         
        java.util.Date utilDate = txtVencimento_pacote.getDate();
        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());      
@@ -506,7 +602,8 @@ public class PacoteVIEW extends javax.swing.JFrame {
                                 sqlDate,
                                 indentificacao_pacote,
                                 cod_pacote);
-    
+         
+      }    
     }
     
 
