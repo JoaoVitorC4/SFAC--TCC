@@ -490,7 +490,7 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
     
     public void preenche_conpacote(){
         
-        String [] colunas = {"Código" ,"Identificação","Pessoa","Plano","Grupo","Vencimento"};
+        String [] colunas = {"Código","Pessoa","Plano","Grupo","Vencimento","Identificação"};
         String [][] linhas = {};
         
             DefaultTableModel tablemodel = new DefaultTableModel(linhas,colunas)
@@ -508,12 +508,12 @@ public class Psq_PacoteVIEW extends javax.swing.JFrame {
             {
                Vector regVetor = new Vector();
                
-               regVetor.add(rspacote.getInt("cod_pacote"));
-               regVetor.add(rspacote.getInt("identificacao_pacote"));
-                regVetor.add(rspacote.getString("nome_pessoa"));             
-                regVetor.add(rspacote.getString("nome_plano"));             
-                regVetor.add(rspacote.getString("nome_grupo"));
+               regVetor.add(rspacote.getInt("cod_pacote"));    
+                regVetor.add(rspacote.getInt("pessoa_pacote"));             
+                regVetor.add(rspacote.getInt("plano_pacote"));             
+                regVetor.add(rspacote.getInt("grupo_pacote"));
                 regVetor.add(rspacote.getDate("vencimento_pacote"));
+                regVetor.add(rspacote.getInt("identificacao_pacote"));
                 
                    
                dados.add(regVetor);
