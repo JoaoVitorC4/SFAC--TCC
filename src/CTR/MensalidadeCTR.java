@@ -70,7 +70,7 @@ public class MensalidadeCTR {
         }
     }
   
-        public void insereMENSALIDADECTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade, float valor_pago_mensalidade, 
+        public void insereMENSALIDADECTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade,Date pagamento_mensalidade, float valor_pago_mensalidade, 
                 float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano,int mensalidade_identificacao){
            
             MensalidadeMODEL objmensalidade = new MensalidadeMODEL();
@@ -78,6 +78,7 @@ public class MensalidadeCTR {
             objmensalidade.setEmissao_mensalidade(emissao_mensalidade);
             objmensalidade.setVencimento_mensalidade(vencimento_mensalidade);
             objmensalidade.setValor_mensalidade(valor_mensalidade);
+            objmensalidade.setPagamento_mensalidade(pagamento_mensalidade);
             objmensalidade.setValor_pago_mensalidade(valor_pago_mensalidade);
             objmensalidade.setJuros_mensalidade(juros_mensalidade);
             objmensalidade.setDesconto_mensalidade(desconto_mensalidade);
@@ -91,7 +92,7 @@ public class MensalidadeCTR {
             objdao.insereMensalidade(objmensalidade);
     }
     
-        public void AlteraMensalidadeCTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade, float valor_pago_mensalidade, 
+        public void AlteraMensalidadeCTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade,Date pagamento_mensalidade, float valor_pago_mensalidade, 
                 float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano,int mensalidade_identificacao,
                 int cod_mensalidade)
     {
@@ -101,6 +102,7 @@ public class MensalidadeCTR {
         objmensalidade.setEmissao_mensalidade(emissao_mensalidade);
         objmensalidade.setVencimento_mensalidade(vencimento_mensalidade);
         objmensalidade.setValor_mensalidade(valor_mensalidade);
+        objmensalidade.setPagamento_mensalidade(pagamento_mensalidade);
         objmensalidade.setValor_pago_mensalidade(valor_pago_mensalidade);
         objmensalidade.setJuros_mensalidade(juros_mensalidade);
         objmensalidade.setDesconto_mensalidade(desconto_mensalidade);

@@ -16,6 +16,7 @@ public class MensalidadeMODEL {
     private Date emissao_mensalidade;
     private Date vencimento_mensalidade;
     private float valor_mensalidade;
+    private Date pagamento_mensalidade;
     private float valor_pago_mensalidade;
     private float juros_mensalidade;
     private float desconto_mensalidade;
@@ -176,5 +177,19 @@ public class MensalidadeMODEL {
      */
     public void setMensalidade_identificacao(int mensalidade_identificacao) {
         this.mensalidade_identificacao = mensalidade_identificacao;
+    }
+
+    /**
+     * @return the pagamento_mensalidade
+     */
+    public Date getPagamento_mensalidade() {
+        return pagamento_mensalidade;
+    }
+
+    /**
+     * @param pagamento_mensalidade the pagamento_mensalidade to set
+     */
+    public void setPagamento_mensalidade(Date pagamento_mensalidade) {
+        this.pagamento_mensalidade = pagamento_mensalidade;
     }
 }

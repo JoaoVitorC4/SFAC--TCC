@@ -147,6 +147,32 @@ public void AlteraPessoa(PessoaMODEL gs){
      
      
      
+      public ResultSet PesquisarPessoaPeloCPF (String cpf){
+         ConexaoDAO cb = new ConexaoDAO();
+         con = cb.conectaPostgre();
+         
+         
+         String sql = "select * from pessoa where cpf_pessoa = ?";
+        try {
+            pgsql = con.prepareStatement(sql);
+            pgsql.setString(1,"%" + cpf + "%");
+            
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE, ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            
+             rs = st.executeQuery(pgsql.toString());
+            
+        
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return rs;
+     }
+     
+     
+     
       public ResultSet pegarIDPessoa(int cod_pessoa)
     {
         ConexaoDAO cb = new ConexaoDAO();
@@ -169,6 +195,29 @@ public void AlteraPessoa(PessoaMODEL gs){
          return rs;
     }
      
+      
+      public ResultSet pegarIDPessoaPeloCPF(String cpf_pessoa)
+    {
+        ConexaoDAO cb = new ConexaoDAO();
+        con = cb.conectaPostgre();
+        
+        ResultSet rs = null;
+        String sql = "select * from pessoa where cpf_pessoa =" +"'"+cpf_pessoa+"'";
+       
+        
+        try {
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE,ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            rs = st.executeQuery(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+           
+        }
+         return rs;
+    }
+      
      
       
           public void ExcluirPessoa(PessoaMODEL gs)

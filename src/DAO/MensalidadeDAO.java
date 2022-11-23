@@ -37,20 +37,21 @@ public void insereMensalidade(MensalidadeMODEL gs){
            con = cb.conectaPostgre();
            
            String sql = "insert into mensalidade(emissao_mensalidade, vencimento_mensalidade, valor_mensalidade, "
-                   + "valor_pago_mensalidade, juros_mensalidade, desconto_mensalidade, mensalidade_formadepagamento, "
-                   + "mensalidade_status, mensalidade_plano,mensalidade_identificacao) values (?,?,?,?,?,?,?,?,?,?)";
+                   + "pagamento_mensalidade, valor_pago_mensalidade, juros_mensalidade, desconto_mensalidade, mensalidade_formadepagamento, "
+                   + "mensalidade_status, mensalidade_plano,mensalidade_identificacao) values (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setDate(1, gs.getEmissao_mensalidade());
             pgsql.setDate(2, gs.getVencimento_mensalidade());
             pgsql.setFloat(3, gs.getValor_mensalidade());
-            pgsql.setFloat(4, gs.getValor_pago_mensalidade());
-            pgsql.setFloat(5, gs.getJuros_mensalidade());
-            pgsql.setFloat(6, gs.getDesconto_mensalidade());
-            pgsql.setInt(7, gs.getMensalidade_formadepagamento());
-            pgsql.setInt(8, gs.getMensalidade_status());
-            pgsql.setInt(9, gs.getMensalidade_plano());
-            pgsql.setInt(10, gs.getMensalidade_identificacao());
+            pgsql.setDate(4, gs.getPagamento_mensalidade());
+            pgsql.setFloat(5, gs.getValor_pago_mensalidade());
+            pgsql.setFloat(6, gs.getJuros_mensalidade());
+            pgsql.setFloat(7, gs.getDesconto_mensalidade());
+            pgsql.setInt(8, gs.getMensalidade_formadepagamento());
+            pgsql.setInt(9, gs.getMensalidade_status());
+            pgsql.setInt(10, gs.getMensalidade_plano());
+            pgsql.setInt(11, gs.getMensalidade_identificacao());
 
     
             pgsql.executeUpdate();
@@ -68,7 +69,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
         con = cb.conectaPostgre();
         
         String sql = "update mensalidade set "
-                + "emissao_mensalidade = ?, vencimento_mensalidade = ?, valor_mensalidade = ?,valor_pago_mensalidade = ?, juros_mensalidade = ?,"
+                + "emissao_mensalidade = ?, vencimento_mensalidade = ?, valor_mensalidade = ?, pagamento_mensalidade = ?, valor_pago_mensalidade = ?, juros_mensalidade = ?,"
                 +"desconto_mensalidade = ?, mensalidade_formadepagamento = ?, mensalidade_status = ?, mensalidade_plano = ?, mensalidade_identificacao = ?"
                 + "where cod_mensalidade = ?";
         
@@ -77,15 +78,16 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             pgsql.setDate(1, gs.getEmissao_mensalidade());
             pgsql.setDate(2, gs.getVencimento_mensalidade());
             pgsql.setFloat(3, gs.getValor_mensalidade());
-            pgsql.setFloat(4, gs.getValor_pago_mensalidade());
-            pgsql.setFloat(5, gs.getJuros_mensalidade());
-            pgsql.setFloat(6, gs.getDesconto_mensalidade());
-            pgsql.setInt(7, gs.getMensalidade_formadepagamento());
-            pgsql.setInt(8, gs.getMensalidade_status());
-            pgsql.setInt(9, gs.getMensalidade_plano());
-            pgsql.setInt(10, gs.getMensalidade_identificacao());
+            pgsql.setDate(4, gs.getPagamento_mensalidade());
+            pgsql.setFloat(5, gs.getValor_pago_mensalidade());
+            pgsql.setFloat(6, gs.getJuros_mensalidade());
+            pgsql.setFloat(7, gs.getDesconto_mensalidade());
+            pgsql.setInt(8, gs.getMensalidade_formadepagamento());
+            pgsql.setInt(9, gs.getMensalidade_status());
+            pgsql.setInt(10, gs.getMensalidade_plano());
+            pgsql.setInt(11, gs.getMensalidade_identificacao());
             
-            pgsql.setInt(11, gs.getCod_mensalidade());
+            pgsql.setInt(12, gs.getCod_mensalidade());
             
             pgsql.executeUpdate();
             JOptionPane.showMessageDialog(null, "Mensalidade Alterado com Sucesso");
@@ -100,7 +102,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
          con = cb.conectaPostgre();
          
          
-         String sql = "select * from mensalidade where vencimento_mensalidade::text like (?) order by vencimento_mensalidade";
+         String sql = "select * from mensalidade where mensalidade_identificacao::text like (?) order by cod_mensalidade";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1,"%" + nome + "%");
@@ -197,6 +199,7 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
                 gs.setVencimento_mensalidade(rsmensalidade.getDate("emissao_mensalidade"));
                 gs.setVencimento_mensalidade(rsmensalidade.getDate("vencimento_mensalidade"));
                 gs.setValor_mensalidade(rsmensalidade.getFloat("valor_mensalidade"));
+                gs.setPagamento_mensalidade(rsmensalidade.getDate("pagamento_mensalidade"));
                 gs.setValor_pago_mensalidade(rsmensalidade.getFloat("valor_pago_mensalidade"));
                 gs.setJuros_mensalidade(rsmensalidade.getFloat("juros_mensalidade"));
                 gs.setDesconto_mensalidade(rsmensalidade.getFloat("desconto_mensalidade"));

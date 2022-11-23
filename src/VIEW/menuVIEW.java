@@ -41,6 +41,8 @@ public class menuVIEW extends javax.swing.JFrame {
         btnPlanos = new javax.swing.JButton();
         btnPacote = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnSaida = new javax.swing.JButton();
+        btnEntrada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -120,26 +122,53 @@ public class menuVIEW extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnSaida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
+        btnSaida.setText("Saída");
+        btnSaida.setBorder(new RoundedBorder(7));
+        btnSaida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSaida.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSaida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaidaActionPerformed(evt);
+            }
+        });
+
+        btnEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
+        btnEntrada.setText("Entrada");
+        btnEntrada.setBorder(new RoundedBorder(7));
+        btnEntrada.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEntrada.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntradaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(btnPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                .addComponent(btnPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPacote, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addComponent(btnPacote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPlanos, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addComponent(btnPlanos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMensalidades, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addComponent(btnMensalidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnopcoesadministrativas, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addComponent(btnopcoesadministrativas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfiguracoes, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
+                .addComponent(btnConfiguracoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(btnEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(313, 313, 313)
+                .addComponent(btnSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +180,13 @@ public class menuVIEW extends javax.swing.JFrame {
                     .addComponent(btnMensalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnopcoesadministrativas, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("Menu");
@@ -168,9 +201,9 @@ public class menuVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPlanosActionPerformed
 
     private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
-       LoginVIEW objtelalogin = new LoginVIEW();
-       objtelalogin.setVisible(true);
-       objtelalogin.setLocationRelativeTo(null);
+       Psq_EntradaVIEW objtela = new Psq_EntradaVIEW();
+       objtela.setVisible(true);
+       objtela.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConfiguracoesActionPerformed
 
     private void btnPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPessoasActionPerformed
@@ -196,6 +229,18 @@ public class menuVIEW extends javax.swing.JFrame {
         objtelamensalidade.setVisible(true);
         objtelamensalidade.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnMensalidadesActionPerformed
+
+    private void btnSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaidaActionPerformed
+       SaidaVIEW objtela = new SaidaVIEW();
+       objtela.setVisible(true);
+       objtela.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnSaidaActionPerformed
+
+    private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
+       EntradaVIEW objtela = new EntradaVIEW();
+       objtela.setVisible(true);
+       objtela.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnEntradaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,12 +298,14 @@ public class menuVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConfiguracoes;
-    private javax.swing.JButton btnMensalidades;
-    private javax.swing.JButton btnPacote;
-    private javax.swing.JButton btnPessoas;
-    private javax.swing.JButton btnPlanos;
-    private javax.swing.JButton btnopcoesadministrativas;
+    public javax.swing.JButton btnConfiguracoes;
+    public javax.swing.JButton btnEntrada;
+    public javax.swing.JButton btnMensalidades;
+    public javax.swing.JButton btnPacote;
+    public javax.swing.JButton btnPessoas;
+    public javax.swing.JButton btnPlanos;
+    public javax.swing.JButton btnSaida;
+    public javax.swing.JButton btnopcoesadministrativas;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

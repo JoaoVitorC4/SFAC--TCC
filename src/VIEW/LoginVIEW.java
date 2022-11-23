@@ -244,17 +244,41 @@ public class LoginVIEW extends javax.swing.JFrame {
         btnEntrar.setBackground(entrarcor);
         }
     
+        
+   public void TelaAdministrador(){
+        menuVIEW telamenu = new menuVIEW();
+        telamenu.setVisible(true);
+   }     
+   
+   public void TelaOperacional(){
+       menuVIEW telamenu = new menuVIEW();
+       telamenu.setVisible(true);
+       telamenu.btnConfiguracoes.setVisible(false);
+       telamenu.btnopcoesadministrativas.setVisible(false);
+       telamenu.btnPlanos.setVisible(false);
+   }
+        
     public void RealizaLogin(){
         
     String senhaBD = listUsuario.get(item_usuario).getSenha_usuario();
+    
+    int perfilUsuario = listUsuario.get(item_usuario).getUsuario_perfil();
+    
     String senhaLogin = txtSenha_login.getText();
     
-    if(senhaLogin.equals(senhaBD)){
-        menuVIEW telamenu = new menuVIEW();
-        telamenu.setVisible(true);
+    if(senhaLogin.equals(senhaBD) && perfilUsuario == 1){
+        TelaAdministrador();
         this.dispose();
     }
-    else{
+    else if (senhaLogin.equals(senhaBD) && perfilUsuario == 2){
+        TelaOperacional();
+        this.dispose();
+    }
+    else if (senhaLogin.equals(senhaBD)){
+        TelaAdministrador();
+        this.dispose();
+    }
+        else{
         JOptionPane.showMessageDialog(null, "Senha Informada Incorreta !");
     }
     }
