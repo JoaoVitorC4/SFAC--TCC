@@ -69,6 +69,32 @@ public class MensalidadeCTR {
             return null;
         }
     }
+    
+    
+     public int pegarMensalidadeBDPelaPESSOA(int mensalidade_pessoa) {
+        int qtd_aberto = 0;
+        List<MensalidadeMODEL> amensalidade = new ArrayList<>();
+        MensalidadeDAO objdao = new MensalidadeDAO();
+        ResultSet rsmensalidade = objdao.pegarIDMensalidadePelaPessoa(mensalidade_pessoa);
+
+        try {
+            while (rsmensalidade.next()) {
+//                MensalidadeMODEL gs = new MensalidadeMODEL();
+//                gs.setCod_mensalidade(rsmensalidade.getInt("cod_mensalidade"));
+                  qtd_aberto = rsmensalidade.getInt("total");
+//                amensalidade.add(gs);
+            }
+            return qtd_aberto;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(MensalidadeCTR.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    
+    
+    
+    
   
         public void insereMENSALIDADECTR(Date emissao_mensalidade, Date vencimento_mensalidade, float valor_mensalidade,Date pagamento_mensalidade, float valor_pago_mensalidade, 
                 float juros_mensalidade, float desconto_mensalidade, int mensalidade_formadepagamento, int mensalidade_status, int mensalidade_plano,int mensalidade_identificacao){

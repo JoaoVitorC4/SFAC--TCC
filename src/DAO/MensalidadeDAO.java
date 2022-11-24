@@ -187,6 +187,39 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
          return rs;
     }
         
+        
+         public ResultSet pegarIDMensalidadePelaPessoa(int pessoa_mensalidade)
+    {
+        ConexaoDAO cb = new ConexaoDAO();
+        con = cb.conectaPostgre();
+        
+        ResultSet rs = null;
+        String sql = "SELECT COUNT(mensalidade.mensalidade_status) AS TOTAL  FROM "
+                + "public.mensalidade, public.pacote, public.pessoa, public.status WHERE "
+                +"mensalidade.mensalidade_identificacao = pacote.identificacao_pacote AND "
+                +"status.cod_status = mensalidade.mensalidade_status and status.nome_status LIKE '%BLOQUEADO%' "
+                +"AND pacote.pessoa_pacote = pessoa.cod_pessoa "
+                +"AND pacote.pessoa_pacote = "+pessoa_mensalidade;
+       
+        
+        try {
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE,ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            rs = st.executeQuery(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+           
+        }
+         return rs;
+    }
+        
+        
+        
+        
+        
+        
     public List<MensalidadeMODEL> ListaMensalidadeBD() {
         List<MensalidadeMODEL> amensalidade = new ArrayList<>();
         MensalidadeDAO objdao = new MensalidadeDAO();

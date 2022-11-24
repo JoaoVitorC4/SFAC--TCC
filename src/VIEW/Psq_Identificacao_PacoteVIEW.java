@@ -41,7 +41,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aquin
  */
-public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
+public class Psq_Identificacao_PacoteVIEW extends javax.swing.JFrame {
     List<PessoaMODEL> listPessoa = null;
     List<PlanoMODEL> listPlano = null;
     List<GrupoMODEL> listGrupo = null;
@@ -53,6 +53,7 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
     List<PerfilMODEL> listPerfil;
     PerfilCTR objperfil = new PerfilCTR();
     MensalidadeVIEW objmensalidade = new MensalidadeVIEW();
+    PacoteVIEW objpacotetela = new PacoteVIEW();
     public String opcao;
     Psq_PacoteVIEW psqpacote = new Psq_PacoteVIEW();
     
@@ -64,19 +65,19 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
     
     
     
-    
-    String cod_mensalidade;
-    Date emissao_mensalidade;
-    Date vencimento_mensalidade;
-    Date pagamento_mensalidade;
-    String valor_mensalidade;
-    String valorpago_mensalidade;
-    String juros_mensalidade;
-    String desconto_mensalidade;
-    int mensalidade_formadepagamento;
-    int mensalidade_status;
-    int mensalidade_plano;
-    int mensalidade_identificacao;
+//    
+//    String cod_mensalidade;
+//    Date emissao_mensalidade;
+//    Date vencimento_mensalidade;
+//    Date pagamento_mensalidade;
+//    String valor_mensalidade;
+//    String valorpago_mensalidade;
+//    String juros_mensalidade;
+//    String desconto_mensalidade;
+//    int mensalidade_formadepagamento;
+//    int mensalidade_status;
+//    int mensalidade_plano;
+//    int mensalidade_identificacao;
     
     
     
@@ -106,7 +107,7 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
     
   
 
-    public Psq_Identificacao_MensalidadeVIEW() {
+    public Psq_Identificacao_PacoteVIEW() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/LOGO SFAC.png")).getImage());
         pesquisarPacote();
@@ -227,11 +228,11 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
              String cod_identificacao;
              int identifi;
              
-             objmensalidade.setVisible(true);
-             objmensalidade.setLocationRelativeTo(null);
-             objmensalidade.txtCod_mensalidade.setText(cod_mensalidade); 
+             objpacotetela.setVisible(true);
+             objpacotetela.setLocationRelativeTo(null);
+             objpacotetela.txtCod_pacote.setText(cod_pacote); 
              
-             objmensalidade.opcao = opcao;
+             objpacotetela.opcao = opcao;
              if(opcao.equals("Inserir"))
              {
              String [] options = new String[] {"Sim","Não"};
@@ -245,7 +246,7 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
         {
              identifi = (int)tblPacote.getValueAt(linha,1);
              cod_identificacao = (String) Integer.toString(identifi); 
-             objmensalidade.txtIdentificacao_mensalidade.setText(cod_identificacao);
+             objpacotetela.txtIdentificacao_pacote.setText(cod_identificacao);
              
              
 
@@ -253,14 +254,14 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
             java.util.Date utilDatevenc = (Date) tblPacote.getValueAt(linha, 5);
             java.sql.Date sqlDateVencimento = new java.sql.Date(utilDatevenc.getTime());
             
-            vencimento_mensalidade = (Date)sqlDateVencimento;
-            objmensalidade.txtVencimento_mensalidade.setDate(vencimento_mensalidade); 
+            vencimento_pacote = (Date)sqlDateVencimento;
+            objpacotetela.txtVencimento_pacote.setDate(vencimento_pacote); 
             
             listPlano = objplano.PegarPlanoBDPELONOME((String)tblPacote.getValueAt(linha, 3));
-            objmensalidade.txtValor_mensalidade.setText((String)Float.toString(listPlano.get(0).getValor_plano()));
+            //objmensalidade.txtValor_mensalidade.setText((String)Float.toString(listPlano.get(0).getValor_plano()));
             
             
-            objmensalidade.cmbPlano_mensalidade.setSelectedItem(listPlano.get(0).getNome_plano());
+            objpacotetela.cmbPlano_pacote.setSelectedItem(listPlano.get(0).getNome_plano());
             
             //listPlano.get(objpacote.itemplano).getCod_plano();
             
@@ -284,23 +285,11 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
         
              else if(opcao.equals("Alterar")){
              identifi = (int)tblPacote.getValueAt(linha,1);
-             cod_identificacao = (String) Integer.toString(identifi); 
-             objmensalidade.txtIdentificacao_mensalidade.setText(cod_identificacao);
+             cod_identificacao = (String) Integer.toString(identifi);        
+             objpacotetela.txtIdentificacao_pacote.setText(cod_identificacao);
              
              //objmensalidade.txtIdentificacao_mensalidade.setText((String)tblPacote.getValueAt(linha, linha));
-             objmensalidade.txtEmissao_mensalidade.setDate(emissao_mensalidade);
-             objmensalidade.txtVencimento_mensalidade.setDate(vencimento_mensalidade);
-             objmensalidade.txtValor_mensalidade.setText(valor_mensalidade); 
-             objmensalidade.txtValor_pago_mensalidade.setText(valorpago_mensalidade); 
-             objmensalidade.txtJuros_mensalidade.setText(juros_mensalidade); 
-             objmensalidade.txtDesconto_mensalidade.setText(desconto_mensalidade); 
-             
-             
-             
-             objmensalidade.cmbFormadepagamento_mensalidade.setSelectedIndex(mensalidade_formadepagamento);
-             objmensalidade.cmbStatus_Mensalidade.setSelectedIndex(mensalidade_status);
-             objmensalidade.cmbPlano_mensalidade.setSelectedIndex(mensalidade_plano);
-             
+            
              }
            this.dispose();
         
@@ -311,15 +300,15 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
 
     private void tblPacoteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblPacoteKeyPressed
        // objpacote.opcao = "Alterar";
-             int linha = tblPacote.getSelectedRow();
+                        int linha = tblPacote.getSelectedRow();
              String cod_identificacao;
              int identifi;
              
-             objmensalidade.setVisible(true);
-             objmensalidade.setLocationRelativeTo(null);
-             objmensalidade.txtCod_mensalidade.setText(cod_mensalidade); 
+             objpacotetela.setVisible(true);
+             objpacotetela.setLocationRelativeTo(null);
+             objpacotetela.txtCod_pacote.setText(cod_pacote); 
              
-             objmensalidade.opcao = opcao;
+             objpacotetela.opcao = opcao;
              if(opcao.equals("Inserir"))
              {
              String [] options = new String[] {"Sim","Não"};
@@ -333,7 +322,7 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
         {
              identifi = (int)tblPacote.getValueAt(linha,1);
              cod_identificacao = (String) Integer.toString(identifi); 
-             objmensalidade.txtIdentificacao_mensalidade.setText(cod_identificacao);
+             objpacotetela.txtIdentificacao_pacote.setText(cod_identificacao);
              
              
 
@@ -341,14 +330,14 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
             java.util.Date utilDatevenc = (Date) tblPacote.getValueAt(linha, 5);
             java.sql.Date sqlDateVencimento = new java.sql.Date(utilDatevenc.getTime());
             
-            vencimento_mensalidade = (Date)sqlDateVencimento;
-            objmensalidade.txtVencimento_mensalidade.setDate(vencimento_mensalidade); 
+            vencimento_pacote = (Date)sqlDateVencimento;
+            objpacotetela.txtVencimento_pacote.setDate(vencimento_pacote); 
             
             listPlano = objplano.PegarPlanoBDPELONOME((String)tblPacote.getValueAt(linha, 3));
-            objmensalidade.txtValor_mensalidade.setText((String)Float.toString(listPlano.get(0).getValor_plano()));
+            //objmensalidade.txtValor_mensalidade.setText((String)Float.toString(listPlano.get(0).getValor_plano()));
             
             
-            objmensalidade.cmbPlano_mensalidade.setSelectedItem(listPlano.get(0).getNome_plano());
+            objpacotetela.cmbPlano_pacote.setSelectedItem(listPlano.get(0).getNome_plano());
             
             //listPlano.get(objpacote.itemplano).getCod_plano();
             
@@ -372,23 +361,11 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
         
              else if(opcao.equals("Alterar")){
              identifi = (int)tblPacote.getValueAt(linha,1);
-             cod_identificacao = (String) Integer.toString(identifi); 
-             objmensalidade.txtIdentificacao_mensalidade.setText(cod_identificacao);
+             cod_identificacao = (String) Integer.toString(identifi);        
+             objpacotetela.txtIdentificacao_pacote.setText(cod_identificacao);
              
              //objmensalidade.txtIdentificacao_mensalidade.setText((String)tblPacote.getValueAt(linha, linha));
-             objmensalidade.txtEmissao_mensalidade.setDate(emissao_mensalidade);
-             objmensalidade.txtVencimento_mensalidade.setDate(vencimento_mensalidade);
-             objmensalidade.txtValor_mensalidade.setText(valor_mensalidade); 
-             objmensalidade.txtValor_pago_mensalidade.setText(valorpago_mensalidade); 
-             objmensalidade.txtJuros_mensalidade.setText(juros_mensalidade); 
-             objmensalidade.txtDesconto_mensalidade.setText(desconto_mensalidade); 
-             
-             
-             
-             objmensalidade.cmbFormadepagamento_mensalidade.setSelectedIndex(mensalidade_formadepagamento);
-             objmensalidade.cmbStatus_Mensalidade.setSelectedIndex(mensalidade_status);
-             objmensalidade.cmbPlano_mensalidade.setSelectedIndex(mensalidade_plano);
-             
+            
              }
            this.dispose();
         
@@ -411,14 +388,270 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Psq_Identificacao_MensalidadeVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Psq_Identificacao_PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Psq_Identificacao_MensalidadeVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Psq_Identificacao_PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Psq_Identificacao_MensalidadeVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Psq_Identificacao_PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Psq_Identificacao_MensalidadeVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Psq_Identificacao_PacoteVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -679,7 +912,7 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Psq_Identificacao_MensalidadeVIEW().setVisible(true);
+                new Psq_Identificacao_PacoteVIEW().setVisible(true);
             }
         });
     }
@@ -729,7 +962,7 @@ public class Psq_Identificacao_MensalidadeVIEW extends javax.swing.JFrame {
             }  
             tblPacote.setModel(tablemodel);
         } catch (SQLException ex) {
-            Logger.getLogger(Psq_Identificacao_MensalidadeVIEW.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Psq_Identificacao_PacoteVIEW.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
