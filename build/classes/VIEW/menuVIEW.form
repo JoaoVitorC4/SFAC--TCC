@@ -41,7 +41,7 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="btnopcoesadministrativas" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="btnConfiguracoes" max="32767" attributes="0"/>
+              <Component id="btnPesquisaEntradaeSaida" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Component id="btnEntrada" max="32767" attributes="0"/>
@@ -64,7 +64,7 @@
                   <Component id="btnPacote" min="-2" pref="95" max="-2" attributes="0"/>
                   <Component id="btnMensalidades" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                   <Component id="btnopcoesadministrativas" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                  <Component id="btnConfiguracoes" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                  <Component id="btnPesquisaEntradaeSaida" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="18" max="32767" attributes="0"/>
               <Component id="jLabel1" max="32767" attributes="0"/>
@@ -79,12 +79,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnConfiguracoes">
+    <Component class="javax.swing.JButton" name="btnPesquisaEntradaeSaida">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icones/configuracoes.png"/>
+          <Image iconType="3" name="/icones/-query-builder_89792.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
+        <Property name="text" type="java.lang.String" value="Entradas e Sa&#xed;das"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="new RoundedBorder(7)" type="code"/>
         </Property>
@@ -92,7 +92,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfiguracoesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisaEntradaeSaidaActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -213,7 +213,7 @@
     <Component class="javax.swing.JButton" name="btnSaida">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icones/configuracoes.png"/>
+          <Image iconType="3" name="/icones/exit_icon-icons.com_70975.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Sa&#xed;da"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -232,7 +232,7 @@
     <Component class="javax.swing.JButton" name="btnEntrada">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icones/configuracoes.png"/>
+          <Image iconType="3" name="/icones/entrance_icon_180659.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Entrada"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

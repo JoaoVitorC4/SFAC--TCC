@@ -188,7 +188,7 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
             pgsql.setInt(1, gs.getCod_formadepagamento());
             
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "FormadePagamento Excluído com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Forma de Pagamento Excluído com Sucesso!");
             
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
