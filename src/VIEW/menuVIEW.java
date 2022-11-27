@@ -236,7 +236,7 @@ public class menuVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntradaActionPerformed
 
     private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
-        Psq_EntradaVIEW objtela = new Psq_EntradaVIEW();
+        Psq_EstradaeSaidaVIEW objtela = new Psq_EstradaeSaidaVIEW();
         objtela.setVisible(true);
         objtela.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConfiguracoesActionPerformed

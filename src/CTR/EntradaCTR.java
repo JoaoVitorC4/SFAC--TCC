@@ -125,6 +125,14 @@ public class EntradaCTR {
     }
     
     
+        public ResultSet PesquisarENTRADAESAIDACTR(String pessoa_entrada){
+        
+        EntradaDAO objtel = new EntradaDAO();
+        
+        return objtel.PesquisarEntradaeSaida(pessoa_entrada);
+    
+    }
+    
 
         
    public void ExcluiEntradaCTR(int cod_entrada)

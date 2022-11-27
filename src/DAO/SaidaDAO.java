@@ -45,7 +45,7 @@ public void insereSaida(SaidaMODEL gs){
  
         
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Saída Cadastrado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Saída Registrada com Sucesso");
         
         } catch (SQLException ex) {
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);

@@ -45,7 +45,7 @@ public void insereEntrada(EntradaMODEL gs){
  
         
             pgsql.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Entrada Cadastrado com Sucesso");
+            JOptionPane.showMessageDialog(null, "Entrada Registrada com Sucesso");
         
         } catch (SQLException ex) {
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,6 +83,32 @@ public void AlteraEntrada(EntradaMODEL gs)
          
          
          String sql = "select * from entrada where pessoa_entrada::text like (?)";
+        try {
+            pgsql = con.prepareStatement(sql);
+            pgsql.setString(1,"%" + nome + "%");
+            
+            st = con.createStatement(ResultSet.CONCUR_UPDATABLE, ResultSet.TYPE_SCROLL_INSENSITIVE);
+            
+            
+             rs = st.executeQuery(pgsql.toString());
+            
+        
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return rs;
+     }
+     
+     
+     
+      public ResultSet PesquisarEntradaeSaida (String nome){
+         ConexaoDAO cb = new ConexaoDAO();
+         con = cb.conectaPostgre();
+         
+         
+         String sql = "select * from entradaesaida where nome_pessoa::text like upper (?)";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setString(1,"%" + nome + "%");
