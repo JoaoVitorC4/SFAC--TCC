@@ -253,7 +253,7 @@ public class LoginVIEW extends javax.swing.JFrame {
    public void TelaOperacional(){
        menuVIEW telamenu = new menuVIEW();
        telamenu.setVisible(true);
-       telamenu.btnConfiguracoes.setVisible(false);
+       telamenu.btnPesquisaEntradaeSaida.setVisible(false);
        telamenu.btnopcoesadministrativas.setVisible(false);
        telamenu.btnPlanos.setVisible(false);
    }

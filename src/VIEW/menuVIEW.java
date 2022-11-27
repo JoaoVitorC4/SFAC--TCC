@@ -34,7 +34,7 @@ public class menuVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnConfiguracoes = new javax.swing.JButton();
+        btnPesquisaEntradaeSaida = new javax.swing.JButton();
         btnPessoas = new javax.swing.JButton();
         btnopcoesadministrativas = new javax.swing.JButton();
         btnMensalidades = new javax.swing.JButton();
@@ -48,14 +48,14 @@ public class menuVIEW extends javax.swing.JFrame {
         setTitle("Menu");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        btnConfiguracoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
-        btnConfiguracoes.setText("Configurações");
-        btnConfiguracoes.setBorder(new RoundedBorder(7));
-        btnConfiguracoes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnConfiguracoes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisaEntradaeSaida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/-query-builder_89792.png"))); // NOI18N
+        btnPesquisaEntradaeSaida.setText("Entradas e Saídas");
+        btnPesquisaEntradaeSaida.setBorder(new RoundedBorder(7));
+        btnPesquisaEntradaeSaida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPesquisaEntradaeSaida.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPesquisaEntradaeSaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfiguracoesActionPerformed(evt);
+                btnPesquisaEntradaeSaidaActionPerformed(evt);
             }
         });
 
@@ -122,7 +122,7 @@ public class menuVIEW extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btnSaida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
+        btnSaida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/exit_icon-icons.com_70975.png"))); // NOI18N
         btnSaida.setText("Saída");
         btnSaida.setBorder(new RoundedBorder(7));
         btnSaida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -133,7 +133,7 @@ public class menuVIEW extends javax.swing.JFrame {
             }
         });
 
-        btnEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/configuracoes.png"))); // NOI18N
+        btnEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/entrance_icon_180659.png"))); // NOI18N
         btnEntrada.setText("Entrada");
         btnEntrada.setBorder(new RoundedBorder(7));
         btnEntrada.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -159,7 +159,7 @@ public class menuVIEW extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnopcoesadministrativas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfiguracoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnPesquisaEntradaeSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(351, 351, 351)
@@ -178,7 +178,7 @@ public class menuVIEW extends javax.swing.JFrame {
                     .addComponent(btnPacote, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMensalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnopcoesadministrativas, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisaEntradaeSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -235,11 +235,11 @@ public class menuVIEW extends javax.swing.JFrame {
        objtela.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnEntradaActionPerformed
 
-    private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
+    private void btnPesquisaEntradaeSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaEntradaeSaidaActionPerformed
         Psq_EstradaeSaidaVIEW objtela = new Psq_EstradaeSaidaVIEW();
         objtela.setVisible(true);
         objtela.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnConfiguracoesActionPerformed
+    }//GEN-LAST:event_btnPesquisaEntradaeSaidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,10 +297,10 @@ public class menuVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnConfiguracoes;
     public javax.swing.JButton btnEntrada;
     public javax.swing.JButton btnMensalidades;
     public javax.swing.JButton btnPacote;
+    public javax.swing.JButton btnPesquisaEntradaeSaida;
     public javax.swing.JButton btnPessoas;
     public javax.swing.JButton btnPlanos;
     public javax.swing.JButton btnSaida;
