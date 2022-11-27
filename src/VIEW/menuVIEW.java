@@ -199,12 +199,6 @@ public class menuVIEW extends javax.swing.JFrame {
             objtelaplano.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnPlanosActionPerformed
 
-    private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
-       Psq_EntradaVIEW objtela = new Psq_EntradaVIEW();
-       objtela.setVisible(true);
-       objtela.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnConfiguracoesActionPerformed
-
     private void btnPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPessoasActionPerformed
         Psq_PessoasVIEW objtelapessoa = new Psq_PessoasVIEW();
         objtelapessoa.setVisible(true);
@@ -240,6 +234,12 @@ public class menuVIEW extends javax.swing.JFrame {
        objtela.setVisible(true);
        objtela.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnEntradaActionPerformed
+
+    private void btnConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracoesActionPerformed
+        Psq_EntradaVIEW objtela = new Psq_EntradaVIEW();
+        objtela.setVisible(true);
+        objtela.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnConfiguracoesActionPerformed
 
     /**
      * @param args the command line arguments

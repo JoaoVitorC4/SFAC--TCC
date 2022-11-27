@@ -319,6 +319,7 @@ public class SaidaVIEW extends javax.swing.JFrame {
       listEntrada = objentrada.pegarUltimaEntradaBDPeloCPF(listPessoa.get(0).getCod_pessoa());
       
       
+      
       cod_pessoa = listPessoa.get(0).getCod_pessoa();
       
       saida_entrada = listEntrada.get(0).getCod_entrada();

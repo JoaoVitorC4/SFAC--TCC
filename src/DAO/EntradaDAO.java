@@ -36,7 +36,7 @@ public void insereEntrada(EntradaMODEL gs){
            ConexaoDAO cb = new ConexaoDAO();
            con = cb.conectaPostgre();
            
-           String sql = "insert into entrada (dataehota_entrada, pessoa_entrada) values (?,?)";
+           String sql = "insert into entrada (dataehora_entrada, pessoa_entrada) values (?,?)";
         try {
             pgsql = con.prepareStatement(sql);
             pgsql.setTimestamp(1, gs.getDataehora_entrada());

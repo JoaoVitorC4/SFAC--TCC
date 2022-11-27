@@ -44,9 +44,8 @@
               <Component id="btnConfiguracoes" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="btnEntrada" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="313" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="351" max="-2" attributes="0"/>
               <Component id="btnSaida" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
