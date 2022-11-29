@@ -42,7 +42,9 @@ public class PacoteVIEW extends javax.swing.JFrame {
     List<PessoaMODEL> listPessoa = null;
     List<PlanoMODEL> listPlano = null;
     List<GrupoMODEL> listGrupo = null;
+    List<GrupoMODEL> listGrupo22 = null;
     List<PacoteMODEL> listPacote = null;
+    GrupoCTR objgrupo = new GrupoCTR();
     int itempessoa;
     int itemplano;
     int itemgrupo;
@@ -198,6 +200,11 @@ public class PacoteVIEW extends javax.swing.JFrame {
         cmbPessoa_pacote.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbPessoa_pacoteItemStateChanged(evt);
+            }
+        });
+        cmbPessoa_pacote.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbPessoa_pacoteFocusLost(evt);
             }
         });
         cmbPessoa_pacote.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -384,10 +391,12 @@ public class PacoteVIEW extends javax.swing.JFrame {
 
     private void cmbPessoa_pacoteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPessoa_pacoteItemStateChanged
         itempessoa = cmbPessoa_pacote.getSelectedIndex();
+        
     }//GEN-LAST:event_cmbPessoa_pacoteItemStateChanged
 
     private void cmbPessoa_pacoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbPessoa_pacoteMouseClicked
         itempessoa = cmbPessoa_pacote.getSelectedIndex();
+        
     }//GEN-LAST:event_cmbPessoa_pacoteMouseClicked
 
     private void txtCod_pacoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCod_pacoteActionPerformed
@@ -430,6 +439,12 @@ public class PacoteVIEW extends javax.swing.JFrame {
     private void cmbGrupo_pacoteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbGrupo_pacoteKeyPressed
        itemgrupo = cmbGrupo_pacote.getSelectedIndex();
     }//GEN-LAST:event_cmbGrupo_pacoteKeyPressed
+
+    private void cmbPessoa_pacoteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPessoa_pacoteFocusLost
+    cmbGrupo_pacote.setSelectedItem(listPessoa.get(itempessoa).getGrupo_pessoa());
+    listGrupo22 = objgrupo.PegarGrupoBD(listPessoa.get(itempessoa).getGrupo_pessoa());
+    cmbGrupo_pacote.setSelectedItem(listGrupo22.get(0).getNome_grupo());
+    }//GEN-LAST:event_cmbPessoa_pacoteFocusLost
 
     /**
      * @param args the command line arguments
@@ -599,7 +614,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
        
       qtd_dependente = objctr.QtdDependenteCTR(Integer.parseInt(txtIdentificacao_pacote.getText()));
      
-      if(listGrupo.get(itemgrupo).getNome_grupo().equals("TITULARES") && qtd_titulares >= 1){
+      if(listGrupo.get(itemgrupo).getNome_grupo().equals("TITULARES") && qtd_titulares > 1){
 //          if(qtd_titulares >= 1){
        JOptionPane.showMessageDialog(null, "Só pode ter um Titular por pacote gerado !"
                    +"\n Confira os dados informados");
@@ -751,7 +766,7 @@ public class PacoteVIEW extends javax.swing.JFrame {
     public javax.swing.JButton btnPesquisa_identificacao;
     private javax.swing.JButton btnSalvar;
     public javax.swing.JComboBox<String> cmbGrupo_pacote;
-    public static javax.swing.JComboBox<String> cmbPessoa_pacote;
+    public javax.swing.JComboBox<String> cmbPessoa_pacote;
     public javax.swing.JComboBox<String> cmbPlano_pacote;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

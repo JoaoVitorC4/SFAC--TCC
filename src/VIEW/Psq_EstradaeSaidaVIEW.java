@@ -56,7 +56,7 @@ public class Psq_EstradaeSaidaVIEW extends javax.swing.JFrame {
         btnPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Forma de Pagamento");
+        setTitle("Entrada e Saída");
 
         jLabel1.setText("Pesquisar :");
 
@@ -135,7 +135,7 @@ public class Psq_EstradaeSaidaVIEW extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        getAccessibleContext().setAccessibleDescription("Forma de Pagamento");
+        getAccessibleContext().setAccessibleDescription("Entrada e Saída");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

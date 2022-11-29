@@ -3,10 +3,10 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Forma de Pagamento"/>
+    <Property name="title" type="java.lang.String" value="Entrada e Sa&#xed;da"/>
   </Properties>
   <AccessibilityProperties>
-    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Forma de Pagamento"/>
+    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Entrada e Sa&#xed;da"/>
   </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>

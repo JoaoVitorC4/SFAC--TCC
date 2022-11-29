@@ -1,7 +1,6 @@
 -- Database: TCC
 
 -- DROP DATABASE "TCC";
-
 CREATE DATABASE "TCC"
     WITH 
     OWNER = postgres
@@ -100,9 +99,9 @@ INSERT INTO PERFIL(cod_perfil,nome_perfil) values(2,'OPERACIONAL');
     	BAIRRO_PESSOA VARCHAR NOT NULL,
     	NUMERO_PESSOA VARCHAR(10) NOT NULL,
 	CIDADE_PESSOA INTEGER REFERENCES CIDADE(COD_CIDADE),
-    	CEP_PESSOA CHAR(8),
-    	TELEFONE_PESSOA VARCHAR(11) NOT NULL,
-    	CPF_PESSOA VARCHAR(11) NOT NULL,
+    	CEP_PESSOA CHAR(9),
+    	TELEFONE_PESSOA VARCHAR(15) NOT NULL,
+    	CPF_PESSOA VARCHAR(14) NOT NULL UNIQUE,
     	GRUPO_PESSOA INTEGER REFERENCES GRUPO(COD_GRUPO),
     	BIOMETRIA_PESSOA BYTEA,
     	USUARIO_PESSOA INTEGER REFERENCES USUARIO(COD_USUARIO)
@@ -119,7 +118,7 @@ INSERT INTO PERFIL(cod_perfil,nome_perfil) values(2,'OPERACIONAL');
 	
 	CREATE TABLE ENTRADA(
     	COD_ENTRADA SERIAL PRIMARY KEY,
-    	DATAEHOTA_ENTRADA TIMESTAMP NOT NULL,
+    	DATAEHORA_ENTRADA TIMESTAMP NOT NULL,
     	PESSOA_ENTRADA INTEGER REFERENCES PESSOA(COD_PESSOA)
     	);
     	
@@ -135,6 +134,7 @@ INSERT INTO PERFIL(cod_perfil,nome_perfil) values(2,'OPERACIONAL');
 	EMISSAO_MENSALIDADE DATE NOT NULL,
 	VENCIMENTO_MENSALIDADE DATE NOT NULL,
 	VALOR_MENSALIDADE FLOAT NOT NULL,
+        PAGAMENTO_MENSALIDADE DATE,
 	VALOR_PAGO_MENSALIDADE FLOAT,
 	JUROS_MENSALIDADE FLOAT,
 	DESCONTO_MENSALIDADE FLOAT,
@@ -145,14 +145,14 @@ MENSALIDADE_IDENTIFICACAO INTEGER NOT NULL
 	);
 
 
-
+	
 	create view identificacao_mensalidade as
 	select
 	a.cod_pacote,a.identificacao_pacote,p.nome_pessoa,l.nome_plano,g.nome_grupo,a.vencimento_pacote from pacote a 
 	inner join pessoa p on p.cod_pessoa = a.pessoa_pacote
 	inner join plano l on l.cod_plano = a.plano_pacote
 	inner join plano n on n.cod_plano = a.plano_pacote
-	inner join grupo g on g.cod_grupo = a.grupo_pacote
+	inner join grupo g on g.cod_grupo = a.grupo_pacote;
 
         create view mensalidade_view as
     select 
@@ -161,9 +161,21 @@ MENSALIDADE_IDENTIFICACAO INTEGER NOT NULL
     m.desconto_mensalidade,f.nome_fpagamento,s.nome_status,p.nome_plano from mensalidade m
     inner join formadepagamento f on m.mensalidade_formadepagamento = f.cod_fpagamento
     inner join status s on m.mensalidade_status = s.cod_status
-    inner join plano p on m.mensalidade_plano = p.cod_plano
+    inner join plano p on m.mensalidade_plano = p.cod_plano;
 
 
+
+CREATE OR REPLACE VIEW public.entradaesaida AS 
+ SELECT e.cod_entrada,
+    e.dataehora_entrada,
+    p.nome_pessoa,
+    s.dataehora_saida
+   FROM entrada e
+     JOIN pessoa p ON p.cod_pessoa = e.pessoa_entrada
+     JOIN saida s ON s.saida_entrada = e.cod_entrada;
+
+ALTER TABLE public.entradaesaida
+  OWNER TO postgres;
 
 
 INSERT INTO UF (cod_uf, nome_estado, sigla_uf) VALUES

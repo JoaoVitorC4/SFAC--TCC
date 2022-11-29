@@ -152,7 +152,7 @@ public List<PessoaMODEL> pegarPessoaBDPeloCPF(String cpf_pessoa) {
                 PessoaMODEL gs = new PessoaMODEL();
                 gs.setCod_pessoa(rspessoa.getInt("cod_pessoa"));
                 gs.setNome_pessoa(rspessoa.getString("nome_pessoa"));
-
+                gs.setGrupo_pessoa(rspessoa.getInt("grupo_pessoa"));
                 apessoa.add(gs);
             }
             return apessoa;

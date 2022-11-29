@@ -91,7 +91,13 @@ INSERT INTO PERFIL(cod_perfil,nome_perfil) values(2,'OPERACIONAL');
 	);
 	
 	INSERT INTO USUARIO(cod_usuario,nome_usuario,senha_usuario,usuario_perfil) values
-	(1,'master','master',1);
+	(1,'MASTER','master',1);
+
+        INSERT INTO USUARIO(cod_usuario,nome_usuario,senha_usuario,usuario_perfil) values
+	(2,'FUNCIONARIO','1234',2);
+
+        INSERT INTO USUARIO(cod_usuario,nome_usuario,senha_usuario,usuario_perfil) values
+	(3,'CLIENTE','1234',2);
 
 	CREATE TABLE PESSOA(
     	COD_PESSOA SERIAL PRIMARY KEY,
@@ -153,7 +159,7 @@ MENSALIDADE_IDENTIFICACAO INTEGER NOT NULL
 	inner join pessoa p on p.cod_pessoa = a.pessoa_pacote
 	inner join plano l on l.cod_plano = a.plano_pacote
 	inner join plano n on n.cod_plano = a.plano_pacote
-	inner join grupo g on g.cod_grupo = a.grupo_pacote
+	inner join grupo g on g.cod_grupo = a.grupo_pacote;
 
         create view mensalidade_view as
     select 
@@ -162,4 +168,18 @@ MENSALIDADE_IDENTIFICACAO INTEGER NOT NULL
     m.desconto_mensalidade,f.nome_fpagamento,s.nome_status,p.nome_plano from mensalidade m
     inner join formadepagamento f on m.mensalidade_formadepagamento = f.cod_fpagamento
     inner join status s on m.mensalidade_status = s.cod_status
-    inner join plano p on m.mensalidade_plano = p.cod_plano
+    inner join plano p on m.mensalidade_plano = p.cod_plano;
+
+
+
+CREATE OR REPLACE VIEW public.entradaesaida AS 
+ SELECT e.cod_entrada,
+    e.dataehora_entrada,
+    p.nome_pessoa,
+    s.dataehora_saida
+   FROM entrada e
+     JOIN pessoa p ON p.cod_pessoa = e.pessoa_entrada
+     JOIN saida s ON s.saida_entrada = e.cod_entrada;
+
+ALTER TABLE public.entradaesaida
+  OWNER TO postgres;
