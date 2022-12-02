@@ -39,6 +39,8 @@ public class PerfilDAO {
         } catch (SQLException ex) {
           
             Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
         return rs;
                 
@@ -61,6 +63,8 @@ public class PerfilDAO {
         } catch (SQLException ex) {
           
             Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
        
         return rs;

@@ -59,6 +59,8 @@ public void insereMensalidade(MensalidadeMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
     }
@@ -94,6 +96,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -116,6 +120,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -139,6 +145,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -161,6 +169,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -183,6 +193,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -211,6 +223,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -318,6 +332,8 @@ public void AlteraMensalidade(MensalidadeMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(MensalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

@@ -43,6 +43,19 @@ public class ConexaoDAO {
         return con;
     }
     
+    
+    public void desconectaPostgre(){
+     try {
+            con.close(); // Fechar conexão
+            JOptionPane.showMessageDialog(null, "Conexão fechada com sucesso!", "Banco de Dados", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão!\nERRO: " + ex.getMessage(), "Banco de Dados", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    
+    
     public static void closeConection(Connection con){  
         if(con != null){
             try {

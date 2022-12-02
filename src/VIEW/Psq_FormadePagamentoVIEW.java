@@ -303,6 +303,7 @@ objformadepagamento.opcao = "Alterar";
         if(options[Integer.valueOf(ret.toString())].equals("Sim"))
         {
             ExcluirFormadePagamento();
+            pesquisarFormadePagamento();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 

@@ -11,6 +11,7 @@ import CTR.EstadoCTR;
 import CTR.GrupoCTR;
 import CTR.PessoaCTR;
 import CTR.UsuarioCTR;
+import DAO.ConexaoDAO;
 import MODEL.CidadeMODEL;
 import MODEL.EstadoMODEL;
 import MODEL.GrupoMODEL;
@@ -98,6 +99,11 @@ public class PessoaVIEW extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Pessoa");
         setFocusCycleRoot(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Cadastro de Pessoa");
 
@@ -460,6 +466,11 @@ public class PessoaVIEW extends javax.swing.JFrame {
     private void cmbGrupoPessoaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbGrupoPessoaItemStateChanged
         item_grupo = cmbGrupoPessoa.getSelectedIndex();
     }//GEN-LAST:event_cmbGrupoPessoaItemStateChanged
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+
+        
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

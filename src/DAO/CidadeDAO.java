@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,6 +40,9 @@ public class CidadeDAO {
                        
         } catch (SQLException ex) {
             Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
+            //JOptionPane.showMessageDialog(null, "DESCONECTADO");
         }
         return rs;
         
@@ -63,6 +67,8 @@ public class CidadeDAO {
         } catch (SQLException ex) {
           
             Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
         return rs;
                 

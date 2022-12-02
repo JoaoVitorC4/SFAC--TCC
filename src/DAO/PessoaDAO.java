@@ -56,6 +56,8 @@ public void inserePessoa(PessoaMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
    
@@ -95,6 +97,8 @@ public void AlteraPessoa(PessoaMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
    
@@ -117,6 +121,8 @@ public void AlteraPessoa(PessoaMODEL gs){
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -140,6 +146,8 @@ public void AlteraPessoa(PessoaMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -166,6 +174,8 @@ public void AlteraPessoa(PessoaMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -191,6 +201,8 @@ public void AlteraPessoa(PessoaMODEL gs){
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -214,6 +226,8 @@ public void AlteraPessoa(PessoaMODEL gs){
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -237,6 +251,8 @@ public void AlteraPessoa(PessoaMODEL gs){
             
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

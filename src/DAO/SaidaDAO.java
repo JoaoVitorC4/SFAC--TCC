@@ -49,6 +49,8 @@ public void insereSaida(SaidaMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
     }
@@ -74,6 +76,8 @@ public void AlteraSaida(SaidaMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -96,6 +100,8 @@ public void AlteraSaida(SaidaMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -119,6 +125,8 @@ public void AlteraSaida(SaidaMODEL gs)
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -141,6 +149,8 @@ public void AlteraSaida(SaidaMODEL gs)
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -233,6 +243,8 @@ public void AlteraSaida(SaidaMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(SaidaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

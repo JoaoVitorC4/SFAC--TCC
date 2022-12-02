@@ -49,6 +49,8 @@ public void insereEntrada(EntradaMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
     }
@@ -74,6 +76,8 @@ public void AlteraEntrada(EntradaMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -96,6 +100,8 @@ public void AlteraEntrada(EntradaMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -122,6 +128,8 @@ public void AlteraEntrada(EntradaMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -145,6 +153,8 @@ public void AlteraEntrada(EntradaMODEL gs)
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -167,6 +177,8 @@ public void AlteraEntrada(EntradaMODEL gs)
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -190,6 +202,8 @@ public void AlteraEntrada(EntradaMODEL gs)
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -286,6 +300,8 @@ public void AlteraEntrada(EntradaMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(EntradaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

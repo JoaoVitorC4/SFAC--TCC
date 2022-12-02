@@ -120,6 +120,8 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -142,6 +144,8 @@ public void AlteraFormadePagamento(FormadePagamentoMODEL gs)
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }

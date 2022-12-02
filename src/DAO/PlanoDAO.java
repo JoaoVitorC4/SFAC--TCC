@@ -48,6 +48,8 @@ public void inserePlano(PlanoMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
     }
@@ -75,6 +77,8 @@ public void AlteraPlano(PlanoMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(FormadePagamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -97,6 +101,8 @@ public void AlteraPlano(PlanoMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -120,6 +126,8 @@ public void AlteraPlano(PlanoMODEL gs)
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -167,6 +175,8 @@ public void AlteraPlano(PlanoMODEL gs)
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -217,6 +227,8 @@ public void AlteraPlano(PlanoMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

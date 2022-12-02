@@ -39,6 +39,8 @@ public class EstadoDAO {
         } catch (SQLException ex) {
           
             Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
         return rs;
                 
@@ -62,6 +64,8 @@ public class EstadoDAO {
         } catch (SQLException ex) {
           
             Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
         return rs;
                 

@@ -52,6 +52,8 @@ public void inserePacote(PacoteMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
     }
@@ -76,6 +78,8 @@ public void inserePacote(PacoteMODEL gs){
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -103,6 +107,8 @@ public void inserePacote(PacoteMODEL gs){
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -133,6 +139,8 @@ public void AlteraPacote(PacoteMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -155,6 +163,8 @@ public void AlteraPacote(PacoteMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -179,6 +189,8 @@ public void AlteraPacote(PacoteMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -204,6 +216,8 @@ public void AlteraPacote(PacoteMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -227,6 +241,8 @@ public void AlteraPacote(PacoteMODEL gs)
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -249,6 +265,8 @@ public void AlteraPacote(PacoteMODEL gs)
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -344,6 +362,8 @@ public void AlteraPacote(PacoteMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(PacoteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

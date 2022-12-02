@@ -76,6 +76,8 @@ public void AlteraUsuario(UsuarioMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -98,6 +100,8 @@ public void AlteraUsuario(UsuarioMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
          
          return rs;
@@ -121,6 +125,8 @@ public void AlteraUsuario(UsuarioMODEL gs)
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -143,6 +149,8 @@ public void AlteraUsuario(UsuarioMODEL gs)
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -236,6 +244,8 @@ public void AlteraUsuario(UsuarioMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      

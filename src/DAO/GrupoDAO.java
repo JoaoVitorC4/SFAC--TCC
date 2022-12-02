@@ -45,6 +45,8 @@ public void insereGrupo(GrupoMODEL gs){
         
         } catch (SQLException ex) {
             Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
            
     }
@@ -68,6 +70,8 @@ public void AlteraGrupo(GrupoMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
 
@@ -90,7 +94,9 @@ public void AlteraGrupo(GrupoMODEL gs)
         
         } catch (SQLException ex) {
             Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);        
-        }         
+        }finally{
+        cb.closeConection(con);
+        }     
             return rs;
      }
          
@@ -115,6 +121,8 @@ public void AlteraGrupo(GrupoMODEL gs)
             Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -137,6 +145,8 @@ public void AlteraGrupo(GrupoMODEL gs)
             Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
             
            
+        }finally{
+        cb.closeConection(con);
         }
          return rs;
     }
@@ -187,6 +197,8 @@ public void AlteraGrupo(GrupoMODEL gs)
             
         } catch (SQLException ex) {
             Logger.getLogger(GrupoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+        cb.closeConection(con);
         }
     }
      
